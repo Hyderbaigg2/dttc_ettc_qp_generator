@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+env/
+*.egg-info/
+
+# PyInstaller build output (build it yourself with the command in README,
+# or grab a prebuilt copy from the repo's Releases page)
+build/
+dist/
+*.spec
+
+# App-generated output / local data (never ship someone else's generated papers)
+Generated Papers/
+*_backup_*.json
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

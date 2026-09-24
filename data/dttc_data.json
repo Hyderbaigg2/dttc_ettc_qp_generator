@@ -1,0 +1,1183 @@
+{
+  "meta": {
+    "institute": "Diesel Traction Training Centre, Kazipet (DTTC/KZJ)",
+    "zone": "South Central Railway",
+    "schema_version": 1
+  },
+  "courses": [
+    {
+      "id": "C001",
+      "name": "Loco Pilot Refresher Course - Dual Traction"
+    },
+    {
+      "id": "C002",
+      "name": "Asst Loco Pilot Refresher Course - Dual Traction"
+    },
+    {
+      "id": "C003",
+      "name": "Loco Pilot Refresher - AC Traction"
+    },
+    {
+      "id": "C004",
+      "name": "Asst Loco Pilot Refresher - AC Traction"
+    },
+    {
+      "id": "C005",
+      "name": "Kavach 4.0 Initial Course"
+    },
+    {
+      "id": "C006",
+      "name": "RRB-ALP Induction Course"
+    },
+    {
+      "id": "C007",
+      "name": "Conversion Course From AC to Diesel Traction"
+    },
+    {
+      "id": "C008",
+      "name": "DEMU/DHMU Refresher"
+    },
+    {
+      "id": "C009",
+      "name": "DEMU/DHMU Initial Course"
+    }
+  ],
+  "topics": [
+    {
+      "id": "T001",
+      "name": "Conventional Loco"
+    },
+    {
+      "id": "T002",
+      "name": "Three Phase Loco"
+    },
+    {
+      "id": "T003",
+      "name": "WAG12B Loco"
+    },
+    {
+      "id": "T004",
+      "name": "Safety Rules"
+    },
+    {
+      "id": "T005",
+      "name": "Kavach"
+    },
+    {
+      "id": "T006",
+      "name": "DPWCS"
+    }
+  ],
+  "levels": [
+    "Easy",
+    "Medium",
+    "Hard"
+  ],
+  "formats": [
+    {
+      "id": "A",
+      "name": "Format A - Mixed (Descriptive + FIB + MCQ)",
+      "description": "6 Descriptive questions of 5 marks each, answer any 4 (choice to leave 2) = 20 marks; 15 Fill in the Blanks (1 mark each) = 15 marks; 15 MCQs (1 mark each) = 15 marks.",
+      "sections": [
+        {
+          "type": "descriptive",
+          "display_count": 6,
+          "marks_each": 5,
+          "choice_leave": 2
+        },
+        {
+          "type": "fill_blank",
+          "display_count": 15,
+          "marks_each": 1,
+          "choice_leave": 0
+        },
+        {
+          "type": "mcq",
+          "display_count": 15,
+          "marks_each": 1,
+          "choice_leave": 0
+        }
+      ]
+    },
+    {
+      "id": "B",
+      "name": "Format B - All MCQ",
+      "description": "40 MCQs, 1 mark each = 40 marks.",
+      "sections": [
+        {
+          "type": "mcq",
+          "display_count": 40,
+          "marks_each": 1,
+          "choice_leave": 0
+        }
+      ]
+    },
+    {
+      "id": "C",
+      "name": "Format C - All Fill in the Blanks",
+      "description": "40 Fill in the Blanks, 1 mark each = 40 marks.",
+      "sections": [
+        {
+          "type": "fill_blank",
+          "display_count": 40,
+          "marks_each": 1,
+          "choice_leave": 0
+        }
+      ]
+    }
+  ],
+  "questions": {
+    "mcq": [
+      {
+        "id": "MCQ0000",
+        "text": "The equipment that converts AC output of the traction alternator to DC for traction motors is called:",
+        "options": [
+          "Rectifier",
+          "Inverter",
+          "Exciter",
+          "GovernorG"
+        ],
+        "correct_option": "Rectifier",
+        "topic": "Conventional Loco",
+        "level": "Medium"
+      },
+      {
+        "text": "In a diesel-electric locomotive, the traction alternator is directly coupled to the:",
+        "options": [
+          "Traction motor",
+          "Diesel engine (prime mover)",
+          "Air compressor",
+          "Radiator fan"
+        ],
+        "correct_option": "Diesel engine (prime mover)",
+        "topic": "Conventional Loco",
+        "level": "Easy",
+        "id": "MCQ0001"
+      },
+      {
+        "text": "The equipment that converts AC output of the traction alternator to DC for traction motors is called:",
+        "options": [
+          "Rectifier",
+          "Inverter",
+          "Exciter",
+          "Governor"
+        ],
+        "correct_option": "Rectifier",
+        "topic": "Conventional Loco",
+        "level": "Medium",
+        "id": "MCQ0002"
+      },
+      {
+        "text": "In a WDM series locomotive, wheel slip is primarily detected by comparing:",
+        "options": [
+          "Engine RPM and turbo boost",
+          "Speed of individual traction motors/axles",
+          "Fuel rack position and load",
+          "Battery voltage and current"
+        ],
+        "correct_option": "Speed of individual traction motors/axles",
+        "topic": "Conventional Loco",
+        "level": "Hard",
+        "id": "MCQ0003"
+      },
+      {
+        "text": "Three-phase locomotives use which type of traction motors?",
+        "options": [
+          "DC series motors",
+          "Three-phase squirrel cage induction motors",
+          "Stepper motors",
+          "Universal motors"
+        ],
+        "correct_option": "Three-phase squirrel cage induction motors",
+        "topic": "Three Phase Loco",
+        "level": "Easy",
+        "id": "MCQ0004"
+      },
+      {
+        "text": "In a three-phase locomotive, the device that converts fixed-frequency AC to variable-frequency AC for traction motors is the:",
+        "options": [
+          "Rectifier only",
+          "Converter-Inverter (GTO/IGBT based)",
+          "Transformer tap changer",
+          "Battery charger"
+        ],
+        "correct_option": "Converter-Inverter (GTO/IGBT based)",
+        "topic": "Three Phase Loco",
+        "level": "Medium",
+        "id": "MCQ0005"
+      },
+      {
+        "text": "Regenerative braking in a three-phase locomotive returns energy to the OHE by:",
+        "options": [
+          "Traction motors acting as generators feeding power back through the inverter/converter",
+          "Dynamic braking resistors dissipating heat",
+          "Mechanical brake blocks only",
+          "Compressed air release"
+        ],
+        "correct_option": "Traction motors acting as generators feeding power back through the inverter/converter",
+        "topic": "Three Phase Loco",
+        "level": "Hard",
+        "id": "MCQ0006"
+      },
+      {
+        "text": "WAG12B is a locomotive of which approximate horsepower class?",
+        "options": [
+          "4500 HP",
+          "6000 HP",
+          "12000 HP",
+          "9000 HP"
+        ],
+        "correct_option": "12000 HP",
+        "topic": "WAG12B Loco",
+        "level": "Easy",
+        "id": "MCQ0007"
+      },
+      {
+        "text": "WAG12B locomotives are primarily deployed for:",
+        "options": [
+          "Suburban EMU services",
+          "Heavy haul freight operations",
+          "High speed passenger services only",
+          "Shunting yard duties only"
+        ],
+        "correct_option": "Heavy haul freight operations",
+        "topic": "WAG12B Loco",
+        "level": "Medium",
+        "id": "MCQ0008"
+      },
+      {
+        "text": "WAG12B locomotives were built with technical collaboration involving:",
+        "options": [
+          "Bombardier",
+          "Alstom",
+          "Siemens",
+          "Hitachi"
+        ],
+        "correct_option": "Alstom",
+        "topic": "WAG12B Loco",
+        "level": "Hard",
+        "id": "MCQ0009"
+      },
+      {
+        "text": "Before starting a locomotive, the Loco Pilot must first check:",
+        "options": [
+          "Music system",
+          "Brake power and safety fittings",
+          "Canteen supplies",
+          "Passenger seating"
+        ],
+        "correct_option": "Brake power and safety fittings",
+        "topic": "Safety Rules",
+        "level": "Easy",
+        "id": "MCQ0010"
+      },
+      {
+        "text": "On sighting a red signal, the Loco Pilot must:",
+        "options": [
+          "Continue at the same speed",
+          "Stop the train before the signal",
+          "Sound horn and pass",
+          "Reverse the train"
+        ],
+        "correct_option": "Stop the train before the signal",
+        "topic": "Safety Rules",
+        "level": "Medium",
+        "id": "MCQ0011"
+      },
+      {
+        "text": "As per General Rules, in case of SPAD (Signal Passed at Danger), the Loco Pilot must immediately:",
+        "options": [
+          "Continue journey and report later",
+          "Stop the train, inform Section Controller/Station Master and follow laid down procedure",
+          "Reverse without informing anyone",
+          "Ignore if no accident occurs"
+        ],
+        "correct_option": "Stop the train, inform Section Controller/Station Master and follow laid down procedure",
+        "topic": "Safety Rules",
+        "level": "Hard",
+        "id": "MCQ0012"
+      },
+      {
+        "text": "Kavach is an indigenous:",
+        "options": [
+          "Train collision avoidance system",
+          "Ticketing system",
+          "Signal maintenance tool",
+          "Coach cleaning system"
+        ],
+        "correct_option": "Train collision avoidance system",
+        "topic": "Kavach",
+        "level": "Easy",
+        "id": "MCQ0013"
+      },
+      {
+        "text": "Kavach system automatically applies brakes when the Loco Pilot fails to respond to a:",
+        "options": [
+          "Speed restriction/signal warning within stipulated time",
+          "Meal break reminder",
+          "Fuel level alert",
+          "Door open alert"
+        ],
+        "correct_option": "Speed restriction/signal warning within stipulated time",
+        "topic": "Kavach",
+        "level": "Medium",
+        "id": "MCQ0014"
+      },
+      {
+        "text": "DPWCS is primarily used for:",
+        "options": [
+          "Distributed Power Wireless Communication and Synchronisation between locomotives",
+          "Diesel Pump Water Cooling System",
+          "Digital Passenger Wifi Control System",
+          "Depot Power and Wagon Control System"
+        ],
+        "correct_option": "Distributed Power Wireless Communication and Synchronisation between locomotives",
+        "topic": "DPWCS",
+        "level": "Medium",
+        "id": "MCQ0015"
+      },
+      {
+        "text": "The auxiliary generator in a diesel-electric locomotive primarily supplies power to:",
+        "options": [
+          "Traction motors",
+          "Battery charging and control circuits",
+          "Compressor motor only",
+          "Head light only"
+        ],
+        "correct_option": "Battery charging and control circuits",
+        "topic": "Conventional Loco",
+        "level": "Easy",
+        "id": "MCQ0016"
+      },
+      {
+        "text": "The main transformer in a three-phase electric locomotive steps down OHE voltage before feeding it to:",
+        "options": [
+          "Traction motors directly",
+          "The converter-inverter system",
+          "Battery charging circuit only",
+          "Compressor supply only"
+        ],
+        "correct_option": "The converter-inverter system",
+        "topic": "Three Phase Loco",
+        "level": "Easy",
+        "id": "MCQ0017"
+      },
+      {
+        "text": "WAG12B locomotives operate on which electrification system?",
+        "options": [
+          "25kV AC single phase",
+          "1500V DC",
+          "3000V DC",
+          "750V DC third rail"
+        ],
+        "correct_option": "25kV AC single phase",
+        "topic": "WAG12B Loco",
+        "level": "Easy",
+        "id": "MCQ0018"
+      },
+      {
+        "text": "A Loco Pilot must always carry a valid ______ while on duty.",
+        "options": [
+          "Link card and identity card",
+          "Personal laptop",
+          "Umbrella only",
+          "Newspaper"
+        ],
+        "correct_option": "Link card and identity card",
+        "topic": "Safety Rules",
+        "level": "Easy",
+        "id": "MCQ0019"
+      },
+      {
+        "text": "The onboard Kavach unit includes a Loco Pilot display for showing:",
+        "options": [
+          "Speed and signal information",
+          "Entertainment content",
+          "Weather forecast",
+          "Ticket sales"
+        ],
+        "correct_option": "Speed and signal information",
+        "topic": "Kavach",
+        "level": "Easy",
+        "id": "MCQ0020"
+      },
+      {
+        "text": "DPWCS communication between locomotives typically uses:",
+        "options": [
+          "A radio frequency link",
+          "A cable strung along the track",
+          "Sound signals",
+          "Visual flags"
+        ],
+        "correct_option": "A radio frequency link",
+        "topic": "DPWCS",
+        "level": "Medium",
+        "id": "MCQ0021"
+      },
+      {
+        "text": "In a diesel-electric locomotive, exhaust gas energy is used to drive the:",
+        "options": [
+          "Turbocharger",
+          "Traction alternator",
+          "Air compressor",
+          "Radiator fan directly"
+        ],
+        "correct_option": "Turbocharger",
+        "topic": "Conventional Loco",
+        "level": "Medium",
+        "id": "MCQ0022"
+      },
+      {
+        "text": "The main advantage of IGBT-based converters over older GTO-based converters in three-phase locomotives is:",
+        "options": [
+          "Lower switching losses and better control",
+          "Higher weight",
+          "Lower cost only",
+          "No advantage"
+        ],
+        "correct_option": "Lower switching losses and better control",
+        "topic": "Three Phase Loco",
+        "level": "Medium",
+        "id": "MCQ0023"
+      },
+      {
+        "text": "In addition to air brakes, WAG12B locomotives are equipped with which braking system to recover energy?",
+        "options": [
+          "Regenerative braking",
+          "Vacuum braking only",
+          "Hand brake only",
+          "No additional braking"
+        ],
+        "correct_option": "Regenerative braking",
+        "topic": "WAG12B Loco",
+        "level": "Medium",
+        "id": "MCQ0024"
+      },
+      {
+        "text": "Signal sighting distance requirements for Loco Pilots are governed by:",
+        "options": [
+          "General Rules / Signal Engineering Manual",
+          "Personal judgement only",
+          "Guard's instruction only",
+          "Not specified"
+        ],
+        "correct_option": "General Rules / Signal Engineering Manual",
+        "topic": "Safety Rules",
+        "level": "Medium",
+        "id": "MCQ0025"
+      },
+      {
+        "text": "Kavach's SIL (Safety Integrity Level) certification indicates that the system:",
+        "options": [
+          "Meets high safety reliability standards for railway signalling",
+          "Is a low-cost add-on only",
+          "Is only a training tool",
+          "Replaces the Guard"
+        ],
+        "correct_option": "Meets high safety reliability standards for railway signalling",
+        "topic": "Kavach",
+        "level": "Hard",
+        "id": "MCQ0026"
+      },
+      {
+        "text": "If the wireless link between locomotives fails in a DPWCS-fitted train, the system typically:",
+        "options": [
+          "Alerts the Loco Pilot and may require manual intervention",
+          "Automatically derails the train",
+          "Has no effect on operation",
+          "Increases speed automatically"
+        ],
+        "correct_option": "Alerts the Loco Pilot and may require manual intervention",
+        "topic": "DPWCS",
+        "level": "Hard",
+        "id": "MCQ0027"
+      },
+      {
+        "text": "The 'load box test' on a diesel locomotive is primarily used to:",
+        "options": [
+          "Test alternator/engine performance under simulated load",
+          "Test the horn",
+          "Test the headlight",
+          "Test the toilet system"
+        ],
+        "correct_option": "Test alternator/engine performance under simulated load",
+        "topic": "Conventional Loco",
+        "level": "Hard",
+        "id": "MCQ0028"
+      },
+      {
+        "text": "Notching up too fast under low adhesion conditions in a three-phase locomotive can primarily lead to:",
+        "options": [
+          "Wheel slip",
+          "Improved traction",
+          "Lower fuel consumption",
+          "No effect"
+        ],
+        "correct_option": "Wheel slip",
+        "topic": "Three Phase Loco",
+        "level": "Hard",
+        "id": "MCQ0029"
+      },
+      {
+        "text": "WAG12B's higher haulage capacity compared to WAG9 is mainly attributed to:",
+        "options": [
+          "Higher horsepower and improved traction control",
+          "Smaller size",
+          "Lower weight",
+          "Manual gear shifting"
+        ],
+        "correct_option": "Higher horsepower and improved traction control",
+        "topic": "WAG12B Loco",
+        "level": "Hard",
+        "id": "MCQ0030"
+      },
+      {
+        "text": "On approach to a level crossing gate, the Loco Pilot must:",
+        "options": [
+          "Sound whistle as prescribed and be prepared to stop",
+          "Accelerate",
+          "Ignore the gate",
+          "Reverse"
+        ],
+        "correct_option": "Sound whistle as prescribed and be prepared to stop",
+        "topic": "Safety Rules",
+        "level": "Easy",
+        "id": "MCQ0031"
+      },
+      {
+        "text": "Kavach's radio communication uses which type of frequency band as specified by RDSO?",
+        "options": [
+          "UHF band",
+          "AM radio band",
+          "Visible light",
+          "Bluetooth only"
+        ],
+        "correct_option": "UHF band",
+        "topic": "Kavach",
+        "level": "Medium",
+        "id": "MCQ0032"
+      },
+      {
+        "text": "DPWCS helps reduce which operational issue in long freight trains?",
+        "options": [
+          "In-train (buff/draft) forces by synchronising braking and traction",
+          "Ticket booking delays",
+          "Signal maintenance",
+          "Track gauge variation"
+        ],
+        "correct_option": "In-train (buff/draft) forces by synchronising braking and traction",
+        "topic": "DPWCS",
+        "level": "Medium",
+        "id": "MCQ0033"
+      },
+      {
+        "text": "The equalizing reservoir in the automatic air brake system is used to:",
+        "options": [
+          "Maintain the reference brake pipe pressure",
+          "Store fuel",
+          "Cool the engine",
+          "Store lubricating oil"
+        ],
+        "correct_option": "Maintain the reference brake pipe pressure",
+        "topic": "Conventional Loco",
+        "level": "Medium",
+        "id": "MCQ0034"
+      },
+      {
+        "text": "Which of the following is NOT a typical component of a three-phase locomotive's traction system?",
+        "options": [
+          "Carburetor",
+          "Converter",
+          "Inverter",
+          "Traction transformer"
+        ],
+        "correct_option": "Carburetor",
+        "topic": "Three Phase Loco",
+        "level": "Easy",
+        "id": "MCQ0035"
+      },
+      {
+        "text": "WAG12B locomotives are primarily deployed on high-speed heavy haul freight corridors under Mission:",
+        "options": [
+          "Raftaar",
+          "Indradhanush",
+          "Amrit Kaal",
+          "Utkarsh"
+        ],
+        "correct_option": "Raftaar",
+        "topic": "WAG12B Loco",
+        "level": "Medium",
+        "id": "MCQ0036"
+      },
+      {
+        "text": "As per safety rules, alcohol consumption before or during duty by running staff is:",
+        "options": [
+          "Strictly prohibited",
+          "Allowed in small quantity",
+          "Allowed after checking",
+          "Allowed only for senior staff"
+        ],
+        "correct_option": "Strictly prohibited",
+        "topic": "Safety Rules",
+        "level": "Easy",
+        "id": "MCQ0037"
+      },
+      {
+        "text": "One of the key objectives of Kavach is to prevent accidents caused by:",
+        "options": [
+          "Loco Pilot error in observing signals (SPAD)",
+          "Passenger ticketing fraud",
+          "Poor catering service",
+          "Track colour fading"
+        ],
+        "correct_option": "Loco Pilot error in observing signals (SPAD)",
+        "topic": "Kavach",
+        "level": "Easy",
+        "id": "MCQ0038"
+      },
+      {
+        "text": "DPWCS enables a single Loco Pilot at the lead locomotive to control:",
+        "options": [
+          "Traction and braking of remote/distributed locomotives",
+          "Only the horn of remote locomotives",
+          "Only lighting of remote locomotives",
+          "Nothing remotely"
+        ],
+        "correct_option": "Traction and braking of remote/distributed locomotives",
+        "topic": "DPWCS",
+        "level": "Easy",
+        "id": "MCQ0039"
+      },
+      {
+        "text": "Which gauge on a diesel-electric locomotive indicates the engine's lubricating oil pressure?",
+        "options": [
+          "Oil pressure gauge",
+          "Speedometer",
+          "Ammeter",
+          "Vacuum gauge"
+        ],
+        "correct_option": "Oil pressure gauge",
+        "topic": "Conventional Loco",
+        "level": "Easy",
+        "id": "MCQ0040"
+      },
+      {
+        "text": "Fault diagnostics in modern three-phase locomotives are primarily aided by:",
+        "options": [
+          "Microprocessor-based control and display systems",
+          "Manual logbooks only",
+          "Guesswork",
+          "External consultants only"
+        ],
+        "correct_option": "Microprocessor-based control and display systems",
+        "topic": "Three Phase Loco",
+        "level": "Medium",
+        "id": "MCQ0041"
+      },
+      {
+        "text": "The pantograph on a WAG12B locomotive is used to:",
+        "options": [
+          "Collect current from the overhead equipment (OHE)",
+          "Apply brakes",
+          "Couple wagons",
+          "Cool the transformer"
+        ],
+        "correct_option": "Collect current from the overhead equipment (OHE)",
+        "topic": "WAG12B Loco",
+        "level": "Easy",
+        "id": "MCQ0042"
+      },
+      {
+        "text": "In foggy weather, Loco Pilots are additionally required to rely on:",
+        "options": [
+          "Fog signals/markers and reduced speed as prescribed",
+          "Increased speed to clear the section faster",
+          "Ignoring signals",
+          "Guard's whistle only"
+        ],
+        "correct_option": "Fog signals/markers and reduced speed as prescribed",
+        "topic": "Safety Rules",
+        "level": "Medium",
+        "id": "MCQ0043"
+      },
+      {
+        "text": "Kavach mandates fitment of RFID tags along the track primarily for:",
+        "options": [
+          "Accurate train location identification",
+          "Ticket validation",
+          "Track cleaning schedule",
+          "Passenger counting"
+        ],
+        "correct_option": "Accurate train location identification",
+        "topic": "Kavach",
+        "level": "Medium",
+        "id": "MCQ0044"
+      },
+      {
+        "text": "In a distributed power train, DPWCS synchronisation mainly helps prevent:",
+        "options": [
+          "Excessive buff and draft forces between locomotive groups",
+          "Ticket fare disputes",
+          "Track gauge widening",
+          "Overhead wire icing"
+        ],
+        "correct_option": "Excessive buff and draft forces between locomotive groups",
+        "topic": "DPWCS",
+        "level": "Hard",
+        "id": "MCQ0045"
+      },
+      {
+        "text": "DUMMY QUESTION",
+        "options": [
+          "aoption",
+          "aoption",
+          "Boption",
+          "Coption"
+        ],
+        "correct_option": "Doption",
+        "topic": "Kavach",
+        "level": "Easy",
+        "id": "MCQ0046"
+      }
+    ],
+    "fill_blank": [
+      {
+        "id": "BLA0001",
+        "text": "The prime mover of a diesel-electric locomotive is the ______.",
+        "answer": "diesel engine",
+        "topic": "Conventional Loco",
+        "level": "Easy"
+      },
+      {
+        "id": "BLA0002",
+        "text": "The device used to change the direction of current flow to traction motors for reversing locomotive direction is called the ______.",
+        "answer": "reverser",
+        "topic": "Conventional Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0003",
+        "text": "In a diesel-electric locomotive, the ______ governs fuel injection to maintain constant engine speed at a given notch.",
+        "answer": "governor",
+        "topic": "Conventional Loco",
+        "level": "Hard"
+      },
+      {
+        "id": "BLA0004",
+        "text": "Three-phase locomotives draw single-phase AC from the OHE and convert it using a ______ before feeding the traction motors.",
+        "answer": "converter-inverter",
+        "topic": "Three Phase Loco",
+        "level": "Easy"
+      },
+      {
+        "id": "BLA0005",
+        "text": "The semiconductor devices commonly used in the converter/inverter of three-phase locomotives are ______.",
+        "answer": "IGBTs / GTO thyristors",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0006",
+        "text": "In three-phase locomotives, wheel slip/slide control is achieved through ______ control of individual traction motors.",
+        "answer": "microprocessor-based individual axle",
+        "topic": "Three Phase Loco",
+        "level": "Hard"
+      },
+      {
+        "id": "BLA0007",
+        "text": "WAG12B is a ______ HP class electric freight locomotive.",
+        "answer": "12000",
+        "topic": "WAG12B Loco",
+        "level": "Easy"
+      },
+      {
+        "id": "BLA0008",
+        "text": "WAG12B locomotives are manufactured at the Electric Locomotive Factory located at ______.",
+        "answer": "Madhepura, Bihar",
+        "topic": "WAG12B Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0009",
+        "text": "Before departure, the Loco Pilot must ensure the ______ certificate is available and valid.",
+        "answer": "BPC (Brake Power Certificate)",
+        "topic": "Safety Rules",
+        "level": "Easy"
+      },
+      {
+        "id": "BLA0010",
+        "text": "As per rules, the speed of a train must never exceed the ______ prescribed for the section or the stock, whichever is lower.",
+        "answer": "maximum permissible speed (MPS)",
+        "topic": "Safety Rules",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0011",
+        "text": "In case of failure of the train's brake system causing an unscheduled stop, the Loco Pilot must protect the train as per ______ rule.",
+        "answer": "G&SR protection",
+        "topic": "Safety Rules",
+        "level": "Hard"
+      },
+      {
+        "id": "BLA0012",
+        "text": "Kavach was developed by the Research Designs and Standards Organisation, commonly abbreviated as ______.",
+        "answer": "RDSO",
+        "topic": "Kavach",
+        "level": "Easy"
+      },
+      {
+        "id": "BLA0013",
+        "text": "Kavach uses ______ technology for continuous train location and movement authority updates.",
+        "answer": "RFID and GPS with radio communication",
+        "topic": "Kavach",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0014",
+        "text": "In Kavach-fitted sections, the system enforces automatic brake application to prevent ______ collisions and SPAD incidents.",
+        "answer": "train-to-train",
+        "topic": "Kavach",
+        "level": "Hard"
+      },
+      {
+        "id": "BLA0015",
+        "text": "DPWCS enables synchronised throttle, braking, and fault status communication between the lead and remote locomotives in a ______ formation.",
+        "answer": "distributed power (banker/multiple unit)",
+        "topic": "DPWCS",
+        "level": "Medium"
+      },
+      {
+        "text": "The ______ generator supplies power for battery charging and control circuits in a diesel-electric locomotive.",
+        "answer": "auxiliary",
+        "topic": "Conventional Loco",
+        "level": "Easy",
+        "id": "BLA0016"
+      },
+      {
+        "text": "The ______ steps down OHE voltage before it is fed to the converter-inverter system in a three-phase locomotive.",
+        "answer": "main transformer",
+        "topic": "Three Phase Loco",
+        "level": "Easy",
+        "id": "BLA0017"
+      },
+      {
+        "text": "WAG12B locomotives operate on ______ kV AC single-phase electrification.",
+        "answer": "25",
+        "topic": "WAG12B Loco",
+        "level": "Easy",
+        "id": "BLA0018"
+      },
+      {
+        "text": "A Loco Pilot must always carry a valid ______ and identity card while on duty.",
+        "answer": "link card",
+        "topic": "Safety Rules",
+        "level": "Easy",
+        "id": "BLA0019"
+      },
+      {
+        "text": "The onboard Kavach unit displays speed and signal information to the Loco Pilot on the ______.",
+        "answer": "Loco Pilot display unit",
+        "topic": "Kavach",
+        "level": "Easy",
+        "id": "BLA0020"
+      },
+      {
+        "text": "DPWCS communication between the lead and remote locomotives is carried over a ______ link.",
+        "answer": "radio (wireless)",
+        "topic": "DPWCS",
+        "level": "Medium",
+        "id": "BLA0021"
+      },
+      {
+        "text": "In a diesel-electric locomotive, the ______ uses exhaust gas energy to boost intake air pressure.",
+        "answer": "turbocharger",
+        "topic": "Conventional Loco",
+        "level": "Medium",
+        "id": "BLA0022"
+      },
+      {
+        "text": "______-based converters offer lower switching losses compared to older GTO-based converters in three-phase locomotives.",
+        "answer": "IGBT",
+        "topic": "Three Phase Loco",
+        "level": "Medium",
+        "id": "BLA0023"
+      },
+      {
+        "text": "In addition to air brakes, WAG12B locomotives are equipped with ______ braking to recover energy.",
+        "answer": "regenerative",
+        "topic": "WAG12B Loco",
+        "level": "Medium",
+        "id": "BLA0024"
+      },
+      {
+        "text": "Signal sighting distance is governed by the General Rules and the ______ Manual.",
+        "answer": "Signal Engineering",
+        "topic": "Safety Rules",
+        "level": "Medium",
+        "id": "BLA0025"
+      },
+      {
+        "text": "Kavach's high safety reliability is certified through a ______ (Safety Integrity Level) rating.",
+        "answer": "SIL",
+        "topic": "Kavach",
+        "level": "Hard",
+        "id": "BLA0026"
+      },
+      {
+        "text": "If the wireless link in a DPWCS-fitted train fails, the Loco Pilot is alerted and may need to take ______ action.",
+        "answer": "manual intervention",
+        "topic": "DPWCS",
+        "level": "Hard",
+        "id": "BLA0027"
+      },
+      {
+        "text": "The ______ test checks diesel engine and alternator performance under simulated load conditions.",
+        "answer": "load box",
+        "topic": "Conventional Loco",
+        "level": "Hard",
+        "id": "BLA0028"
+      },
+      {
+        "text": "Notching up too quickly under low adhesion conditions can cause wheel ______ in three-phase locomotives.",
+        "answer": "slip",
+        "topic": "Three Phase Loco",
+        "level": "Hard",
+        "id": "BLA0029"
+      },
+      {
+        "text": "WAG12B's higher haulage capacity compared to WAG9 is mainly due to its higher ______ and improved traction control.",
+        "answer": "horsepower",
+        "topic": "WAG12B Loco",
+        "level": "Hard",
+        "id": "BLA0030"
+      },
+      {
+        "text": "At a level crossing, the Loco Pilot must sound the whistle as prescribed and be prepared to ______.",
+        "answer": "stop",
+        "topic": "Safety Rules",
+        "level": "Easy",
+        "id": "BLA0031"
+      },
+      {
+        "text": "Kavach's radio communication operates in the ______ band as specified by RDSO.",
+        "answer": "UHF",
+        "topic": "Kavach",
+        "level": "Medium",
+        "id": "BLA0032"
+      },
+      {
+        "text": "DPWCS reduces in-train (buff and draft) forces by synchronising ______ and traction across the consist.",
+        "answer": "braking",
+        "topic": "DPWCS",
+        "level": "Medium",
+        "id": "BLA0033"
+      },
+      {
+        "text": "The ______ reservoir maintains the reference pressure for automatic air brake application.",
+        "answer": "equalizing",
+        "topic": "Conventional Loco",
+        "level": "Medium",
+        "id": "BLA0034"
+      },
+      {
+        "text": "A ______ is not part of a three-phase locomotive's traction system (it belongs to older carburetted engines instead).",
+        "answer": "carburetor",
+        "topic": "Three Phase Loco",
+        "level": "Easy",
+        "id": "BLA0035"
+      },
+      {
+        "text": "WAG12B locomotives are primarily deployed on high-speed heavy haul freight corridors under Mission ______.",
+        "answer": "Raftaar",
+        "topic": "WAG12B Loco",
+        "level": "Medium",
+        "id": "BLA0036"
+      },
+      {
+        "text": "Consumption of ______ before or during duty by running staff is strictly prohibited.",
+        "answer": "alcohol",
+        "topic": "Safety Rules",
+        "level": "Easy",
+        "id": "BLA0037"
+      },
+      {
+        "text": "One of Kavach's key objectives is preventing accidents caused by Signal Passed at Danger, commonly abbreviated ______.",
+        "answer": "SPAD",
+        "topic": "Kavach",
+        "level": "Easy",
+        "id": "BLA0038"
+      },
+      {
+        "text": "DPWCS allows a single Loco Pilot at the lead locomotive to control traction and braking of ______ locomotives.",
+        "answer": "remote/banking",
+        "topic": "DPWCS",
+        "level": "Easy",
+        "id": "BLA0039"
+      },
+      {
+        "text": "The ______ gauge indicates the engine's lubricating oil pressure on a diesel-electric locomotive.",
+        "answer": "oil pressure",
+        "topic": "Conventional Loco",
+        "level": "Easy",
+        "id": "BLA0040"
+      },
+      {
+        "text": "Fault diagnostics in modern three-phase locomotives are aided by ______-based control and display systems.",
+        "answer": "microprocessor",
+        "topic": "Three Phase Loco",
+        "level": "Medium",
+        "id": "BLA0041"
+      },
+      {
+        "text": "The ______ on a WAG12B locomotive collects current from the overhead equipment.",
+        "answer": "pantograph",
+        "topic": "WAG12B Loco",
+        "level": "Easy",
+        "id": "BLA0042"
+      },
+      {
+        "text": "In foggy weather, Loco Pilots must additionally rely on ______ and reduced speed as prescribed.",
+        "answer": "fog signals/markers",
+        "topic": "Safety Rules",
+        "level": "Medium",
+        "id": "BLA0043"
+      },
+      {
+        "text": "Kavach mandates fitment of ______ tags along the track for accurate train location identification.",
+        "answer": "RFID",
+        "topic": "Kavach",
+        "level": "Medium",
+        "id": "BLA0044"
+      },
+      {
+        "text": "DPWCS synchronisation helps prevent excessive buff and draft ______ between locomotive groups in a distributed power train.",
+        "answer": "forces",
+        "topic": "DPWCS",
+        "level": "Hard",
+        "id": "BLA0045"
+      }
+    ],
+    "descriptive": [
+      {
+        "id": "DES0001",
+        "text": "Explain briefly the function of the traction alternator in a diesel-electric locomotive.",
+        "topic": "Conventional Loco",
+        "level": "Easy"
+      },
+      {
+        "id": "DES0002",
+        "text": "Describe the sequence of the starting procedure of a diesel-electric locomotive before departure.",
+        "topic": "Conventional Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "DES0003",
+        "text": "Explain the working of the wheel slip control system in a conventional diesel-electric locomotive and its importance.",
+        "topic": "Conventional Loco",
+        "level": "Hard"
+      },
+      {
+        "id": "DES0004",
+        "text": "List the main advantages of three-phase locomotives over conventional DC traction motor locomotives.",
+        "topic": "Three Phase Loco",
+        "level": "Easy"
+      },
+      {
+        "id": "DES0005",
+        "text": "Explain the working principle of regenerative braking in three-phase locomotives.",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "DES0006",
+        "text": "Describe the role of the converter and inverter in a three-phase locomotive traction system.",
+        "topic": "Three Phase Loco",
+        "level": "Hard"
+      },
+      {
+        "id": "DES0007",
+        "text": "Describe the salient technical features and operational role of the WAG12B locomotive in Indian Railways.",
+        "topic": "WAG12B Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "DES0008",
+        "text": "Explain the duties of a Loco Pilot before starting a locomotive from the shed.",
+        "topic": "Safety Rules",
+        "level": "Easy"
+      },
+      {
+        "id": "DES0009",
+        "text": "Explain the procedure to be followed by a Loco Pilot in the event of Signal Passed at Danger (SPAD).",
+        "topic": "Safety Rules",
+        "level": "Hard"
+      },
+      {
+        "id": "DES0010",
+        "text": "Explain the objectives and basic working principle of the Kavach train collision avoidance system.",
+        "topic": "Kavach",
+        "level": "Medium"
+      },
+      {
+        "text": "List the key technical specifications of the WAG12B locomotive (horsepower, traction type, and typical usage).",
+        "topic": "WAG12B Loco",
+        "level": "Easy",
+        "id": "DES0011"
+      },
+      {
+        "text": "Explain the precautions a Loco Pilot must take while running a train in foggy or low-visibility conditions.",
+        "topic": "Safety Rules",
+        "level": "Medium",
+        "id": "DES0012"
+      },
+      {
+        "text": "Explain how DPWCS helps synchronise distributed power locomotives in a long freight train and the benefits of this synchronisation.",
+        "topic": "DPWCS",
+        "level": "Hard",
+        "id": "DES0013"
+      },
+      {
+        "text": "Explain the function and importance of the turbocharger in a diesel-electric locomotive.",
+        "topic": "Conventional Loco",
+        "level": "Medium",
+        "id": "DES0014"
+      },
+      {
+        "text": "Explain the basic difference between a conventional DC traction motor locomotive and a three-phase induction motor locomotive.",
+        "topic": "Three Phase Loco",
+        "level": "Easy",
+        "id": "DES0015"
+      },
+      {
+        "text": "Explain the role of RFID tags and onboard Kavach equipment in preventing Signal Passed at Danger (SPAD) incidents.",
+        "topic": "Kavach",
+        "level": "Hard",
+        "id": "DES0016"
+      },
+      {
+        "text": "Describe the precautions to be taken by a Loco Pilot while approaching an unmanned level crossing.",
+        "topic": "Safety Rules",
+        "level": "Medium",
+        "id": "DES0017"
+      },
+      {
+        "text": "Compare the WAG12B locomotive with the WAG9 locomotive in terms of horsepower, haulage capacity and typical deployment.",
+        "topic": "WAG12B Loco",
+        "level": "Hard",
+        "id": "DES0018"
+      },
+      {
+        "text": "Explain the purpose of the equalizing reservoir in the automatic air brake system of a locomotive.",
+        "topic": "Conventional Loco",
+        "level": "Easy",
+        "id": "DES0019"
+      },
+      {
+        "text": "Explain how microprocessor-based fault diagnostics assist a Loco Pilot in operating a three-phase locomotive.",
+        "topic": "Three Phase Loco",
+        "level": "Medium",
+        "id": "DES0020"
+      }
+    ]
+  }
+}
