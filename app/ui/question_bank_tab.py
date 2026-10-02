@@ -45,7 +45,7 @@ class QuestionListPanel(ttk.Frame):
         toolbar.pack(fill="x", pady=(0, 8))
         ttk.Button(toolbar, text="+ Add Question", style="Accent.TButton", command=self._add).pack(side="left")
         ttk.Button(toolbar, text="Edit", command=self._edit).pack(side="left", padx=6)
-        ttk.Button(toolbar, text="Delete", command=self._delete).pack(side="left")
+        ttk.Button(toolbar, text="Delete Selected", command=self._delete).pack(side="left")
         ttk.Button(toolbar, text="Import CSV/Excel", command=self._import).pack(side="right")
         ttk.Button(toolbar, text="Export CSV/Excel", command=self._export).pack(side="right", padx=6)
         self.count_label = ttk.Label(toolbar, text="", style="Muted.TLabel")
@@ -76,6 +76,7 @@ class QuestionListPanel(ttk.Frame):
         sb.pack(side="right", fill="y")
         self.tree.configure(yscrollcommand=sb.set)
         self.tree.bind("<Double-1>", lambda e: self._edit())
+        self.tree.bind("<Control-a>", self._select_all)
 
     def _filtered(self):
         qs = self.dm.questions(self.qtype)
@@ -134,12 +135,21 @@ class QuestionListPanel(ttk.Frame):
             self.refresh()
 
     def _delete(self):
-        qid = self._selected_id()
-        if not qid:
+        qids = list(self.tree.selection())
+        if not qids:
+            dialogs.info(self, "Nothing Selected", "Select one or more questions first (Ctrl/Shift+click, or Ctrl+A for all shown).")
             return
-        if dialogs.confirm(self, "Delete Question", f"Delete question {qid}? This cannot be undone."):
-            self.dm.delete_question(self.qtype, qid)
+        if len(qids) == 1:
+            msg = f"Delete question {qids[0]}? This cannot be undone."
+        else:
+            msg = f"Delete {len(qids)} selected questions? This cannot be undone."
+        if dialogs.confirm(self, "Delete Questions", msg):
+            self.dm.delete_questions(self.qtype, qids)
             self.refresh()
+
+    def _select_all(self, event=None):
+        self.tree.selection_set(self.tree.get_children())
+        return "break"
 
     def _export(self):
         path = filedialog.asksaveasfilename(

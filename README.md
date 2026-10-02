@@ -14,12 +14,16 @@ for your own centre.
 
 ## Features
 
-- **Randomizer** — pick a Course, Exam Format, Hardness Level, Randomness
-  Level and Topics, then generate **3 randomised sets** of a question paper
-  as Word (`.docx`) and/or PDF, plus an optional answer key per set.
+- **Randomizer** — pick a Date (calendar popup), Exam Duration (hours/minutes
+  dropdowns), Course, Exam Format, Hardness Level, Randomness Level and
+  Topics, then generate **1, 2 or 3 randomised sets** of a question paper
+  as Word (`.docx`) and/or PDF, plus an optional answer key per set. Papers
+  carry blank Batch No / Name / Design / Depo-divn fields for candidates.
 - **Question Bank** — full CRUD for MCQ, Fill-in-the-Blank and Descriptive
-  questions, plus the Topics used to tag them. Import/export any of it as
-  CSV or Excel for bulk editing.
+  questions, plus the Topics used to tag them. Select several questions
+  (Ctrl/Shift+click, Ctrl+A) to delete them in one go. Import/export any of
+  it as CSV or Excel for bulk editing; imported questions always get the
+  next free IDs automatically, whether or not the file has an ID column.
 - **Exam Format Types** — define paper layouts yourself: how many questions
   of each type, marks each, and "answer any N of M" choice (e.g. 6
   descriptive questions worth 5 marks, answer any 4).
@@ -135,7 +139,7 @@ ever generated with a silent shortfall.
 main.py                 Entry point
 app/
   data_manager.py        JSON load/save + CRUD for courses/topics/formats/questions
-  generator.py            Randomisation engine (the 3-set sampling logic)
+  generator.py            Randomisation engine (the multi-set sampling logic)
   docx_export.py           Word (.docx) paper + answer key rendering
   pdf_export.py             PDF paper + answer key rendering (reportlab, no MS Word needed)
   csv_io.py                  CSV/Excel import & export

@@ -33,7 +33,7 @@ def _set_font(run, size=11, bold=False):
     run.font.bold = bold
 
 
-def _header(doc, meta, course_name, fmt, date_str, set_label):
+def _header(doc, meta, course_name, fmt, date_str, set_label, duration_str=""):
     p = doc.add_paragraph()
     p.alignment = WD_ALIGN_PARAGRAPH.CENTER
     r = p.add_run(meta.get("institute", "Diesel Traction Training Centre, Kazipet (DTTC/KZJ)"))
@@ -46,7 +46,7 @@ def _header(doc, meta, course_name, fmt, date_str, set_label):
 
     p3 = doc.add_paragraph()
     p3.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    r3 = p3.add_run(f"Question Paper — {fmt['name']}")
+    r3 = p3.add_run(f"Assessment for {course_name}")
     _set_font(r3, 12, True)
 
     doc.add_paragraph()
@@ -55,17 +55,21 @@ def _header(doc, meta, course_name, fmt, date_str, set_label):
         (sec["display_count"] - sec.get("choice_leave", 0)) * sec["marks_each"]
         for sec in fmt["sections"]
     )
-    info = doc.add_table(rows=2, cols=2)
-    info.autofit = True
-    cells = [
-        (f"Course: {course_name}", f"Set: {set_label}"),
-        (f"Date: {date_str}", f"Maximum Marks: {total_marks}"),
+    info = doc.add_table(rows=3, cols=3)
+    info.autofit = False
+    col_widths = [Cm(6.4), Cm(5.2), Cm(5.0)]
+    rows = [
+        (f"Date: {date_str}", "", "Batch No:"),
+        (f"Exam Duration: {duration_str}".rstrip(), f"Set: {set_label}", f"Maximum Marks: {total_marks:g}"),
+        ("Name:", "Design:", "Depo/divn:"),
     ]
-    for r_idx, (left, right) in enumerate(cells):
-        lc = info.cell(r_idx, 0).paragraphs[0].add_run(left)
-        _set_font(lc, 11, False)
-        rc = info.cell(r_idx, 1).paragraphs[0].add_run(right)
-        _set_font(rc, 11, False)
+    for r_idx, row_values in enumerate(rows):
+        for c_idx, text in enumerate(row_values):
+            cell = info.cell(r_idx, c_idx)
+            cell.width = col_widths[c_idx]
+            para = cell.paragraphs[0]
+            para.paragraph_format.space_after = Pt(8)
+            _set_font(para.add_run(text), 11, False)
 
     doc.add_paragraph()
     line = doc.add_paragraph("_" * 90)
@@ -128,14 +132,14 @@ def _add_section(doc, sec, questions, section_no):
     doc.add_paragraph()
 
 
-def build_paper(fmt, meta, course_name, date_str, set_label, set_data, output_path):
+def build_paper(fmt, meta, course_name, date_str, set_label, set_data, output_path, duration_str=""):
     doc = Document()
     _set_a4_page(doc)
     style = doc.styles["Normal"]
     style.font.name = "Calibri"
     style.font.size = Pt(11)
 
-    _header(doc, meta, course_name, fmt, date_str, set_label)
+    _header(doc, meta, course_name, fmt, date_str, set_label, duration_str)
 
     for idx, sec in enumerate(fmt["sections"], start=1):
         _add_section(doc, sec, set_data[sec["type"]], idx)

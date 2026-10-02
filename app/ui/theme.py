@@ -84,5 +84,6 @@ def apply_theme(root: tk.Tk):
     style.configure("TLabelframe.Label", background=BG, foreground=NAVY, font=(FONT_FAMILY, 10, "bold"))
     style.configure("TCheckbutton", background=BG, foreground=TEXT)
     style.configure("Card.TCheckbutton", background=CARD_BG, foreground=TEXT)
+    style.configure("Card.TRadiobutton", background=CARD_BG, foreground=TEXT)
 
     return style

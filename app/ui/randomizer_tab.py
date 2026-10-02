@@ -1,22 +1,21 @@
 import os
 import subprocess
 import sys
-from datetime import date
 
 import tkinter as tk
 from tkinter import filedialog, ttk
 
 from app import docx_export, pdf_export
-from app.generator import InsufficientQuestionsError, generate_three_sets
+from app.generator import InsufficientQuestionsError, generate_sets
 from app.paths import output_dir
 from app.ui import dialogs, theme
-from app.ui.widgets import ScrollableFrame
+from app.ui.widgets import DatePicker, DurationPicker, ScrollableFrame
 
 SET_LABELS = ["A", "B", "C"]
 RANDOMNESS_HELP = {
-    "Low": "The 3 sets use the same questions, reshuffled in order (and MCQ options reshuffled). Good for controlled retests.",
+    "Low": "All sets use the same questions, reshuffled in order (and MCQ options reshuffled). Good for controlled retests.",
     "Medium": "Each set keeps roughly half of the previous set's questions and swaps in fresh ones where the bank allows.",
-    "High": "The 3 sets try to use different questions from each other as much as the question bank allows.",
+    "High": "The sets try to use different questions from each other as much as the question bank allows.",
 }
 
 
@@ -33,7 +32,7 @@ class RandomizerTab(ttk.Frame):
         ttk.Label(self, text="Randomizer — Generate Question Papers", style="SectionTitle.TLabel").pack(anchor="w")
         ttk.Label(
             self,
-            text="Choose the parameters below, then generate three randomised sets of the selected exam format.",
+            text="Choose the parameters below, then generate 1, 2 or 3 randomised sets of the selected exam format.",
             style="Muted.TLabel",
         ).pack(anchor="w", pady=(2, 14))
 
@@ -60,9 +59,18 @@ class RandomizerTab(ttk.Frame):
         )
 
     def _build_form(self, parent):
-        self._field(parent, "Date")
-        self.date_var = tk.StringVar(value=date.today().strftime("%d-%m-%Y"))
-        ttk.Entry(parent, textvariable=self.date_var, width=20).pack(anchor="w")
+        when_row = ttk.Frame(parent, style="Card.TFrame")
+        when_row.pack(fill="x")
+        date_col = ttk.Frame(when_row, style="Card.TFrame")
+        date_col.pack(side="left")
+        ttk.Label(date_col, text="Date", style="Card.TLabel", font=(theme.FONT_FAMILY, 10, "bold")).pack(anchor="w", pady=(12, 2))
+        self.date_picker = DatePicker(date_col)
+        self.date_picker.pack(anchor="w")
+        dur_col = ttk.Frame(when_row, style="Card.TFrame")
+        dur_col.pack(side="left", padx=(28, 0))
+        ttk.Label(dur_col, text="Exam Duration", style="Card.TLabel", font=(theme.FONT_FAMILY, 10, "bold")).pack(anchor="w", pady=(12, 2))
+        self.duration_picker = DurationPicker(dur_col)
+        self.duration_picker.pack(anchor="w")
 
         self._field(parent, "Course Name")
         self.course_var = tk.StringVar()
@@ -112,6 +120,15 @@ class RandomizerTab(ttk.Frame):
         self.topics_frame = ttk.Frame(topics_outer, style="Card.TFrame")
         self.topics_frame.pack(fill="x", pady=(6, 0))
 
+        self._field(parent, "Sets Required")
+        sets_row = ttk.Frame(parent, style="Card.TFrame")
+        sets_row.pack(anchor="w")
+        self.num_sets_var = tk.IntVar(value=3)
+        for n in (1, 2, 3):
+            ttk.Radiobutton(
+                sets_row, text=str(n), value=n, variable=self.num_sets_var, style="Card.TRadiobutton"
+            ).pack(side="left", padx=(0, 16))
+
         self._field(parent, "Output File Format")
         fmt_row = ttk.Frame(parent, style="Card.TFrame")
         fmt_row.pack(anchor="w")
@@ -131,7 +148,7 @@ class RandomizerTab(ttk.Frame):
         ).pack(anchor="w", pady=(16, 0))
 
         ttk.Button(
-            parent, text="Generate 3 Question Paper Sets", style="Accent.TButton", command=self._generate
+            parent, text="Generate Question Papers", style="Accent.TButton", command=self._generate
         ).pack(anchor="w", pady=(20, 0), fill="x")
 
     def _build_output_panel(self, parent):
@@ -212,10 +229,13 @@ class RandomizerTab(ttk.Frame):
 
         level_filter = self.level_var.get()
         randomness = self.randomness_var.get()
-        date_str = self.date_var.get().strip() or date.today().strftime("%d-%m-%Y")
+        date_str = self.date_picker.get()
+        duration_str = self.duration_picker.text()
 
         try:
-            sets = generate_three_sets(fmt, self.dm.data["questions"], level_filter, topics, randomness)
+            sets = generate_sets(
+                fmt, self.dm.data["questions"], level_filter, topics, randomness, self.num_sets_var.get()
+            )
         except InsufficientQuestionsError as e:
             details = "\n".join(
                 f"  • {docx_export.SECTION_TITLES[t]}: need {n}, only {a} available with current filters"
@@ -240,12 +260,12 @@ class RandomizerTab(ttk.Frame):
 
             if want_word:
                 paper_path = os.path.join(out_dir, f"{base}.docx")
-                docx_export.build_paper(fmt, meta, course, date_str, label, set_data, paper_path)
+                docx_export.build_paper(fmt, meta, course, date_str, label, set_data, paper_path, duration_str)
                 written.append(paper_path)
                 self._log(f"Set {label}: {os.path.basename(paper_path)}")
             if want_pdf:
                 paper_path = os.path.join(out_dir, f"{base}.pdf")
-                pdf_export.build_paper(fmt, meta, course, date_str, label, set_data, paper_path)
+                pdf_export.build_paper(fmt, meta, course, date_str, label, set_data, paper_path, duration_str)
                 written.append(paper_path)
                 self._log(f"Set {label}: {os.path.basename(paper_path)}")
 
@@ -262,7 +282,7 @@ class RandomizerTab(ttk.Frame):
                     self._log(f"Set {label} Answer Key: {os.path.basename(key_path)}")
 
         self._log(f"Done. {len(written)} file(s) saved to:\n{out_dir}\n")
-        dialogs.info(self, "Papers Generated", f"3 question paper sets generated successfully in:\n{out_dir}")
+        dialogs.info(self, "Papers Generated", f"{len(sets)} question paper set(s) generated successfully in:\n{out_dir}")
 
     def _open_output_folder(self):
         folder = self.last_output_dir or output_dir()

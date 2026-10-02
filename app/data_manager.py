@@ -201,6 +201,13 @@ class DataManager:
         ]
         self.save()
 
+    def delete_questions(self, qtype: str, qids):
+        ids = set(qids)
+        self.data["questions"][qtype] = [
+            q for q in self.data["questions"][qtype] if q["id"] not in ids
+        ]
+        self.save()
+
     def find_question(self, qtype: str, qid: str):
         for q in self.data["questions"][qtype]:
             if q["id"] == qid:

@@ -40,7 +40,7 @@ STYLE_KEY_HEADING = ParagraphStyle("KeyHeading", parent=_styles["Heading2"], fon
 STYLE_KEY_LINE = ParagraphStyle("KeyLine", parent=_styles["Normal"], fontSize=10, spaceAfter=3)
 
 
-def _header_flowables(meta, course_name, fmt, date_str, set_label):
+def _header_flowables(meta, course_name, fmt, date_str, set_label, duration_str=""):
     total_marks = sum(
         (sec["display_count"] - sec.get("choice_leave", 0)) * sec["marks_each"]
         for sec in fmt["sections"]
@@ -48,17 +48,23 @@ def _header_flowables(meta, course_name, fmt, date_str, set_label):
     story = [
         Paragraph(meta.get("institute", "Diesel Traction Training Centre, Kazipet (DTTC/KZJ)"), STYLE_TITLE),
         Paragraph(meta.get("zone", "South Central Railway"), STYLE_SUBTITLE),
-        Paragraph(f"Question Paper &mdash; {fmt['name']}", STYLE_SUBTITLE),
+        Paragraph(f"Assessment for {_escape(course_name)}", STYLE_SUBTITLE),
         Spacer(1, 10),
     ]
     info_table = Table(
         [
-            [Paragraph(f"Course: {course_name}", STYLE_INFO), Paragraph(f"Set: {set_label}", STYLE_INFO)],
-            [Paragraph(f"Date: {date_str}", STYLE_INFO), Paragraph(f"Maximum Marks: {total_marks:g}", STYLE_INFO)],
+            [Paragraph(f"Date: {date_str}", STYLE_INFO), Paragraph("", STYLE_INFO), Paragraph("Batch No:", STYLE_INFO)],
+            [Paragraph(f"Exam Duration: {duration_str}".rstrip(), STYLE_INFO), Paragraph(f"Set: {set_label}", STYLE_INFO), Paragraph(f"Maximum Marks: {total_marks:g}", STYLE_INFO)],
+            [Paragraph("Name:", STYLE_INFO), Paragraph("Design:", STYLE_INFO), Paragraph("Depo/divn:", STYLE_INFO)],
         ],
-        colWidths=[9 * cm, 8 * cm],
+        colWidths=[6.2 * cm, 5.2 * cm, 4.9 * cm],
+        hAlign="LEFT",
     )
-    info_table.setStyle(TableStyle([("VALIGN", (0, 0), (-1, -1), "TOP")]))
+    info_table.setStyle(TableStyle([
+        ("VALIGN", (0, 0), (-1, -1), "TOP"),
+        ("LEFTPADDING", (0, 0), (-1, -1), 0),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 8),
+    ]))
     story.append(info_table)
     story.append(Spacer(1, 6))
     story.append(HRFlowable(width="100%", color=colors.HexColor("#d7dce3"), thickness=1))
@@ -113,12 +119,12 @@ def _escape(text: str) -> str:
     )
 
 
-def build_paper(fmt, meta, course_name, date_str, set_label, set_data, output_path):
+def build_paper(fmt, meta, course_name, date_str, set_label, set_data, output_path, duration_str=""):
     doc = SimpleDocTemplate(
         output_path, pagesize=A4,
         leftMargin=2 * cm, rightMargin=2 * cm, topMargin=1.8 * cm, bottomMargin=1.8 * cm,
     )
-    story = _header_flowables(meta, course_name, fmt, date_str, set_label)
+    story = _header_flowables(meta, course_name, fmt, date_str, set_label, duration_str)
     for idx, sec in enumerate(fmt["sections"], start=1):
         story.extend(_section_flowables(sec, set_data[sec["type"]], idx))
     doc.build(story)

@@ -1,4 +1,4 @@
-"""Core randomisation logic: turns a format + filters into 3 question sets.
+"""Core randomisation logic: turns a format + filters into 1-3 question sets.
 
 Kept independent of the GUI and of docx so it can be unit-tested and
 reused (e.g. from a future CLI) on its own.
@@ -35,24 +35,23 @@ def check_availability(fmt: dict, question_bank: dict, level_filter, topic_filte
     return shortfalls
 
 
-def _sample_three_sets(pool, count, randomness):
-    """Draw 3 lists of `count` questions each from `pool` per the randomness level.
+def _sample_sets(pool, count, randomness, num_sets):
+    """Draw `num_sets` lists of `count` questions each from `pool` per the randomness level.
 
-    Low: one base sample reused by all 3 sets (order/options reshuffled per set).
+    Low: one base sample reused by every set (order/options reshuffled per set).
     Medium: each set keeps ~50% of the previous set, refreshes the rest.
-    High: draws without replacement across all 3 sets to minimise repeats,
+    High: draws without replacement across all sets to minimise repeats,
           wrapping around the pool (reshuffled) only once it's exhausted.
     """
     pool = list(pool)
     if randomness == "Low":
         base = random.sample(pool, count)
-        return [list(base), list(base), list(base)]
+        return [list(base) for _ in range(num_sets)]
 
     if randomness == "Medium":
-        sets = []
         prev = random.sample(pool, count)
-        sets.append(prev)
-        for _ in range(2):
+        sets = [prev]
+        for _ in range(num_sets - 1):
             keep_n = count // 2
             keep = random.sample(prev, keep_n) if keep_n else []
             remaining_pool = [q for q in pool if q not in keep]
@@ -68,11 +67,10 @@ def _sample_three_sets(pool, count, randomness):
             prev = new_set
         return sets
 
-    # High: minimise repeats across all three sets combined
     shuffled = list(pool)
     random.shuffle(shuffled)
     sets, i = [], 0
-    for _ in range(3):
+    for _ in range(num_sets):
         chunk = []
         while len(chunk) < count:
             if i >= len(shuffled):
@@ -84,8 +82,8 @@ def _sample_three_sets(pool, count, randomness):
     return sets
 
 
-def generate_three_sets(fmt: dict, question_bank: dict, level_filter, topic_filter, randomness):
-    """Returns [set1, set2, set3], each a dict: {section_type: [question,...]}.
+def generate_sets(fmt: dict, question_bank: dict, level_filter, topic_filter, randomness, num_sets=3):
+    """Returns a list of `num_sets` sets, each a dict: {section_type: [question,...]}.
 
     Raises InsufficientQuestionsError if the filtered pool can't satisfy the format.
     """
@@ -93,11 +91,11 @@ def generate_three_sets(fmt: dict, question_bank: dict, level_filter, topic_filt
     if shortfalls:
         raise InsufficientQuestionsError(shortfalls)
 
-    sets = [{}, {}, {}]
+    sets = [{} for _ in range(num_sets)]
     for sec in fmt["sections"]:
         pool = _filter_pool(question_bank[sec["type"]], level_filter, topic_filter)
-        drawn = _sample_three_sets(pool, sec["display_count"], randomness)
-        for i in range(3):
+        drawn = _sample_sets(pool, sec["display_count"], randomness, num_sets)
+        for i in range(num_sets):
             questions = [dict(q) for q in drawn[i]]
             random.shuffle(questions)
             if sec["type"] == "mcq":
