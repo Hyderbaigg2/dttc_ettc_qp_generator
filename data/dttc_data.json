@@ -45,27 +45,35 @@
   "topics": [
     {
       "id": "T001",
-      "name": "Conventional Loco"
+      "name": "Conventional Loco - Air Brake System"
     },
     {
       "id": "T002",
-      "name": "Three Phase Loco"
+      "name": "Conventional Loco - Electrical & General"
     },
     {
       "id": "T003",
-      "name": "WAG12B Loco"
+      "name": "OHE & Pantograph"
     },
     {
       "id": "T004",
-      "name": "Safety Rules"
+      "name": "Three Phase Loco"
     },
     {
       "id": "T005",
-      "name": "Kavach"
+      "name": "WAG12B Loco"
     },
     {
       "id": "T006",
-      "name": "DPWCS"
+      "name": "Diesel Loco (WDG4/WDP4/WDG6G)"
+    },
+    {
+      "id": "T007",
+      "name": "Safety Rules & Train Operation"
+    },
+    {
+      "id": "T008",
+      "name": "Energy Conservation"
     }
   ],
   "levels": [
@@ -124,1059 +132,3458 @@
           "choice_leave": 0
         }
       ]
+    },
+    {
+      "id": "F01",
+      "name": "Test 10 q",
+      "description": "",
+      "sections": [
+        {
+          "type": "mcq",
+          "display_count": 5,
+          "marks_each": 1.0,
+          "choice_leave": 0
+        },
+        {
+          "type": "fill_blank",
+          "display_count": 5,
+          "marks_each": 1.0,
+          "choice_leave": 0
+        },
+        {
+          "type": "descriptive",
+          "display_count": 4,
+          "marks_each": 1.0,
+          "choice_leave": 0
+        }
+      ]
+    },
+    {
+      "id": "F02",
+      "name": "25 fib",
+      "description": "",
+      "sections": [
+        {
+          "type": "fill_blank",
+          "display_count": 25,
+          "marks_each": 1.0,
+          "choice_leave": 0
+        }
+      ]
+    },
+    {
+      "id": "F03",
+      "name": "25 fill in the blanks",
+      "description": "",
+      "sections": [
+        {
+          "type": "fill_blank",
+          "display_count": 25,
+          "marks_each": 1.0,
+          "choice_leave": 0
+        }
+      ]
     }
   ],
   "questions": {
     "mcq": [
       {
-        "id": "MCQ0000",
-        "text": "The equipment that converts AC output of the traction alternator to DC for traction motors is called:",
+        "id": "MCQ0001",
+        "text": "Signals used for controlling movement of trains as per G & SR are",
         "options": [
-          "Rectifier",
-          "Inverter",
-          "Exciter",
-          "GovernorG"
+          "Fixed signals",
+          "hand signals",
+          "detonating signals",
+          "all"
         ],
-        "correct_option": "Rectifier",
-        "topic": "Conventional Loco",
+        "correct_option": "NIL",
+        "topic": "Safety Rules & Train Operation",
         "level": "Medium"
       },
       {
-        "text": "In a diesel-electric locomotive, the traction alternator is directly coupled to the:",
+        "id": "MCQ0002",
+        "text": "Whenever top single yellow light is exhibited in inner distance the aspect is",
         "options": [
-          "Traction motor",
-          "Diesel engine (prime mover)",
-          "Air compressor",
-          "Radiator fan"
+          "Attention",
+          "defective",
+          "caution",
+          "not in use"
         ],
-        "correct_option": "Diesel engine (prime mover)",
-        "topic": "Conventional Loco",
-        "level": "Easy",
-        "id": "MCQ0001"
+        "correct_option": "NIL",
+        "topic": "Safety Rules & Train Operation",
+        "level": "Medium"
       },
       {
-        "text": "The equipment that converts AC output of the traction alternator to DC for traction motors is called:",
+        "id": "MCQ0003",
+        "text": "Whenever the block section ahead is not clear IBS-cum-distant signal shows",
         "options": [
-          "Rectifier",
-          "Inverter",
-          "Exciter",
-          "Governor"
+          "Attention",
+          "Stop",
+          "caution",
+          "Proceed"
         ],
-        "correct_option": "Rectifier",
-        "topic": "Conventional Loco",
-        "level": "Medium",
-        "id": "MCQ0002"
+        "correct_option": "NIL",
+        "topic": "Safety Rules & Train Operation",
+        "level": "Medium"
       },
       {
-        "text": "In a WDM series locomotive, wheel slip is primarily detected by comparing:",
+        "id": "MCQ0004",
+        "text": "______ is the authority to pass defective independent shunt signal or shunt signal below stop Signal or shunting permitting indicator at ON",
         "options": [
-          "Engine RPM and turbo boost",
-          "Speed of individual traction motors/axles",
-          "Fuel rack position and load",
-          "Battery voltage and current"
+          "T/369(3b)",
+          "T/369(3b)+PHS",
+          "T/806",
+          "T/806+PHS"
         ],
-        "correct_option": "Speed of individual traction motors/axles",
-        "topic": "Conventional Loco",
-        "level": "Hard",
-        "id": "MCQ0003"
+        "correct_option": "NIL",
+        "topic": "Safety Rules & Train Operation",
+        "level": "Medium"
       },
       {
-        "text": "Three-phase locomotives use which type of traction motors?",
+        "id": "MCQ0005",
+        "text": "Signals are prohibited to be used for shunting purpose",
         "options": [
-          "DC series motors",
-          "Three-phase squirrel cage induction motors",
-          "Stepper motors",
-          "Universal motors"
+          "Starter",
+          "Home",
+          "LSS",
+          "Both b&c"
         ],
-        "correct_option": "Three-phase squirrel cage induction motors",
+        "correct_option": "NIL",
+        "topic": "Safety Rules & Train Operation",
+        "level": "Medium"
+      },
+      {
+        "id": "MCQ0006",
+        "text": "Maximum speed of trains during dense fog in automatic block system is ______ when aspect of signal ahead is Attention when FSD is available.",
+        "options": [
+          "60KMPH",
+          "30KMPH",
+          "No speed limit",
+          "None of above"
+        ],
+        "correct_option": "NIL",
+        "topic": "Safety Rules & Train Operation",
+        "level": "Medium"
+      },
+      {
+        "id": "MCQ0007",
+        "text": "Whenever LP passes IBS at ON after waiting for 5 minutes and SM unable to be contacted shall proceed with 15 kmph view ahead is clear 8 kmph view ahead is not clear up to the FSS of the next station even if the FSS signals is showing ______ aspect",
+        "options": [
+          "Proceed",
+          "Caution",
+          "Attention",
+          "All"
+        ],
+        "correct_option": "NIL",
+        "topic": "Safety Rules & Train Operation",
+        "level": "Medium"
+      },
+      {
+        "id": "MCQ0008",
+        "text": "During engine pushing, in the absence of PHS of Guard, LP shall ______",
+        "options": [
+          "Stop",
+          "be prepared to stop",
+          "proceed cautiously",
+          "None of above"
+        ],
+        "correct_option": "NIL",
+        "topic": "Safety Rules & Train Operation",
+        "level": "Medium"
+      },
+      {
+        "id": "MCQ0009",
+        "text": "LP and ALP shall ______ during journey to see whether the train is following in a safe and proper manner",
+        "options": [
+          "look back",
+          "look front only",
+          "look back frequently if not engaged",
+          "None of above"
+        ],
+        "correct_option": "NIL",
+        "topic": "Safety Rules & Train Operation",
+        "level": "Medium"
+      },
+      {
+        "id": "MCQ0010",
+        "text": "Passing signal at ON with proper authority, the LP shall sound ______ whistle",
+        "options": [
+          "000",
+          "00",
+          "0-0",
+          "0000"
+        ],
+        "correct_option": "NIL",
+        "topic": "Safety Rules & Train Operation",
+        "level": "Medium"
+      },
+      {
+        "id": "MCQ0011",
+        "text": "When LP of the train experienced any abnormal condition in the track, ______ his train at next block Station and inform SM",
+        "options": [
+          "stop",
+          "slowly enter in station",
+          "inform to SM on walkie-talkie and proceed",
+          "none"
+        ],
+        "correct_option": "NIL",
+        "topic": "Safety Rules & Train Operation",
+        "level": "Medium"
+      },
+      {
+        "id": "MCQ0012",
+        "text": "When lurch is reported and subsequently a train is sent in the absence of engineering official, caution order is given to the LP to stop dead and proceed at ______ kmph if considered safe otherwise return to station",
+        "options": [
+          "8KMPH",
+          "15KMPH",
+          "10KMPH",
+          "None"
+        ],
+        "correct_option": "NIL",
+        "topic": "Safety Rules & Train Operation",
+        "level": "Medium"
+      },
+      {
+        "id": "MCQ0013",
+        "text": "Rail fracture of less than 30mm, the speed of first train shall be ______ kmph, the speed of second and Sub sequent trains shall be ______ kmph",
+        "options": [
+          "15,10kmph",
+          "10,10kmph",
+          "15,15kmph",
+          "10,15kmph"
+        ],
+        "correct_option": "NIL",
+        "topic": "Safety Rules & Train Operation",
+        "level": "Medium"
+      },
+      {
+        "id": "MCQ0014",
+        "text": "If a fire is noticed in a running train, the LP shall at once stop the train. The vehicles behind the one on fire shall be ______ and the front portion of the train then moved forward to prevent the catching of fire",
+        "options": [
+          "Stabled",
+          "Secured",
+          "Detached",
+          "Proceed slowly"
+        ],
+        "correct_option": "NIL",
+        "topic": "Safety Rules & Train Operation",
+        "level": "Medium"
+      },
+      {
+        "id": "MCQ0015",
+        "text": "When train a signal at caution aspect ALP shall call out ______ and be ready to use ______",
+        "options": [
+          "Repeatedly, RS",
+          "Intermittently, VHF set",
+          "Few times, A9",
+          "All of above"
+        ],
+        "correct_option": "NIL",
+        "topic": "Safety Rules & Train Operation",
+        "level": "Medium"
+      },
+      {
+        "id": "MCQ0016",
+        "text": "Crew shall not entirely depend on signals and shall be ______ and ______ while attaching loco on formation.",
+        "options": [
+          "Alert, not respond",
+          "Watch out, clear",
+          "Standing, quick",
+          "Vigilant, cautious"
+        ],
+        "correct_option": "NIL",
+        "topic": "Safety Rules & Train Operation",
+        "level": "Medium"
+      },
+      {
+        "id": "MCQ0017",
+        "text": "While performing shunting always it shall be done from ______ cab only",
+        "options": [
+          "Any cab",
+          "Trailing cab",
+          "Leading",
+          "Both cabs"
+        ],
+        "correct_option": "NIL",
+        "topic": "Safety Rules & Train Operation",
+        "level": "Medium"
+      },
+      {
+        "id": "MCQ0018",
+        "text": "While attaching load stop before ______ meters and attach without any jerk.",
+        "options": [
+          "10",
+          "20",
+          "30",
+          "40"
+        ],
+        "correct_option": "NIL",
+        "topic": "Safety Rules & Train Operation",
+        "level": "Medium"
+      },
+      {
+        "id": "MCQ0019",
+        "text": "After coupling CBC with coaching train, ensure lock lifter rib shall be in ______ position.",
+        "options": [
+          "Vertical",
+          "Horizontal",
+          "Inclined",
+          "Any"
+        ],
+        "correct_option": "NIL",
+        "topic": "Safety Rules & Train Operation",
+        "level": "Medium"
+      },
+      {
+        "id": "MCQ0020",
+        "text": "After coupling loco with formation ______ and ______ pipes shall be coupled.",
+        "options": [
+          "BP,FP",
+          "MR,BP",
+          "BC,MR",
+          "All of above"
+        ],
+        "correct_option": "NIL",
+        "topic": "Safety Rules & Train Operation",
+        "level": "Medium"
+      },
+      {
+        "id": "MCQ0021",
+        "text": "After coupling of loco with formation first ______ pipe COC shall be opened",
+        "options": [
+          "BP",
+          "FP",
+          "MR",
+          "Any"
+        ],
+        "correct_option": "NIL",
+        "topic": "Safety Rules & Train Operation",
+        "level": "Medium"
+      },
+      {
+        "id": "MCQ0022",
+        "text": "Before moving the train ensure ______ and ______ brakes are released apart from formation brakes.",
+        "options": [
+          "Hand, parking",
+          "A,RS",
+          "SA9,A9",
+          "None of above"
+        ],
+        "correct_option": "NIL",
+        "topic": "Safety Rules & Train Operation",
+        "level": "Medium"
+      },
+      {
+        "id": "MCQ0023",
+        "text": "In case of any unusual if train is stopped in mid section ______ light shall be switched ON.",
+        "options": [
+          "Head light",
+          "Marker light",
+          "Flasher light",
+          "All of above"
+        ],
+        "correct_option": "NIL",
+        "topic": "Safety Rules & Train Operation",
+        "level": "Medium"
+      },
+      {
+        "id": "MCQ0024",
+        "text": "At neutral section, if DJ is not opened by BLDJ, ______ shall be done immediately",
+        "options": [
+          "nothing",
+          "Lowering of panto",
+          "Press BPEMS",
+          "None of above"
+        ],
+        "correct_option": "NIL",
+        "topic": "Safety Rules & Train Operation",
+        "level": "Medium"
+      },
+      {
+        "id": "MCQ0025",
+        "text": "While WAG7 as dead ______ COC shall be closed and MU2B shall be in ______ position.",
+        "options": [
+          "A8,trail",
+          "BP, lead",
+          "A8, test",
+          "A8.Lead"
+        ],
+        "correct_option": "NIL",
+        "topic": "Conventional Loco - Air Brake System",
+        "level": "Medium"
+      },
+      {
+        "id": "MCQ0026",
+        "text": "Where no maintenance staff is available ______ is responsible for cleanliness of LP desk, cab lookout glasses and glass windows.",
+        "options": [
+          "LP",
+          "TMR",
+          "ALP",
+          "All of above"
+        ],
+        "correct_option": "NIL",
+        "topic": "Safety Rules & Train Operation",
+        "level": "Medium"
+      },
+      {
+        "id": "MCQ0027",
+        "text": "Normally not more than ______ persons other than crew are permitted to travel in the leading cab.",
+        "options": [
+          "5",
+          "3",
+          "4",
+          "6"
+        ],
+        "correct_option": "NIL",
+        "topic": "Safety Rules & Train Operation",
+        "level": "Medium"
+      },
+      {
+        "id": "MCQ0028",
+        "text": "Before starting the train or on run, crew shall ensure that correct signal is taken OFF pertaining to ______",
+        "options": [
+          "Any line",
+          "Adjacent line",
+          "Your line",
+          "All of above"
+        ],
+        "correct_option": "NIL",
+        "topic": "Safety Rules & Train Operation",
+        "level": "Medium"
+      },
+      {
+        "id": "MCQ0029",
+        "text": "Defective QVRH relay causes ______ tripping failure.",
+        "options": [
+          "Operation - II",
+          "Operation 'O'",
+          "Operation B Part-1",
+          "Operation-I"
+        ],
+        "correct_option": "NIL",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
+      },
+      {
+        "id": "MCQ0030",
+        "text": "When cab-1 ZPT is on '1' position, ______ panto raises.",
+        "options": [
+          "PT-2",
+          "None",
+          "PT-1",
+          "Both pantos"
+        ],
+        "correct_option": "NIL",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
+      },
+      {
+        "id": "MCQ0031",
+        "text": "The SMGR pressure should be between ______ to ______ kg/cm2.",
+        "options": [
+          "3.5 to 4.0",
+          "Any one of these",
+          "3.0 to 3.5",
+          "2.5 to 3.5"
+        ],
+        "correct_option": "NIL",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
+      },
+      {
+        "id": "MCQ0032",
+        "text": "When earth fault in SL-1, DJ tips through ______ relay.",
+        "options": [
+          "QOP-1",
+          "QE",
+          "QRSI-1",
+          "QOP-2"
+        ],
+        "correct_option": "NIL",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
+      },
+      {
+        "id": "MCQ0033",
+        "text": "When SIV is working ______ relay energises.",
+        "options": [
+          "QCVAR",
+          "QVLSOL",
+          "QCON",
+          "QSIT"
+        ],
+        "correct_option": "NIL",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
+      },
+      {
+        "id": "MCQ0034",
+        "text": "In BMBC system, each coach having ______ no. of brake cylinders.",
+        "options": [
+          "4",
+          "2",
+          "5",
+          "3"
+        ],
+        "correct_option": "NIL",
+        "topic": "Conventional Loco - Air Brake System",
+        "level": "Medium"
+      },
+      {
+        "id": "MCQ0035",
+        "text": "In conventional locos, ______ reservoir pressure is used for creation of BP pressure.",
+        "options": [
+          "MR3",
+          "MR4",
+          "MR2",
+          "MR1"
+        ],
+        "correct_option": "NIL",
+        "topic": "Conventional Loco - Air Brake System",
+        "level": "Medium"
+      },
+      {
+        "id": "MCQ0036",
+        "text": "In 3 phase loco, Continuous glowing of LSFI indicates ______.",
+        "options": [
+          "Priority 1 fault",
+          "Atleast one sub system is isolated",
+          "Priority 2 fault",
+          "Priority 1 fault or Priority 2 fault"
+        ],
+        "correct_option": "NIL",
         "topic": "Three Phase Loco",
-        "level": "Easy",
-        "id": "MCQ0004"
+        "level": "Medium"
       },
       {
-        "text": "In a three-phase locomotive, the device that converts fixed-frequency AC to variable-frequency AC for traction motors is the:",
+        "id": "MCQ0037",
+        "text": "In 3 phase loco, if Throttle (ATDC) is failed, keep ______ switch in ______ position",
         "options": [
-          "Rectifier only",
-          "Converter-Inverter (GTO/IGBT based)",
-          "Transformer tap changer",
-          "Battery charger"
+          "154, 0",
+          "152, 1",
+          "152, 0",
+          "160, 1"
         ],
-        "correct_option": "Converter-Inverter (GTO/IGBT based)",
+        "correct_option": "NIL",
         "topic": "Three Phase Loco",
-        "level": "Medium",
-        "id": "MCQ0005"
+        "level": "Medium"
       },
       {
-        "text": "Regenerative braking in a three-phase locomotive returns energy to the OHE by:",
+        "id": "MCQ0038",
+        "text": "In 3 phase loco before operating throttle, ensure ______ node information on screen",
         "options": [
-          "Traction motors acting as generators feeding power back through the inverter/converter",
-          "Dynamic braking resistors dissipating heat",
-          "Mechanical brake blocks only",
-          "Compressed air release"
+          "FLG 504",
+          "FLG 550",
+          "FLG 570",
+          "FLG 590"
         ],
-        "correct_option": "Traction motors acting as generators feeding power back through the inverter/converter",
+        "correct_option": "NIL",
         "topic": "Three Phase Loco",
-        "level": "Hard",
-        "id": "MCQ0006"
+        "level": "Medium"
       },
       {
-        "text": "WAG12B is a locomotive of which approximate horsepower class?",
+        "id": "MCQ0039",
+        "text": "In 3 phase loco, SS-15 belongs to ______ sub system.",
         "options": [
-          "4500 HP",
-          "6000 HP",
-          "12000 HP",
-          "9000 HP"
+          "Cab 2",
+          "Fire detection",
+          "Memotel (Speedometer)",
+          "Processor FLG1"
         ],
-        "correct_option": "12000 HP",
-        "topic": "WAG12B Loco",
-        "level": "Easy",
-        "id": "MCQ0007"
-      },
-      {
-        "text": "WAG12B locomotives are primarily deployed for:",
-        "options": [
-          "Suburban EMU services",
-          "Heavy haul freight operations",
-          "High speed passenger services only",
-          "Shunting yard duties only"
-        ],
-        "correct_option": "Heavy haul freight operations",
-        "topic": "WAG12B Loco",
-        "level": "Medium",
-        "id": "MCQ0008"
-      },
-      {
-        "text": "WAG12B locomotives were built with technical collaboration involving:",
-        "options": [
-          "Bombardier",
-          "Alstom",
-          "Siemens",
-          "Hitachi"
-        ],
-        "correct_option": "Alstom",
-        "topic": "WAG12B Loco",
-        "level": "Hard",
-        "id": "MCQ0009"
-      },
-      {
-        "text": "Before starting a locomotive, the Loco Pilot must first check:",
-        "options": [
-          "Music system",
-          "Brake power and safety fittings",
-          "Canteen supplies",
-          "Passenger seating"
-        ],
-        "correct_option": "Brake power and safety fittings",
-        "topic": "Safety Rules",
-        "level": "Easy",
-        "id": "MCQ0010"
-      },
-      {
-        "text": "On sighting a red signal, the Loco Pilot must:",
-        "options": [
-          "Continue at the same speed",
-          "Stop the train before the signal",
-          "Sound horn and pass",
-          "Reverse the train"
-        ],
-        "correct_option": "Stop the train before the signal",
-        "topic": "Safety Rules",
-        "level": "Medium",
-        "id": "MCQ0011"
-      },
-      {
-        "text": "As per General Rules, in case of SPAD (Signal Passed at Danger), the Loco Pilot must immediately:",
-        "options": [
-          "Continue journey and report later",
-          "Stop the train, inform Section Controller/Station Master and follow laid down procedure",
-          "Reverse without informing anyone",
-          "Ignore if no accident occurs"
-        ],
-        "correct_option": "Stop the train, inform Section Controller/Station Master and follow laid down procedure",
-        "topic": "Safety Rules",
-        "level": "Hard",
-        "id": "MCQ0012"
-      },
-      {
-        "text": "Kavach is an indigenous:",
-        "options": [
-          "Train collision avoidance system",
-          "Ticketing system",
-          "Signal maintenance tool",
-          "Coach cleaning system"
-        ],
-        "correct_option": "Train collision avoidance system",
-        "topic": "Kavach",
-        "level": "Easy",
-        "id": "MCQ0013"
-      },
-      {
-        "text": "Kavach system automatically applies brakes when the Loco Pilot fails to respond to a:",
-        "options": [
-          "Speed restriction/signal warning within stipulated time",
-          "Meal break reminder",
-          "Fuel level alert",
-          "Door open alert"
-        ],
-        "correct_option": "Speed restriction/signal warning within stipulated time",
-        "topic": "Kavach",
-        "level": "Medium",
-        "id": "MCQ0014"
-      },
-      {
-        "text": "DPWCS is primarily used for:",
-        "options": [
-          "Distributed Power Wireless Communication and Synchronisation between locomotives",
-          "Diesel Pump Water Cooling System",
-          "Digital Passenger Wifi Control System",
-          "Depot Power and Wagon Control System"
-        ],
-        "correct_option": "Distributed Power Wireless Communication and Synchronisation between locomotives",
-        "topic": "DPWCS",
-        "level": "Medium",
-        "id": "MCQ0015"
-      },
-      {
-        "text": "The auxiliary generator in a diesel-electric locomotive primarily supplies power to:",
-        "options": [
-          "Traction motors",
-          "Battery charging and control circuits",
-          "Compressor motor only",
-          "Head light only"
-        ],
-        "correct_option": "Battery charging and control circuits",
-        "topic": "Conventional Loco",
-        "level": "Easy",
-        "id": "MCQ0016"
-      },
-      {
-        "text": "The main transformer in a three-phase electric locomotive steps down OHE voltage before feeding it to:",
-        "options": [
-          "Traction motors directly",
-          "The converter-inverter system",
-          "Battery charging circuit only",
-          "Compressor supply only"
-        ],
-        "correct_option": "The converter-inverter system",
+        "correct_option": "NIL",
         "topic": "Three Phase Loco",
-        "level": "Easy",
-        "id": "MCQ0017"
+        "level": "Medium"
       },
       {
-        "text": "WAG12B locomotives operate on which electrification system?",
+        "id": "MCQ0040",
+        "text": "In 3 phase loco, battery charger gets supply from ______.",
         "options": [
-          "25kV AC single phase",
-          "1500V DC",
-          "3000V DC",
-          "750V DC third rail"
+          "Auxiliary converter No. 1",
+          "Auxiliary converter No. 2",
+          "Auxiliary converter No. 3",
+          "Traction converter No. 1"
         ],
-        "correct_option": "25kV AC single phase",
-        "topic": "WAG12B Loco",
-        "level": "Easy",
-        "id": "MCQ0018"
-      },
-      {
-        "text": "A Loco Pilot must always carry a valid ______ while on duty.",
-        "options": [
-          "Link card and identity card",
-          "Personal laptop",
-          "Umbrella only",
-          "Newspaper"
-        ],
-        "correct_option": "Link card and identity card",
-        "topic": "Safety Rules",
-        "level": "Easy",
-        "id": "MCQ0019"
-      },
-      {
-        "text": "The onboard Kavach unit includes a Loco Pilot display for showing:",
-        "options": [
-          "Speed and signal information",
-          "Entertainment content",
-          "Weather forecast",
-          "Ticket sales"
-        ],
-        "correct_option": "Speed and signal information",
-        "topic": "Kavach",
-        "level": "Easy",
-        "id": "MCQ0020"
-      },
-      {
-        "text": "DPWCS communication between locomotives typically uses:",
-        "options": [
-          "A radio frequency link",
-          "A cable strung along the track",
-          "Sound signals",
-          "Visual flags"
-        ],
-        "correct_option": "A radio frequency link",
-        "topic": "DPWCS",
-        "level": "Medium",
-        "id": "MCQ0021"
-      },
-      {
-        "text": "In a diesel-electric locomotive, exhaust gas energy is used to drive the:",
-        "options": [
-          "Turbocharger",
-          "Traction alternator",
-          "Air compressor",
-          "Radiator fan directly"
-        ],
-        "correct_option": "Turbocharger",
-        "topic": "Conventional Loco",
-        "level": "Medium",
-        "id": "MCQ0022"
-      },
-      {
-        "text": "The main advantage of IGBT-based converters over older GTO-based converters in three-phase locomotives is:",
-        "options": [
-          "Lower switching losses and better control",
-          "Higher weight",
-          "Lower cost only",
-          "No advantage"
-        ],
-        "correct_option": "Lower switching losses and better control",
+        "correct_option": "NIL",
         "topic": "Three Phase Loco",
-        "level": "Medium",
-        "id": "MCQ0023"
+        "level": "Medium"
       },
       {
-        "text": "In addition to air brakes, WAG12B locomotives are equipped with which braking system to recover energy?",
+        "id": "MCQ0041",
+        "text": "In 3 phase loco, to isolate truck No. 2 (traction converter-2), keep ______ switch in ______ position.",
         "options": [
-          "Regenerative braking",
-          "Vacuum braking only",
-          "Hand brake only",
-          "No additional braking"
+          "154, I",
+          "154, II",
+          "154, Norm",
+          "154, I & II"
         ],
-        "correct_option": "Regenerative braking",
-        "topic": "WAG12B Loco",
-        "level": "Medium",
-        "id": "MCQ0024"
-      },
-      {
-        "text": "Signal sighting distance requirements for Loco Pilots are governed by:",
-        "options": [
-          "General Rules / Signal Engineering Manual",
-          "Personal judgement only",
-          "Guard's instruction only",
-          "Not specified"
-        ],
-        "correct_option": "General Rules / Signal Engineering Manual",
-        "topic": "Safety Rules",
-        "level": "Medium",
-        "id": "MCQ0025"
-      },
-      {
-        "text": "Kavach's SIL (Safety Integrity Level) certification indicates that the system:",
-        "options": [
-          "Meets high safety reliability standards for railway signalling",
-          "Is a low-cost add-on only",
-          "Is only a training tool",
-          "Replaces the Guard"
-        ],
-        "correct_option": "Meets high safety reliability standards for railway signalling",
-        "topic": "Kavach",
-        "level": "Hard",
-        "id": "MCQ0026"
-      },
-      {
-        "text": "If the wireless link between locomotives fails in a DPWCS-fitted train, the system typically:",
-        "options": [
-          "Alerts the Loco Pilot and may require manual intervention",
-          "Automatically derails the train",
-          "Has no effect on operation",
-          "Increases speed automatically"
-        ],
-        "correct_option": "Alerts the Loco Pilot and may require manual intervention",
-        "topic": "DPWCS",
-        "level": "Hard",
-        "id": "MCQ0027"
-      },
-      {
-        "text": "The 'load box test' on a diesel locomotive is primarily used to:",
-        "options": [
-          "Test alternator/engine performance under simulated load",
-          "Test the horn",
-          "Test the headlight",
-          "Test the toilet system"
-        ],
-        "correct_option": "Test alternator/engine performance under simulated load",
-        "topic": "Conventional Loco",
-        "level": "Hard",
-        "id": "MCQ0028"
-      },
-      {
-        "text": "Notching up too fast under low adhesion conditions in a three-phase locomotive can primarily lead to:",
-        "options": [
-          "Wheel slip",
-          "Improved traction",
-          "Lower fuel consumption",
-          "No effect"
-        ],
-        "correct_option": "Wheel slip",
+        "correct_option": "NIL",
         "topic": "Three Phase Loco",
-        "level": "Hard",
-        "id": "MCQ0029"
+        "level": "Medium"
       },
       {
-        "text": "WAG12B's higher haulage capacity compared to WAG9 is mainly attributed to:",
+        "id": "MCQ0042",
+        "text": "______ no of aux motors are provided in each section of wag12B loco",
         "options": [
-          "Higher horsepower and improved traction control",
-          "Smaller size",
-          "Lower weight",
-          "Manual gear shifting"
+          "11",
+          "12",
+          "13",
+          "NONE"
         ],
-        "correct_option": "Higher horsepower and improved traction control",
+        "correct_option": "NIL",
         "topic": "WAG12B Loco",
-        "level": "Hard",
-        "id": "MCQ0030"
+        "level": "Medium"
       },
       {
-        "text": "On approach to a level crossing gate, the Loco Pilot must:",
+        "id": "MCQ0043",
+        "text": "To operate HOM ______ KEY is used in WAG12B",
         "options": [
-          "Sound whistle as prescribed and be prepared to stop",
-          "Accelerate",
-          "Ignore the gate",
-          "Reverse"
+          "PATRA Key",
+          "MASCON KEY",
+          "KABA KEY",
+          "NONE"
         ],
-        "correct_option": "Sound whistle as prescribed and be prepared to stop",
-        "topic": "Safety Rules",
-        "level": "Easy",
-        "id": "MCQ0031"
-      },
-      {
-        "text": "Kavach's radio communication uses which type of frequency band as specified by RDSO?",
-        "options": [
-          "UHF band",
-          "AM radio band",
-          "Visible light",
-          "Bluetooth only"
-        ],
-        "correct_option": "UHF band",
-        "topic": "Kavach",
-        "level": "Medium",
-        "id": "MCQ0032"
-      },
-      {
-        "text": "DPWCS helps reduce which operational issue in long freight trains?",
-        "options": [
-          "In-train (buff/draft) forces by synchronising braking and traction",
-          "Ticket booking delays",
-          "Signal maintenance",
-          "Track gauge variation"
-        ],
-        "correct_option": "In-train (buff/draft) forces by synchronising braking and traction",
-        "topic": "DPWCS",
-        "level": "Medium",
-        "id": "MCQ0033"
-      },
-      {
-        "text": "The equalizing reservoir in the automatic air brake system is used to:",
-        "options": [
-          "Maintain the reference brake pipe pressure",
-          "Store fuel",
-          "Cool the engine",
-          "Store lubricating oil"
-        ],
-        "correct_option": "Maintain the reference brake pipe pressure",
-        "topic": "Conventional Loco",
-        "level": "Medium",
-        "id": "MCQ0034"
-      },
-      {
-        "text": "Which of the following is NOT a typical component of a three-phase locomotive's traction system?",
-        "options": [
-          "Carburetor",
-          "Converter",
-          "Inverter",
-          "Traction transformer"
-        ],
-        "correct_option": "Carburetor",
-        "topic": "Three Phase Loco",
-        "level": "Easy",
-        "id": "MCQ0035"
-      },
-      {
-        "text": "WAG12B locomotives are primarily deployed on high-speed heavy haul freight corridors under Mission:",
-        "options": [
-          "Raftaar",
-          "Indradhanush",
-          "Amrit Kaal",
-          "Utkarsh"
-        ],
-        "correct_option": "Raftaar",
+        "correct_option": "NIL",
         "topic": "WAG12B Loco",
-        "level": "Medium",
-        "id": "MCQ0036"
+        "level": "Medium"
       },
       {
-        "text": "As per safety rules, alcohol consumption before or during duty by running staff is:",
+        "id": "MCQ0044",
+        "text": "If WDG4/P4 Loco Shut down, with EPD crank case tripped, trouble shoot ______",
         "options": [
-          "Strictly prohibited",
-          "Allowed in small quantity",
-          "Allowed after checking",
-          "Allowed only for senior staff"
+          "Reset EPD, after checking",
+          "Reset LLOB, then reset EPD CC",
+          "Fail the Loco",
+          "A and B"
         ],
-        "correct_option": "Strictly prohibited",
-        "topic": "Safety Rules",
-        "level": "Easy",
-        "id": "MCQ0037"
+        "correct_option": "NIL",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
       },
       {
-        "text": "One of the key objectives of Kavach is to prevent accidents caused by:",
+        "id": "MCQ0045",
+        "text": "What is the position of EAB handles in non working Cab of GE Loco is",
         "options": [
-          "Loco Pilot error in observing signals (SPAD)",
-          "Passenger ticketing fraud",
-          "Poor catering service",
-          "Track colour fading"
+          "FS, Trail, Release",
+          "No change but ECS off",
+          "FS, Trail. Rel but ECS ON",
+          "FS, Trail, Apply"
         ],
-        "correct_option": "Loco Pilot error in observing signals (SPAD)",
-        "topic": "Kavach",
-        "level": "Easy",
-        "id": "MCQ0038"
+        "correct_option": "NIL",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
       },
       {
-        "text": "DPWCS enables a single Loco Pilot at the lead locomotive to control:",
+        "id": "MCQ0046",
+        "text": "If WDG4/P4 Loco Shut down, Check ______",
         "options": [
-          "Traction and braking of remote/distributed locomotives",
-          "Only the horn of remote locomotives",
-          "Only lighting of remote locomotives",
-          "Nothing remotely"
+          "LLOB",
+          "OSTA",
+          "EPD",
+          "Above all"
         ],
-        "correct_option": "Traction and braking of remote/distributed locomotives",
-        "topic": "DPWCS",
-        "level": "Easy",
-        "id": "MCQ0039"
+        "correct_option": "NIL",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
       },
       {
-        "text": "Which gauge on a diesel-electric locomotive indicates the engine's lubricating oil pressure?",
+        "id": "MCQ0047",
+        "text": "In GE Loco,while opening BP to formation position of Mode switch",
         "options": [
-          "Oil pressure gauge",
-          "Speedometer",
-          "Ammeter",
-          "Vacuum gauge"
+          "TEST",
+          "LEAD",
+          "HELPER",
+          "TRAIL"
         ],
-        "correct_option": "Oil pressure gauge",
-        "topic": "Conventional Loco",
-        "level": "Easy",
-        "id": "MCQ0040"
+        "correct_option": "NIL",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
       },
       {
-        "text": "Fault diagnostics in modern three-phase locomotives are primarily aided by:",
+        "id": "MCQ0048",
+        "text": "In HHP loco, if GR (power) trips continuously three times within 10 min",
         "options": [
-          "Microprocessor-based control and display systems",
-          "Manual logbooks only",
-          "Guesswork",
-          "External consultants only"
+          "Defective Truck is to isolate",
+          "Defective TM is to isolate",
+          "Defective speed sensor isolated",
+          "Fail the loco"
         ],
-        "correct_option": "Microprocessor-based control and display systems",
-        "topic": "Three Phase Loco",
-        "level": "Medium",
-        "id": "MCQ0041"
+        "correct_option": "NIL",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
       },
       {
-        "text": "The pantograph on a WAG12B locomotive is used to:",
+        "id": "MCQ0049",
+        "text": "The LP and ALP shall ______ each signal, call out the ______ of the signal to each other",
         "options": [
-          "Collect current from the overhead equipment (OHE)",
-          "Apply brakes",
-          "Couple wagons",
-          "Cool the transformer"
+          "Identify, signal",
+          "Identify, aspects",
+          "Observe, aspect",
+          "None"
         ],
-        "correct_option": "Collect current from the overhead equipment (OHE)",
-        "topic": "WAG12B Loco",
-        "level": "Easy",
-        "id": "MCQ0042"
+        "correct_option": "NIL",
+        "topic": "Safety Rules & Train Operation",
+        "level": "Medium"
       },
       {
-        "text": "In foggy weather, Loco Pilots are additionally required to rely on:",
+        "id": "MCQ0050",
+        "text": "When a train is held up at FSS for more than ______ minutes, the LP shall depute ______ to go to the station.",
         "options": [
-          "Fog signals/markers and reduced speed as prescribed",
-          "Increased speed to clear the section faster",
-          "Ignoring signals",
-          "Guard's whistle only"
+          "10,ALP",
+          "8,ALP",
+          "5,TMR",
+          "5,ALP"
         ],
-        "correct_option": "Fog signals/markers and reduced speed as prescribed",
-        "topic": "Safety Rules",
-        "level": "Medium",
-        "id": "MCQ0043"
+        "correct_option": "NIL",
+        "topic": "Safety Rules & Train Operation",
+        "level": "Medium"
       },
       {
-        "text": "Kavach mandates fitment of RFID tags along the track primarily for:",
+        "id": "MCQ0051",
+        "text": "In foggy weather,in Automatic single line section, when Signal double yellow the speed",
         "options": [
-          "Accurate train location identification",
-          "Ticket validation",
-          "Track cleaning schedule",
-          "Passenger counting"
+          "Below 15kmph",
+          "Below 10kmph",
+          "Below 20kmph",
+          "Below 30kmph"
         ],
-        "correct_option": "Accurate train location identification",
-        "topic": "Kavach",
-        "level": "Medium",
-        "id": "MCQ0044"
+        "correct_option": "NIL",
+        "topic": "Safety Rules & Train Operation",
+        "level": "Medium"
       },
       {
-        "text": "In a distributed power train, DPWCS synchronisation mainly helps prevent:",
+        "id": "MCQ0052",
+        "text": "When train stopped due to inability of the engine to haul the load and if it is not possible to get the relief engine or push back the train,the crew can decide to ______",
         "options": [
-          "Excessive buff and draft forces between locomotive groups",
-          "Ticket fare disputes",
-          "Track gauge widening",
-          "Overhead wire icing"
+          "Wait till relief engine arrives",
+          "Secure and sent ALP to station",
+          "Divide the train",
+          "None"
         ],
-        "correct_option": "Excessive buff and draft forces between locomotive groups",
-        "topic": "DPWCS",
-        "level": "Hard",
-        "id": "MCQ0045"
+        "correct_option": "NIL",
+        "topic": "Safety Rules & Train Operation",
+        "level": "Medium"
       },
       {
-        "text": "DUMMY QUESTION",
+        "id": "MCQ0053",
+        "text": "In case of fire accident in a passenger carrying train, the first objective to be achieved is to ______",
         "options": [
-          "aoption",
-          "aoption",
-          "Boption",
-          "Coption"
+          "Save the life",
+          "Save property",
+          "Protect the train",
+          "Save life and property"
         ],
-        "correct_option": "Doption",
-        "topic": "Kavach",
-        "level": "Easy",
-        "id": "MCQ0046"
+        "correct_option": "NIL",
+        "topic": "Safety Rules & Train Operation",
+        "level": "Medium"
       }
     ],
     "fill_blank": [
       {
         "id": "BLA0001",
-        "text": "The prime mover of a diesel-electric locomotive is the ______.",
-        "answer": "diesel engine",
-        "topic": "Conventional Loco",
-        "level": "Easy"
+        "text": "Location of line contactors L-1, L-2 & L-3 in WAG-7 (above 27200) & in WAP4 locos is at ______",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
       },
       {
         "id": "BLA0002",
-        "text": "The device used to change the direction of current flow to traction motors for reversing locomotive direction is called the ______.",
-        "answer": "reverser",
-        "topic": "Conventional Loco",
+        "text": "Location of line contactors L-4, L-5 & L-6 in WAG-7 (above 27200) & in WAP4 locos is at ______",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Electrical & General",
         "level": "Medium"
       },
       {
         "id": "BLA0003",
-        "text": "In a diesel-electric locomotive, the ______ governs fuel injection to maintain constant engine speed at a given notch.",
-        "answer": "governor",
-        "topic": "Conventional Loco",
-        "level": "Hard"
+        "text": "Location of MVSL-1 in WAG-7 loco 27200 onwards is ______",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
       },
       {
         "id": "BLA0004",
-        "text": "Three-phase locomotives draw single-phase AC from the OHE and convert it using a ______ before feeding the traction motors.",
-        "answer": "converter-inverter",
-        "topic": "Three Phase Loco",
-        "level": "Easy"
+        "text": "When additional BP angle cock is closed in leading side, ______ cab BP gauge shows '0' reading",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Air Brake System",
+        "level": "Medium"
       },
       {
         "id": "BLA0005",
-        "text": "The semiconductor devices commonly used in the converter/inverter of three-phase locomotives are ______.",
-        "answer": "IGBTs / GTO thyristors",
-        "topic": "Three Phase Loco",
+        "text": "In conventional locos, A8 COC Position while working with cab-2 leading is ______",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Air Brake System",
         "level": "Medium"
       },
       {
         "id": "BLA0006",
-        "text": "In three-phase locomotives, wheel slip/slide control is achieved through ______ control of individual traction motors.",
-        "answer": "microprocessor-based individual axle",
-        "topic": "Three Phase Loco",
-        "level": "Hard"
+        "text": "Normal pressure of SMGR is ______ kg/cm2",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
       },
       {
         "id": "BLA0007",
-        "text": "WAG12B is a ______ HP class electric freight locomotive.",
-        "answer": "12000",
-        "topic": "WAG12B Loco",
-        "level": "Easy"
+        "text": "Location of A-8 COC in WAG-7 loco above 27200 is ______",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Air Brake System",
+        "level": "Medium"
       },
       {
         "id": "BLA0008",
-        "text": "WAG12B locomotives are manufactured at the Electric Locomotive Factory located at ______.",
-        "answer": "Madhepura, Bihar",
-        "topic": "WAG12B Loco",
+        "text": "Brake pipe pressure should be ______ kg/cm2 in locomotive and ______ kg/cm2 in brake van of train having 58 vehicles.",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Air Brake System",
         "level": "Medium"
       },
       {
         "id": "BLA0009",
-        "text": "Before departure, the Loco Pilot must ensure the ______ certificate is available and valid.",
-        "answer": "BPC (Brake Power Certificate)",
-        "topic": "Safety Rules",
-        "level": "Easy"
+        "text": "In WAG 7 loco, if all line contactors are not closed, ensure ______ COCs are in open position",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
       },
       {
         "id": "BLA0010",
-        "text": "As per rules, the speed of a train must never exceed the ______ prescribed for the section or the stock, whichever is lower.",
-        "answer": "maximum permissible speed (MPS)",
-        "topic": "Safety Rules",
+        "text": "When BP drops below 4.4 kg/cm2 (in BP gauge) without A9 ______ starts functioning",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Air Brake System",
         "level": "Medium"
       },
       {
         "id": "BLA0011",
-        "text": "In case of failure of the train's brake system causing an unscheduled stop, the Loco Pilot must protect the train as per ______ rule.",
-        "answer": "G&SR protection",
-        "topic": "Safety Rules",
-        "level": "Hard"
+        "text": "Location of C-145 in WAG-7 (27200 onwards) & in WAP4 (with RB) is at ______.",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
       },
       {
         "id": "BLA0012",
-        "text": "Kavach was developed by the Research Designs and Standards Organisation, commonly abbreviated as ______.",
-        "answer": "RDSO",
-        "topic": "Kavach",
-        "level": "Easy"
+        "text": "The ______ reservoir pressure is used for BA2 and BA3 panels in WAG5 loco.",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Air Brake System",
+        "level": "Medium"
       },
       {
         "id": "BLA0013",
-        "text": "Kavach uses ______ technology for continuous train location and movement authority updates.",
-        "answer": "RFID and GPS with radio communication",
-        "topic": "Kavach",
+        "text": "When BPSW is pressed, ______ valve energizes for quick recreation of BP pressure.",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Air Brake System",
         "level": "Medium"
       },
       {
         "id": "BLA0014",
-        "text": "In Kavach-fitted sections, the system enforces automatic brake application to prevent ______ collisions and SPAD incidents.",
-        "answer": "train-to-train",
-        "topic": "Kavach",
-        "level": "Hard"
-      },
-      {
-        "id": "BLA0015",
-        "text": "DPWCS enables synchronised throttle, braking, and fault status communication between the lead and remote locomotives in a ______ formation.",
-        "answer": "distributed power (banker/multiple unit)",
-        "topic": "DPWCS",
+        "text": "Location of HQOP-1 in WAG-7 loco 27200 onwards is ______",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Electrical & General",
         "level": "Medium"
       },
       {
-        "text": "The ______ generator supplies power for battery charging and control circuits in a diesel-electric locomotive.",
-        "answer": "auxiliary",
-        "topic": "Conventional Loco",
-        "level": "Easy",
-        "id": "BLA0016"
+        "id": "BLA0015",
+        "text": "In conventional locos proportional working pressure with A9 is ______ kg/cm2",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Air Brake System",
+        "level": "Medium"
       },
       {
-        "text": "The ______ steps down OHE voltage before it is fed to the converter-inverter system in a three-phase locomotive.",
-        "answer": "main transformer",
-        "topic": "Three Phase Loco",
-        "level": "Easy",
-        "id": "BLA0017"
+        "id": "BLA0016",
+        "text": "For normal functioning of air dryer, ______ color COCs to be kept open and ______ color COC to be kept closed.",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Air Brake System",
+        "level": "Medium"
       },
       {
-        "text": "WAG12B locomotives operate on ______ kV AC single-phase electrification.",
-        "answer": "25",
+        "id": "BLA0017",
+        "text": "In conventional locos, for discharging back pressure from CP delivery pipe line, ______ valves are provided",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Air Brake System",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0018",
+        "text": "Maximum ______ kg/cm2 of pressure will go to brake cylinders of each wagon, when BP drops to '0'.",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Air Brake System",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0019",
+        "text": "A-8 COC position is ______ in MU leading loco and ______ in MU trailing loco",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Air Brake System",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0020",
+        "text": "In BMBC system, each coach having ______ no. of brake cylinders.",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Air Brake System",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0021",
+        "text": "Maximum loco brake cylinder pressure with A9 is ______ kg/cm2 and with SA-9 is ______ kg/cm2.",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Air Brake System",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0022",
+        "text": "In MU locos, MU2B position in leading loco is ______ and in trailing loco is ______",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Air Brake System",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0023",
+        "text": "In conventional locos, if DJ trips during RB ______ valve destroys BP pressure automatically.",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Air Brake System",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0024",
+        "text": "Sensitivity of distributor valve is reduction of ______ kg/cm2 amount of BP pressure within ______ seconds.",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Air Brake System",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0025",
+        "text": "In conventional dead loco, IP (M) COC must be in ______ position.",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Air Brake System",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0026",
+        "text": "Leakages in formation 'BP' pipe is indicated through ______ gauges in both cabs",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Air Brake System",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0027",
+        "text": "In air brake locos, ALP emergency brake is connected to ______ pipe line.",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Air Brake System",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0028",
+        "text": "When additional BP cut out cock is closed on formation side, ______ pressure will not charge in to the formation",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Air Brake System",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0029",
+        "text": "Location of CTF-3 in WAG-7 loco 27200 onwards & WAP4 (with RB) is ______",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0030",
+        "text": "Normal position of additional BP cut out cocks on either side of the loco is ______",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Air Brake System",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0031",
+        "text": "The C145 contactor position is ______ when MP is in traction side.",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0032",
+        "text": "For grounding conventional loco, place ZPT key in HOM box in ______ position and turn it to ______ position in clock wise direction.",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0033",
+        "text": "When MP is in traction side, the CTF1, CTF2 & CTF3 handles position are ______",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0034",
+        "text": "In single pipe air brake system, formation wagon / coach auxiliary reservoir is charged with ______ Pressure",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Air Brake System",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0035",
+        "text": "In MU both locos pneumatic pressure is maintained equally through ______ pipe.",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Air Brake System",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0036",
+        "text": "In twin pipe air brake system, coaches auxiliary reservoir is charged with ______ Pressure",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Air Brake System",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0037",
+        "text": "In double head trailing loco, A8 COC must be in ______ position.",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Air Brake System",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0038",
+        "text": "While moving conventional loco as dead, MR4 reservoir is charged with ______ pressure when DV is in service",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Air Brake System",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0039",
+        "text": "During CP efficiency test, when BPSW is pressed, BP should not drop below ______ kg/cm2 (write the BP gauge reading).",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Air Brake System",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0040",
+        "text": "During BP continuity test, ______ kg/cm2 of BP pressure to be dropped through A9 in the loco.",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Air Brake System",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0041",
+        "text": "When C145 contactor is closed, ______ lamp glows near Q50 relay.",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0042",
+        "text": "When L1 or L6 is not closed, then ______ traction failure occurs.",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0043",
+        "text": "Whenever cattle run over takes place, if BP dropped the immediate duty of crew is to switch ON ______ light",
+        "answer": "NIL",
+        "topic": "Safety Rules & Train Operation",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0044",
+        "text": "Whenever cattle run over takes place, after clearing the block section, the LP has to check ______ voltage",
+        "answer": "NIL",
+        "topic": "Safety Rules & Train Operation",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0045",
+        "text": "Whenever cattle run over takes place, if BP dropped due to front side BP angle cut-off cock is broken, the duty of LP is to maintain BP pressure is by closing ______ COC.",
+        "answer": "NIL",
+        "topic": "Safety Rules & Train Operation",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0046",
+        "text": "On closing BLDJ, pressing BLRDJ, LSDJ remains glowing means ______ Tripping failure",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0047",
+        "text": "While checking reasons for ICDJ, UBA meter shows more than 90 V indicates ______ fuse(s) are in good condition",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0048",
+        "text": "Earth fault in MTDJ coil causes ______ fuse to melt.",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0049",
+        "text": "For closing of DJ ______ push button can be used.",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0050",
+        "text": "In emergency DJ can be tripped by ALP by pressing ______ push button switch in cab-2.",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0051",
+        "text": "Defective QVRH relay causes ______ tripping failure.",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0052",
+        "text": "Defective QPH relay causes ______ tripping failure.",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0053",
+        "text": "LSCHBA glowing on run, but DJ is not tripped indicates ______ or ______ equipment is defective.",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0054",
+        "text": "Any blower contactor not closed, causes ______ tripping failure.",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0055",
+        "text": "Defective MVSI-1 motor causes ______ tripping failure.",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0056",
+        "text": "Sluggish operation of GR causes tripping of DJ through ______ relay.",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0057",
+        "text": "Struck up of GR in full notches during quick regression causes tripping of DJ through ______ relay energisation",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0058",
+        "text": "Energisation of any safety relay, causes DJ to trip after ______ seconds",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0059",
+        "text": "Defective Q 30 relay leads to ______ tripping failure.",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0060",
+        "text": "For wedging ______ relay in DJ Control circuit, permission of TLC is necessary",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0061",
+        "text": "After passing neutral section, If ICDJ is experienced, check ______ & ______ fuses",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0062",
+        "text": "When MPJ is kept in Reverse direction in cab 2, the J1 & J2 handles position are ______",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0063",
+        "text": "In Static converter loco, to work MCPs ______ & ______ relays should be energized",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0064",
+        "text": "In SIV locos, ______ switch is to be kept on '0', in the event of external earth fault and unable to rectify and to work the train further.",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0065",
+        "text": "C108 contactor is provided for ______ motor.",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0066",
+        "text": "After using RB in SIV locos, experiencing 6th notch tripping, ensure whether ______ contactor is closed",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0067",
+        "text": "In Microprocessor loco, if experienced TLTE due to malfunctioning of AFL/ACP circuit, change the position of ______ switch",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0068",
+        "text": "If DJ is tripped through static converter, ______ Lamp glows in both the cabs.",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0069",
+        "text": "To avoid QD action in microprocessor loco, ______ switch to be pressed up to 10th notch.",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0070",
+        "text": "HRAVT is provided to isolate ______, ______, ______ Equipment",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0071",
+        "text": "When static converter is not working ______ fuse(s) to be checked.",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0072",
+        "text": "In static converter locos compressors will start with a delay of ______ seconds after extinguishing of LSCHBA",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0073",
+        "text": "In SIV locos, if LSSIT glows continuously, crew experience ______ tripping failure",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0074",
+        "text": "In static converter locos during RB, ______ motor stops working and ______ motor starts working.",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0075",
+        "text": "When SIV is working ______ relay energises",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0076",
+        "text": "In microprocessor loco ______ fuses are removed.",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0077",
+        "text": "The correct preparation for traction as well as braking is supervised by ______ relay.",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0078",
+        "text": "If earth fault occurs in out side of SIV, ______ lamp glows on SIV panel.",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0079",
+        "text": "In static converter loco DJ control circuit, on MTDJ branch ______ relay interlock provided in place of QOA &QLA.",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0080",
+        "text": "When TLTE with LSB is experienced, it indicates ______ relay not energized.",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0081",
+        "text": "______ type bogie provided in WAG-7 locos.",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0082",
+        "text": "______ type bogie provided in WAP-4 locos.",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0083",
+        "text": "When hand brake is applied in WAG-5 or in WAG-7 locos, ______ & ______ wheels brakes gets apply",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Air Brake System",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0084",
+        "text": "Switch OFF blowers when the train is expected to stop for more than ______ minutes to conserve the energy.",
+        "answer": "NIL",
+        "topic": "Energy Conservation",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0085",
+        "text": "If train is expected to stop for more than ______ minutes lower the panto with the consultation of SM/SCOR.",
+        "answer": "NIL",
+        "topic": "Energy Conservation",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0086",
+        "text": "While working with MU, If CHBA is failed in trailing loco ______ & ______ lamps will glow in leading loco.",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0087",
+        "text": "While working with MU ______ lamp glows in healthy loco, ______ lamp glows in defective loco.",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0088",
+        "text": "While attaching loco on to formation stop the loco first at ______ meters from the formation.",
+        "answer": "NIL",
+        "topic": "Safety Rules & Train Operation",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0089",
+        "text": "In roof mounted RB provided WAP-4 locos, revised setting of QF relay is ______ Amps",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0090",
+        "text": "In conventional locos, if VCD is not acknowledged, after 60secs, ______ will happen for next 8secs.",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Air Brake System",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0091",
+        "text": "In conventional locos, when VCD is acted, ______ actions will take place.",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Air Brake System",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0092",
+        "text": "When BPEMS is pressed, ______ actions will take place.",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Air Brake System",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0093",
+        "text": "Before taking notches, if Q51 is in energised condition crew experiences ______ traction failure.",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0094",
+        "text": "In conventional locos, for resetting VCD, ______ to be pressed.",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Air Brake System",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0095",
+        "text": "For operating GR manually take out ZSMGR handle from ______ position",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0096",
+        "text": "While operating GR manually GR shall be rotated within ______ seconds.",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0097",
+        "text": "When MP is moved from traction to braking side, the correct preparation for braking is ensured by glowing and extinguishing of ______ signaling lamp.",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0098",
+        "text": "Whenever DJ is tripped on notches GR comes to zero by ______ relay.",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0099",
+        "text": "While operating GR manually MP should be placed in ______ Position.",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0100",
+        "text": "When C107 is not closed, try by keeping ______ switch on ______ position.",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0101",
+        "text": "After wedging any 3 phase EM contactor ensure ______ without fail.",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0102",
+        "text": "While using RB ______ brakes should not be used to avoid loco wheel skidding.",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0103",
+        "text": "If ______ number of fuses are projected in same RSI block, isolate concerned block and work further",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0104",
+        "text": "Traction motor meter connections in Cab-1 are ______ and in Cab-2 are ______",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0105",
+        "text": "On run when GR is on notches and CCPT is melted, ______ happens in the loco",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0106",
+        "text": "When CCA is melted crew experiences ______ tripping failure.",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0107",
+        "text": "During RB ______ valve energizes automatically to avoid proportional working.",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Air Brake System",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0108",
+        "text": "When notches are not progressing & regressing by MP, try with ______",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0109",
+        "text": "When Pacco switch is in pressed condition, crew experiences ______",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0110",
+        "text": "On closing HBA and ZUBA, if UBA reads zero volts ______ Fuse to be changed",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0111",
+        "text": "The purpose of ATD in OHE is ______.",
+        "answer": "NIL",
+        "topic": "OHE & Pantograph",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0112",
+        "text": "To maintain uniform wear & tear of panto pan ______ arrangement is provided on OHE.",
+        "answer": "NIL",
+        "topic": "OHE & Pantograph",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0113",
+        "text": "When head light is not glowing work the train with maximum ______ kmph speed during night time.",
+        "answer": "NIL",
+        "topic": "Safety Rules & Train Operation",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0114",
+        "text": "The OHE supply of two traction substations is separated by ______",
+        "answer": "NIL",
+        "topic": "OHE & Pantograph",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0115",
+        "text": "The zig-zag arrangement of contact wire is called as ______",
+        "answer": "NIL",
+        "topic": "OHE & Pantograph",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0116",
+        "text": "On run, if OHE contact wire is found hanging, the immediate duty of the crew is ______",
+        "answer": "NIL",
+        "topic": "OHE & Pantograph",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0117",
+        "text": "If ATDs are provided at both ends of contact and catenary wires, it is known as ______ type of OHE.",
+        "answer": "NIL",
+        "topic": "OHE & Pantograph",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0118",
+        "text": "The purpose of the CHBA is ______ & ______",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0119",
+        "text": "Poly glass material projecting from TM vent mesh is called as ______ failure.",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0120",
+        "text": "If MPH motor is isolated, starting 5 minutes ______ Amps current and continuously ______ Amps current to be observed for TM.",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0121",
+        "text": "To isolate the TM-5 in WAG-7 loco, HMCS-2 has to be placed in ______ position and ______ bit to be packed on -ve side of TM.",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0122",
+        "text": "After moving MP to 'P' position, ______ contactor closes.",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0123",
+        "text": "If banding failure takes place clear the section with not exceeding ______ Kmph of restricted speed.",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0124",
+        "text": "RB should not be used if ______ relay is wedged in energized condition",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0125",
+        "text": "QD-1 is connected between ______ and ______ traction motors.",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0126",
+        "text": "In WAG12B, loco shall not move up to ______ KN while conducting loco brake power test.",
+        "answer": "NIL",
         "topic": "WAG12B Loco",
-        "level": "Easy",
-        "id": "BLA0018"
+        "level": "Medium"
       },
       {
-        "text": "A Loco Pilot must always carry a valid ______ and identity card while on duty.",
-        "answer": "link card",
-        "topic": "Safety Rules",
-        "level": "Easy",
-        "id": "BLA0019"
-      },
-      {
-        "text": "The onboard Kavach unit displays speed and signal information to the Loco Pilot on the ______.",
-        "answer": "Loco Pilot display unit",
-        "topic": "Kavach",
-        "level": "Easy",
-        "id": "BLA0020"
-      },
-      {
-        "text": "DPWCS communication between the lead and remote locomotives is carried over a ______ link.",
-        "answer": "radio (wireless)",
-        "topic": "DPWCS",
-        "level": "Medium",
-        "id": "BLA0021"
-      },
-      {
-        "text": "In a diesel-electric locomotive, the ______ uses exhaust gas energy to boost intake air pressure.",
-        "answer": "turbocharger",
-        "topic": "Conventional Loco",
-        "level": "Medium",
-        "id": "BLA0022"
-      },
-      {
-        "text": "______-based converters offer lower switching losses compared to older GTO-based converters in three-phase locomotives.",
-        "answer": "IGBT",
-        "topic": "Three Phase Loco",
-        "level": "Medium",
-        "id": "BLA0023"
-      },
-      {
-        "text": "In addition to air brakes, WAG12B locomotives are equipped with ______ braking to recover energy.",
-        "answer": "regenerative",
+        "id": "BLA0127",
+        "text": "To stop dehumidifier open ______ MCB after deenergising WAG12B loco.",
+        "answer": "NIL",
         "topic": "WAG12B Loco",
-        "level": "Medium",
-        "id": "BLA0024"
+        "level": "Medium"
       },
       {
-        "text": "Signal sighting distance is governed by the General Rules and the ______ Manual.",
-        "answer": "Signal Engineering",
-        "topic": "Safety Rules",
-        "level": "Medium",
-        "id": "BLA0025"
-      },
-      {
-        "text": "Kavach's high safety reliability is certified through a ______ (Safety Integrity Level) rating.",
-        "answer": "SIL",
-        "topic": "Kavach",
-        "level": "Hard",
-        "id": "BLA0026"
-      },
-      {
-        "text": "If the wireless link in a DPWCS-fitted train fails, the Loco Pilot is alerted and may need to take ______ action.",
-        "answer": "manual intervention",
-        "topic": "DPWCS",
-        "level": "Hard",
-        "id": "BLA0027"
-      },
-      {
-        "text": "The ______ test checks diesel engine and alternator performance under simulated load conditions.",
-        "answer": "load box",
-        "topic": "Conventional Loco",
-        "level": "Hard",
-        "id": "BLA0028"
-      },
-      {
-        "text": "Notching up too quickly under low adhesion conditions can cause wheel ______ in three-phase locomotives.",
-        "answer": "slip",
-        "topic": "Three Phase Loco",
-        "level": "Hard",
-        "id": "BLA0029"
-      },
-      {
-        "text": "WAG12B's higher haulage capacity compared to WAG9 is mainly due to its higher ______ and improved traction control.",
-        "answer": "horsepower",
+        "id": "BLA0128",
+        "text": "Max. permissible speed of WAG12B is ______ KMPH at axle load of 22.5T.",
+        "answer": "NIL",
         "topic": "WAG12B Loco",
-        "level": "Hard",
-        "id": "BLA0030"
+        "level": "Medium"
       },
       {
-        "text": "At a level crossing, the Loco Pilot must sound the whistle as prescribed and be prepared to ______.",
-        "answer": "stop",
-        "topic": "Safety Rules",
-        "level": "Easy",
-        "id": "BLA0031"
-      },
-      {
-        "text": "Kavach's radio communication operates in the ______ band as specified by RDSO.",
-        "answer": "UHF",
-        "topic": "Kavach",
-        "level": "Medium",
-        "id": "BLA0032"
-      },
-      {
-        "text": "DPWCS reduces in-train (buff and draft) forces by synchronising ______ and traction across the consist.",
-        "answer": "braking",
-        "topic": "DPWCS",
-        "level": "Medium",
-        "id": "BLA0033"
-      },
-      {
-        "text": "The ______ reservoir maintains the reference pressure for automatic air brake application.",
-        "answer": "equalizing",
-        "topic": "Conventional Loco",
-        "level": "Medium",
-        "id": "BLA0034"
-      },
-      {
-        "text": "A ______ is not part of a three-phase locomotive's traction system (it belongs to older carburetted engines instead).",
-        "answer": "carburetor",
-        "topic": "Three Phase Loco",
-        "level": "Easy",
-        "id": "BLA0035"
-      },
-      {
-        "text": "WAG12B locomotives are primarily deployed on high-speed heavy haul freight corridors under Mission ______.",
-        "answer": "Raftaar",
+        "id": "BLA0129",
+        "text": "Panto toggle switch positions are ______.",
+        "answer": "NIL",
         "topic": "WAG12B Loco",
-        "level": "Medium",
-        "id": "BLA0036"
+        "level": "Medium"
       },
       {
-        "text": "Consumption of ______ before or during duty by running staff is strictly prohibited.",
-        "answer": "alcohol",
-        "topic": "Safety Rules",
-        "level": "Easy",
-        "id": "BLA0037"
-      },
-      {
-        "text": "One of Kavach's key objectives is preventing accidents caused by Signal Passed at Danger, commonly abbreviated ______.",
-        "answer": "SPAD",
-        "topic": "Kavach",
-        "level": "Easy",
-        "id": "BLA0038"
-      },
-      {
-        "text": "DPWCS allows a single Loco Pilot at the lead locomotive to control traction and braking of ______ locomotives.",
-        "answer": "remote/banking",
-        "topic": "DPWCS",
-        "level": "Easy",
-        "id": "BLA0039"
-      },
-      {
-        "text": "The ______ gauge indicates the engine's lubricating oil pressure on a diesel-electric locomotive.",
-        "answer": "oil pressure",
-        "topic": "Conventional Loco",
-        "level": "Easy",
-        "id": "BLA0040"
-      },
-      {
-        "text": "Fault diagnostics in modern three-phase locomotives are aided by ______-based control and display systems.",
-        "answer": "microprocessor",
-        "topic": "Three Phase Loco",
-        "level": "Medium",
-        "id": "BLA0041"
-      },
-      {
-        "text": "The ______ on a WAG12B locomotive collects current from the overhead equipment.",
-        "answer": "pantograph",
+        "id": "BLA0130",
+        "text": "If TBC is not responding operate ______ switch.",
+        "answer": "NIL",
         "topic": "WAG12B Loco",
-        "level": "Easy",
-        "id": "BLA0042"
+        "level": "Medium"
       },
       {
-        "text": "In foggy weather, Loco Pilots must additionally rely on ______ and reduced speed as prescribed.",
-        "answer": "fog signals/markers",
-        "topic": "Safety Rules",
-        "level": "Medium",
-        "id": "BLA0043"
+        "id": "BLA0131",
+        "text": "Location of battery voltmeter is ______.",
+        "answer": "NIL",
+        "topic": "WAG12B Loco",
+        "level": "Medium"
       },
       {
-        "text": "Kavach mandates fitment of ______ tags along the track for accurate train location identification.",
-        "answer": "RFID",
-        "topic": "Kavach",
-        "level": "Medium",
-        "id": "BLA0044"
+        "id": "BLA0132",
+        "text": "To operate HOM ______ key to be used.",
+        "answer": "NIL",
+        "topic": "WAG12B Loco",
+        "level": "Medium"
       },
       {
-        "text": "DPWCS synchronisation helps prevent excessive buff and draft ______ between locomotive groups in a distributed power train.",
-        "answer": "forces",
-        "topic": "DPWCS",
-        "level": "Hard",
-        "id": "BLA0045"
+        "id": "BLA0133",
+        "text": "Minimum battery voltage required to energise WAG12B loco is ______.",
+        "answer": "NIL",
+        "topic": "WAG12B Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0134",
+        "text": "______ no of 3ph auxiliary motors are provided in each section of WAG12B.",
+        "answer": "NIL",
+        "topic": "WAG12B Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0135",
+        "text": "Panto selector switch positions are ______, ______ & ______ in WAG12B.",
+        "answer": "NIL",
+        "topic": "WAG12B Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0136",
+        "text": "To overcome 3KMPH trouble in WAG12B ______ switch is to be operated.",
+        "answer": "NIL",
+        "topic": "WAG12B Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0137",
+        "text": "Bogie can be isolated through ______ in WAG12B.",
+        "answer": "NIL",
+        "topic": "WAG12B Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0138",
+        "text": "CSC can be activated from ______ KMPH in WAG12B.",
+        "answer": "NIL",
+        "topic": "WAG12B Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0139",
+        "text": "Regenerative braking shall be used above ______ KMPH in WAG12B.",
+        "answer": "NIL",
+        "topic": "WAG12B Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0140",
+        "text": "In WAG12B, parking brakes can be applied below ______ KMPH.",
+        "answer": "NIL",
+        "topic": "WAG12B Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0141",
+        "text": "Purpose of E-block blower is ______.",
+        "answer": "NIL",
+        "topic": "WAG12B Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0142",
+        "text": "Location of E-block blower2 is ______.",
+        "answer": "NIL",
+        "topic": "WAG12B Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0143",
+        "text": "When BPEMS is pressed in WAG12B, ______ actions takes place.",
+        "answer": "NIL",
+        "topic": "WAG12B Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0144",
+        "text": "When MR pressure drops below ______ kg/cm2, both compressors start working.",
+        "answer": "NIL",
+        "topic": "WAG12B Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0145",
+        "text": "When MR pressure drops below ______ kg/cm2 tractive effort becomes 0.",
+        "answer": "NIL",
+        "topic": "WAG12B Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0146",
+        "text": "In WAG12, in place of railguard ______ is provided.",
+        "answer": "NIL",
+        "topic": "WAG12B Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0147",
+        "text": "When BA voltage drops below ______ volts 1st alarm bell comes on DDU.",
+        "answer": "NIL",
+        "topic": "WAG12B Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0148",
+        "text": "______ is provided to control humidity of MR when loco is shut down.",
+        "answer": "NIL",
+        "topic": "WAG12B Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0149",
+        "text": "LP side E-block gives supply to ______ & ______ TMs.",
+        "answer": "NIL",
+        "topic": "WAG12B Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0150",
+        "text": "Parking brakes are provided to ______ wheels in WAG12B.",
+        "answer": "NIL",
+        "topic": "WAG12B Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0151",
+        "text": "BPCS cannot be used during ______ braking in WAG12B.",
+        "answer": "NIL",
+        "topic": "WAG12B Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0152",
+        "text": "MASCON key shall be operated within ______ mts after operating battery connect switch.",
+        "answer": "NIL",
+        "topic": "WAG12B Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0153",
+        "text": "In any cab if panto switch is kept in emergency, ______ happens in WAG12b.",
+        "answer": "NIL",
+        "topic": "WAG12B Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0154",
+        "text": "VCD starts functioning above ______ KMPH in WAG12B.",
+        "answer": "NIL",
+        "topic": "WAG12B Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0155",
+        "text": "The train which is stabled shall be padlocked using at least ______ chain at either end.",
+        "answer": "NIL",
+        "topic": "Safety Rules & Train Operation",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0156",
+        "text": "While stabling a train or light engine, the LP shall apply A9 to ______ position and SA9 to ______ position.",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Air Brake System",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0157",
+        "text": "While stabling a loco, apply ______ brake and ______ brakes apart from A9 and SA9.",
+        "answer": "NIL",
+        "topic": "Conventional Loco - Air Brake System",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0158",
+        "text": "The speed limit of 60/30 kmph shall not be exceeded up to the ______ or ______ from the signal which is taken OFF late.",
+        "answer": "NIL",
+        "topic": "Safety Rules & Train Operation",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0159",
+        "text": "The permitted speed of WAG9 D9 550000 series loco is ______ kmph.",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0160",
+        "text": "Switching OFF of the rear loco in MU saves ______ units per hour.",
+        "answer": "NIL",
+        "topic": "Energy Conservation",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0161",
+        "text": "Blowers by BLVMT shall be stopped if the train is expected to be stopped for more than ______ minutes.",
+        "answer": "NIL",
+        "topic": "Energy Conservation",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0162",
+        "text": "Coasting of a train saves ______ units per km for a goods train and ______ units per km for a coaching train.",
+        "answer": "NIL",
+        "topic": "Energy Conservation",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0163",
+        "text": "The number of vertical and horizontal dumpers in WDG6G is ______.",
+        "answer": "NIL",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0164",
+        "text": "The location of CA-9 is ______.",
+        "answer": "NIL",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0165",
+        "text": "In WDG4G locomotive, while working EOT, the L/T switch should be kept in ______.",
+        "answer": "NIL",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0166",
+        "text": "The loco model of WDG6G is ______.",
+        "answer": "NIL",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0167",
+        "text": "The coolant capacity (in litres) of WDG6G is ______.",
+        "answer": "NIL",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0168",
+        "text": "The Air Dryer CB is located in ______.",
+        "answer": "NIL",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0169",
+        "text": "The sander cock and sander valve are provided near ______.",
+        "answer": "NIL",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0170",
+        "text": "In WDG4G, the radiator fan gets its supply from ______.",
+        "answer": "NIL",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0171",
+        "text": "The location of BKS in WDG6G is ______.",
+        "answer": "NIL",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0172",
+        "text": "G4/P4 engine should not be cranked if it has been shut down for more than ______.",
+        "answer": "NIL",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0173",
+        "text": "In WDG6G locomotive, the parking brake is applied on wheel nos. ______.",
+        "answer": "NIL",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0174",
+        "text": "The parking brake holding force will be sufficient to hold a ______ gradient.",
+        "answer": "NIL",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0175",
+        "text": "The parking brake can be released by ______.",
+        "answer": "NIL",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0176",
+        "text": "In WDG6G, the Generator Field breaker provides power and circuit protection to ______.",
+        "answer": "NIL",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0177",
+        "text": "The location of the AESS switch in WDG6G loco is ______.",
+        "answer": "NIL",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0178",
+        "text": "In WDG4, the location of the sander valve and cock is ______.",
+        "answer": "NIL",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0179",
+        "text": "The air brake compartment (POU) in WDG6G is located at ______.",
+        "answer": "NIL",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0180",
+        "text": "The sand capacity (in litres) of WDG6G is ______.",
+        "answer": "NIL",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0181",
+        "text": "In WDP4/WDG4 loco, while conducting the BP leakage test, the L/T switch should be kept in ______ position.",
+        "answer": "NIL",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0182",
+        "text": "In WDP4/WDG4 loco, while opening the BP COC, the L/T switch should be kept in ______ position.",
+        "answer": "NIL",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0183",
+        "text": "The sensitivity of the DV is ______.",
+        "answer": "NIL",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0184",
+        "text": "In MU operation in an air brake loco, conjunction working in the leading loco takes place through ______.",
+        "answer": "NIL",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0185",
+        "text": "In MU operation, during A9 application, the trail loco brakes get applied through ______.",
+        "answer": "NIL",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0186",
+        "text": "In WDG4 loco, the hand brake is applied on wheel nos. ______.",
+        "answer": "NIL",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0187",
+        "text": "To avoid separation of the truck/bogie assembly from the locomotive in case of derailment, and to provide a means of lifting the truck/bogie assembly along with the car body, is accomplished by ______.",
+        "answer": "NIL",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0188",
+        "text": "WDG4 loco is provided with ______ type of bogie.",
+        "answer": "NIL",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0189",
+        "text": "In WDG4 loco, the maximum brake cylinder pressure is ______ kg/cm2.",
+        "answer": "NIL",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0190",
+        "text": "The MRPT (Main Reservoir Pressure Transducer) reads the pressure of ______.",
+        "answer": "NIL",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0191",
+        "text": "Loading and unloading of the compressor in WDG4/WDP4 is controlled by ______.",
+        "answer": "NIL",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0192",
+        "text": "After cranking, allow a minimum of ______ minutes for starter motor cooling before attempting another engine start.",
+        "answer": "NIL",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0193",
+        "text": "Do not crank the engine for more than ______ with the starting motors in HHP locos.",
+        "answer": "NIL",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0194",
+        "text": "The capacity of the lube oil system of a WDP4 class locomotive is ______ litres.",
+        "answer": "NIL",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0195",
+        "text": "The 8th notch speed of the WDP4 engine is ______ RPM.",
+        "answer": "NIL",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0196",
+        "text": "The buffer height of WDP1 is ______.",
+        "answer": "NIL",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0197",
+        "text": "The low idle RPM of the WDP4 engine is ______.",
+        "answer": "NIL",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0198",
+        "text": "The minimum continuous speed at maximum tractive effort of a WDP4 locomotive is ______ kmph.",
+        "answer": "NIL",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0199",
+        "text": "The normal idle RPM of the WDP4 engine is ______.",
+        "answer": "NIL",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0200",
+        "text": "The minimum clearance required between wheel and brake block during release is ______.",
+        "answer": "NIL",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0201",
+        "text": "The PRIME/START switch has ______ positions.",
+        "answer": "NIL",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0202",
+        "text": "Shutting down of all diesel engines in a consist is accomplished by ______ relay.",
+        "answer": "NIL",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0203",
+        "text": "The fuel oil primary filter is located at ______.",
+        "answer": "NIL",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0204",
+        "text": "The maximum permissible speed (designed for) of WDG4 locomotives is ______ kmph.",
+        "answer": "NIL",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0205",
+        "text": "The turbo lube pump should run for ______ minutes after engine shutdown if the engine was running at 5th notch or higher for 60 minutes prior to shutdown.",
+        "answer": "NIL",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0206",
+        "text": "The lube oil dip stick gauge capacity in WDG4 locos is ______ litres.",
+        "answer": "NIL",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0207",
+        "text": "The MR safety valve is set at ______ kg/cm2 pressure.",
+        "answer": "NIL",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0208",
+        "text": "The manual sander will work when the unit speed is up to ______.",
+        "answer": "NIL",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0209",
+        "text": "The pressure cap located on the water tank filler pipe opens at approximately ______.",
+        "answer": "NIL",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0210",
+        "text": "The number of water pumps available in an EMD locomotive engine is ______.",
+        "answer": "NIL",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0211",
+        "text": "If the coolant temperature reaches ______ degrees C, the locomotive will go to throttle six limit.",
+        "answer": "NIL",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0212",
+        "text": "The EPD is located at ______.",
+        "answer": "NIL",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0213",
+        "text": "In HHP locos, the system maintains the coolant temperature within a predetermined range from ______.",
+        "answer": "NIL",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0214",
+        "text": "A DV isolating handle in ______ position indicates that the DV is isolated.",
+        "answer": "NIL",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0215",
+        "text": "When a train engine is disabled in mid-section, the LP should ask for a relief engine if he expects that the train engine cannot be put in working order within ______ minutes.",
+        "answer": "NIL",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0216",
+        "text": "The speed restriction to be observed by an LP when the headlight of the engine fails on BG is ______ kmph.",
+        "answer": "NIL",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0217",
+        "text": "Whenever stopped on a gradient for any reason, it is essential to apply the ______ brakes.",
+        "answer": "NIL",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0218",
+        "text": "If MU locos get parted, the brakes of the rear loco will apply through the ______ valve.",
+        "answer": "NIL",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0219",
+        "text": "When the flasher light becomes defective, the speed of the train shall not exceed ______ kmph.",
+        "answer": "NIL",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0220",
+        "text": "While working LE, the Loco Pilot should ______ to stop the locomotive.",
+        "answer": "NIL",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0221",
+        "text": "The use of the dynamic brake is ______.",
+        "answer": "NIL",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0222",
+        "text": "If the hot oil detector operates, ______ happens.",
+        "answer": "NIL",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0223",
+        "text": "Bail off is provided to release ______.",
+        "answer": "NIL",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0224",
+        "text": "The 3/4 inch COC is located between ______ and ______.",
+        "answer": "NIL",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0225",
+        "text": "Traction will not come beyond 40 KMPH when ______ is isolated in 3ph loco.",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0226",
+        "text": "When MRB2 is not working ______ and ______ may get isolated.",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0227",
+        "text": "When MCPs are not working in 3ph loco, change ______ position and try.",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0228",
+        "text": "When ICDJ comes in WAG7 loco, press ______ switch and try.",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0229",
+        "text": "In 3ph loco, safety slings must be provided for ______, ______ and ______.",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0230",
+        "text": "When the 'Catenary voltage out of limit' message comes and the U meter is showing 0, change ______ and try.",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0231",
+        "text": "In WAG9 MU, 154 shall be kept in ______ position to work in trailing mode operation.",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0232",
+        "text": "In WAG9 MU, for VCU reset purpose ______ switch shall be kept in 2 position while working from cab2.",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0233",
+        "text": "In 3ph loco when SPM is malfunctioning ______ MCB to be kept in OFF.",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0234",
+        "text": "In ABB and BHEL make 3ph loco, after resetting VCU. TE comes at ______ KMPH.",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0235",
+        "text": "In 3Ø loco, to isolate pantograph No. 2, keep panto selector switch in ______ position and close ______ COC.",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0236",
+        "text": "In 3Ø dead loco, ______ COC should be open for charging BP pressure into auxiliary reservoir.",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0237",
+        "text": "While working a 3ph loco as banker, close ______ switch and close ______ COC.",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0238",
+        "text": "For resetting VCD in WAG 9 or WAP 7 loco (E-70 brake system), wait for ______ Seconds.",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0239",
+        "text": "In 3Ø loco, SS-17 belongs to ______ sub system.",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0240",
+        "text": "To perform shunting with 3Ø loco, keep ______ switch in ______ position",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0241",
+        "text": "While working with WAP-7 or WAG-9 with light load, if the harmonic filter is isolated, work at normal speed after isolating ______",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0242",
+        "text": "In 3Ø loco, the battery charger gets its supply from ______.",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0243",
+        "text": "While energizing a 3Ø loco, if the UBA meter is showing '0' and the corridor lights are also not glowing, check MCB Nos. ______",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0244",
+        "text": "In 3Ø loco, for charging of BP pressure ______ COC to be kept open.",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0245",
+        "text": "In 3Ø loco, if battery voltage drops below ______ volts, loco will shut down.",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0246",
+        "text": "In 3Ø loco, Battery charger output MCB No. is ______ and its location is at ______",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0247",
+        "text": "In 3Ø loco, VCD is required to be acknowledged from ______ kmph of speed.",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0248",
+        "text": "During loco brake testing of WAG-9 or WAP-7, loco should not move up to ______ KN.",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0249",
+        "text": "In 3Ø loco, Constant speed control (CSC) can be activated above ______ kmph of speed",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0250",
+        "text": "While clearing 3Ø loco (provided with Knorr brake) as dead, mode switch position in both cabs is ______",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0251",
+        "text": "In 3Ø loco, Constant speed control (CSC) will be de-activated automatically if BP pressure drops (with or without A9) more than ______ kg/cm2",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0252",
+        "text": "In 3Ø loco, SS-10 belongs to ______ sub system",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0253",
+        "text": "In 3Ø loco, location of TM Blower-1 is ______",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0254",
+        "text": "In 3Ø loco, if vigilance penalty brakes are applied BP pressure drops to ______ kg/cm2 (Gauge reading)in E.70 brake system",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0255",
+        "text": "When ZTEL is switched ON Tractive Effort (TE) is limited to ______ KN in WAG-9.",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0256",
+        "text": "Maximum permissible speed of WAG-9 loco is ______ Kmph.",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0257",
+        "text": "In 3Ø loco, If ZBAN is switched ON in working cab, ______ happens",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0258",
+        "text": "In 3Ø loco, SS-18 belongs to ______ sub system",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0259",
+        "text": "In 3Ø loco, to close the DJ, ensure ______ node.",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0260",
+        "text": "The total number of oil/coolant points in WAG 9 or WAP 7 locos is ______.",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0261",
+        "text": "A three phase loco has ______ no. of three phase auxiliary motors.",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0262",
+        "text": "If speed of the train is increased more than ______ than loco MPS, emergency brake will apply in 3Ø loco.",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0263",
+        "text": "In 3Ø loco, battery charger input MCB No. is ______ and located in ______",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0264",
+        "text": "Over current relay in 3Ø loco is ______",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0265",
+        "text": "In ______ gradient area and terminal goods yards Constant speed control (CSC) of 3 phase loco should not be used.",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0266",
+        "text": "While working 3Ø loco as banker, close ______ cocs in pneumatic panel.",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0267",
+        "text": "In 3Ø loco, to reset the Fire detection unit (FDU) press the ______ button.",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0268",
+        "text": "In 3Ø loco, if 'Catenary voltage out of limit' appears on screen, change ______ fuse after lowering panto and try.",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0269",
+        "text": "In 3Ø loco, SS-09 belongs to ______ sub system.",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0270",
+        "text": "In 3Ø Knorr Bremse brake loco, rear cab mode switch position is ______",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0271",
+        "text": "In 3Ø loco potential transformer is connected to ______ roof bar.",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0272",
+        "text": "The position of mode switch in leading cab of 3Ø loco provided with Knorr brake is ______",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0273",
+        "text": "In 3Ø loco, SS-04 belongs to ______ sub system",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0274",
+        "text": "In 3Ø loco, position of control Electronics (CE) during cab changing is ______",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0275",
+        "text": "To move 3 Ø loco as live or dead ensure ______ & ______ brakes are released.",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0276",
+        "text": "In 3Ø loco, if F1703P1or F1803P1 is experienced, keep ______ switch in ______ position.",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0277",
+        "text": "In 3Ø loco, SS-15 belongs to ______ sub system.",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0278",
+        "text": "In 3Ø loco, to isolate pantograph No.1, keep panto selector switch in ______ Position.",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0279",
+        "text": "WAG-9 or WAP-7 locos are having ______ number of dampers (in both primary and secondary suspension).",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0280",
+        "text": "Location of MCP-2 in 3 Ø loco is ______",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0281",
+        "text": "In 3Ø loco, glowing of BPFA and flickering of LSFI indicates ______ fault.",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0282",
+        "text": "In 3Ø locos, VCD is required to acknowledge once in every ______ seconds",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0283",
+        "text": "In 3Ø loco, on run glowing of BPFA alone indicates ______ fault",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0284",
+        "text": "Location of Harmonic filter resistances in 3Ø loco is ______",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0285",
+        "text": "In 3Ø loco, Status code '00' means ______",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0286",
+        "text": "In 3Ø loco, Auxiliary converter No.3 feeds ______ Motors.",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0287",
+        "text": "In 3Ø loco, In case of emergency, ALP can stop the train by operating ______",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0288",
+        "text": "WAG-9 loco is having ______ type of bogie.",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0289",
+        "text": "In WAG-9 or WAP-7, location of air dryer is ______",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0290",
+        "text": "In 3Ø loco, SS-06 belongs to ______ sub system",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0291",
+        "text": "In 3Ø loco, Continuous glowing of LSFI indicates ______",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0292",
+        "text": "In 3Ø loco, to operate reverser ensure ______ node information on screen and MR pressure should be more than 6.4 kg/cm2.",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0293",
+        "text": "In proportional working, maximum brake cylinder pressure in WAG-9 loco is ______ kg/cm2",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0294",
+        "text": "3Ø loco is having ______ No. of 3 phase auxiliary motors in loco under frame",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0295",
+        "text": "In 3Ø loco before operating throttle, ensure ______ node information on screen.",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0296",
+        "text": "In 3Ø loco, SS-03 belongs to ______ sub system",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0297",
+        "text": "In 3Ø loco, Oil cooling blower cools ______ & ______ Oils/ water coolant.",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0298",
+        "text": "In 3Ø loco, to isolate truck No.1 (traction converter-1), keep ______ switch in ______ position.",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0299",
+        "text": "VCD resetting time in CCB2.0 locos is ______",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0300",
+        "text": "Location of MCB 112 is ______",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0301",
+        "text": "Location of MCB112.1 is ______",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0302",
+        "text": "If MCE not switching OFF with BL key, ______ MCB to be tripped/kept OFF",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0303",
+        "text": "In PTDC mode, ______ cock to be opened on Pneumatic Panel",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0304",
+        "text": "In 3 phase locos, normal position of PERCOS is ______",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0305",
+        "text": "Normal position of IG38 Key in CCB2.0 locos is ______",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0306",
+        "text": "When auxiliary converter-1 is isolated, OCB1&2 shared by ______ converter",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0307",
+        "text": "In 3 phase CCB 2.0 loco before set up PTDC mode ______ MCB to be kept OFF.",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0308",
+        "text": "In 3 phase loco if speed is not increasing more than 15 Kmph ______ Switch to be checked",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0309",
+        "text": "In IGBT locos ______ cock(s) are closed/dummied on Pneumatic panel",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0310",
+        "text": "From Cab-1 both side head lights are not working, ______ MCB to be checked",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "BLA0311",
+        "text": "From Cab-2 both side head light is not working press ______ contactor knob",
+        "answer": "NIL",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
       }
     ],
     "descriptive": [
       {
         "id": "DES0001",
-        "text": "Explain briefly the function of the traction alternator in a diesel-electric locomotive.",
-        "topic": "Conventional Loco",
-        "level": "Easy"
+        "text": "How is the VCD penalty brake reset in GE locos?",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
       },
       {
         "id": "DES0002",
-        "text": "Describe the sequence of the starting procedure of a diesel-electric locomotive before departure.",
-        "topic": "Conventional Loco",
+        "text": "What is the result if both HVAC and the hot plate are switched ON?",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
         "level": "Medium"
       },
       {
         "id": "DES0003",
-        "text": "Explain the working of the wheel slip control system in a conventional diesel-electric locomotive and its importance.",
-        "topic": "Conventional Loco",
-        "level": "Hard"
+        "text": "What happens in a WDP4/WDG4 loco when the lube oil temperature exceeds 124 degrees C?",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
       },
       {
         "id": "DES0004",
-        "text": "List the main advantages of three-phase locomotives over conventional DC traction motor locomotives.",
-        "topic": "Three Phase Loco",
-        "level": "Easy"
+        "text": "What happens in a WDP4/WDG4 loco if the water pressure is low?",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
       },
       {
         "id": "DES0005",
-        "text": "Explain the working principle of regenerative braking in three-phase locomotives.",
-        "topic": "Three Phase Loco",
+        "text": "What happens in a WDP4/WDG4 loco when the PCS is knocked out?",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
         "level": "Medium"
       },
       {
         "id": "DES0006",
-        "text": "Describe the role of the converter and inverter in a three-phase locomotive traction system.",
-        "topic": "Three Phase Loco",
-        "level": "Hard"
+        "text": "What should be ensured before conducting the air brake self test in a WDP4/WDG4 loco?",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
       },
       {
         "id": "DES0007",
-        "text": "Describe the salient technical features and operational role of the WAG12B locomotive in Indian Railways.",
-        "topic": "WAG12B Loco",
+        "text": "Under what conditions should the engine not be cranked in a WDP4/WDG4 loco?",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
         "level": "Medium"
       },
       {
         "id": "DES0008",
-        "text": "Explain the duties of a Loco Pilot before starting a locomotive from the shed.",
-        "topic": "Safety Rules",
-        "level": "Easy"
-      },
-      {
-        "id": "DES0009",
-        "text": "Explain the procedure to be followed by a Loco Pilot in the event of Signal Passed at Danger (SPAD).",
-        "topic": "Safety Rules",
-        "level": "Hard"
-      },
-      {
-        "id": "DES0010",
-        "text": "Explain the objectives and basic working principle of the Kavach train collision avoidance system.",
-        "topic": "Kavach",
+        "text": "In a WDP4/WDG4 loco, under what condition will the load meter not respond?",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
         "level": "Medium"
       },
       {
-        "text": "List the key technical specifications of the WAG12B locomotive (horsepower, traction type, and typical usage).",
-        "topic": "WAG12B Loco",
-        "level": "Easy",
-        "id": "DES0011"
+        "id": "DES0009",
+        "text": "What action should be taken when continuous wheel slip is experienced due to a locked axle in a WDP4/WDG4 loco?",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
       },
       {
-        "text": "Explain the precautions a Loco Pilot must take while running a train in foggy or low-visibility conditions.",
-        "topic": "Safety Rules",
-        "level": "Medium",
-        "id": "DES0012"
+        "id": "DES0010",
+        "text": "What action should be taken in a WDP4/WDG4 loco if the FOP is dropping because the secondary filter is choked?",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
       },
       {
-        "text": "Explain how DPWCS helps synchronise distributed power locomotives in a long freight train and the benefits of this synchronisation.",
-        "topic": "DPWCS",
-        "level": "Hard",
-        "id": "DES0013"
+        "id": "DES0011",
+        "text": "What action should be taken if the BP metallic pipe is damaged while working a twin pipe air brake train?",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
       },
       {
-        "text": "Explain the function and importance of the turbocharger in a diesel-electric locomotive.",
-        "topic": "Conventional Loco",
-        "level": "Medium",
-        "id": "DES0014"
+        "id": "DES0012",
+        "text": "What action should be taken if the engine shuts down on run while working an air brake train?",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
       },
       {
-        "text": "Explain the basic difference between a conventional DC traction motor locomotive and a three-phase induction motor locomotive.",
+        "id": "DES0013",
+        "text": "State the kinds of brakes provided on a diesel locomotive.",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "DES0014",
+        "text": "What is the function of the KE valve in the CCB system of the WDG4 locomotive?",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "DES0015",
+        "text": "In HHP locos, why is a maximum brake cylinder pressure of 5.2 kg/cm2 used in place of 3.5 kg/cm2 as in conventional locos?",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "DES0016",
+        "text": "What is the purpose of the TEL (Tractive Effort Limit) relay in WDG4 locos?",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "DES0017",
+        "text": "How is the crankcase vacuum maintained in WDG4/WDP4 (EMD) engines?",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "DES0018",
+        "text": "What could be the reasons if white smoke is emitted from the exhaust chimney?",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "DES0019",
+        "text": "What is the purpose of the turbo lube pump in a WDP4 locomotive before cranking?",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "DES0020",
+        "text": "What is the safety device provided in the lube oil system?",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "DES0021",
+        "text": "What does continuous water leakage from the water tell-tale pipe indicate?",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "DES0022",
+        "text": "How should notching up be done in undulating terrain?",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "DES0023",
+        "text": "How would you work the train if a loco wheel develops a skid mark of more than 50 mm length in the section?",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "DES0024",
+        "text": "What should the LP/ALP not do while approaching or passing signals at caution, to avoid SPAD?",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "DES0025",
+        "text": "What conditions should the LP observe in the loco to avoid stalling?",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "DES0026",
+        "text": "What are the positions of the MU2B and the BP isolation COC in the banker loco?",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "DES0027",
+        "text": "What is to be done by the LP whenever the train engine is changed?",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "DES0028",
+        "text": "What should be done first when changing the console in WDG4/WDP4 locos?",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "DES0029",
+        "text": "What should be the positions of the BP and FP angle cocks on a DV-isolated coach/wagon of an air brake train?",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "DES0030",
+        "text": "What test should the crew carry out for a passenger train detained for more than 30 minutes?",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "DES0031",
+        "text": "What will happen when the isolating handles of 20 DVs are in isolated position in a formation of 58 wagons?",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "DES0032",
+        "text": "What must be ensured while carrying a dead loco?",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "DES0033",
+        "text": "On taking over charge of a loco, what action would you take if the flasher light glows but does not flash/blink?",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "DES0034",
+        "text": "What does it indicate if the air flow indicator overshoots with a jerk on run?",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "DES0035",
+        "text": "What should the Loco Pilot do immediately if the train stops in mid-section on account of loco failure?",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "DES0036",
+        "text": "What should the Loco Pilot check and ensure before starting while working LE?",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "DES0037",
+        "text": "What is the immediate action to be taken when BP is not destroying with A9 while controlling the train?",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "DES0038",
+        "text": "What test must the LP carry out while leaving a station, and at what speed?",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "DES0039",
+        "text": "After detaching the loco from the formation, which safety aspects should be checked before working LE?",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "DES0040",
+        "text": "What immediate action would you take on noticing a sudden drop of BP pressure on run?",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "DES0041",
+        "text": "In case of brake binding in an air brake wagon, what additional action would you take other than releasing the brake?",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "DES0042",
+        "text": "Which switches are to be checked if the engine is not cranking?",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "DES0043",
+        "text": "What happens if the Amphenol plug becomes slack on run in a WW governor loco?",
+        "topic": "Diesel Loco (WDG4/WDP4/WDG6G)",
+        "level": "Medium"
+      },
+      {
+        "id": "DES0044",
+        "text": "What is the procedure to bring an isolated sub-system back into service in a 3Ø loco?",
         "topic": "Three Phase Loco",
-        "level": "Easy",
-        "id": "DES0015"
+        "level": "Medium"
       },
       {
-        "text": "Explain the role of RFID tags and onboard Kavach equipment in preventing Signal Passed at Danger (SPAD) incidents.",
-        "topic": "Kavach",
-        "level": "Hard",
-        "id": "DES0016"
-      },
-      {
-        "text": "Describe the precautions to be taken by a Loco Pilot while approaching an unmanned level crossing.",
-        "topic": "Safety Rules",
-        "level": "Medium",
-        "id": "DES0017"
-      },
-      {
-        "text": "Compare the WAG12B locomotive with the WAG9 locomotive in terms of horsepower, haulage capacity and typical deployment.",
-        "topic": "WAG12B Loco",
-        "level": "Hard",
-        "id": "DES0018"
-      },
-      {
-        "text": "Explain the purpose of the equalizing reservoir in the automatic air brake system of a locomotive.",
-        "topic": "Conventional Loco",
-        "level": "Easy",
-        "id": "DES0019"
-      },
-      {
-        "text": "Explain how microprocessor-based fault diagnostics assist a Loco Pilot in operating a three-phase locomotive.",
+        "id": "DES0045",
+        "text": "What procedure is to be followed before operating the 160 switch in a 3Ø loco?",
         "topic": "Three Phase Loco",
-        "level": "Medium",
-        "id": "DES0020"
+        "level": "Medium"
+      },
+      {
+        "id": "DES0046",
+        "text": "What is the procedure for Bogie-1 isolation on run in 3 phase locos?",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "DES0047",
+        "text": "What is the quick troubleshooting procedure when the pantograph is not raising in 3 phase locos?",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "DES0048",
+        "text": "How should the train be worked further if the SR-1 pump is not working in a 3 phase loco?",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "DES0049",
+        "text": "What is the quick troubleshooting procedure when the VCB is not closing in 3 phase locos?",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "DES0050",
+        "text": "What is the purpose of the VCU reset push button in a 3 phase loco?",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "DES0051",
+        "text": "Explain the procedure for operating the GR manually.",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
+      },
+      {
+        "id": "DES0052",
+        "text": "After passing a neutral section, if ICDJ is experienced, which checks should the crew make?",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
+      },
+      {
+        "id": "DES0053",
+        "text": "State the purposes of the CHBA.",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
+      },
+      {
+        "id": "DES0054",
+        "text": "How is traction motor TM-5 isolated in a WAG-7 loco?",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
+      },
+      {
+        "id": "DES0055",
+        "text": "What action should be taken if banding failure takes place?",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
+      },
+      {
+        "id": "DES0056",
+        "text": "State the actions that take place when the VCD acts in conventional locos.",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
+      },
+      {
+        "id": "DES0057",
+        "text": "State the actions that take place when BPEMS is pressed in conventional locos.",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
+      },
+      {
+        "id": "DES0058",
+        "text": "What is the purpose of the HRAVT and which equipment does it isolate?",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
+      },
+      {
+        "id": "DES0059",
+        "text": "What are the QD actions in a microprocessor loco?",
+        "topic": "Conventional Loco - Electrical & General",
+        "level": "Medium"
+      },
+      {
+        "id": "DES0060",
+        "text": "What is meant by the sensitivity of a distributor valve?",
+        "topic": "Conventional Loco - Air Brake System",
+        "level": "Medium"
+      },
+      {
+        "id": "DES0061",
+        "text": "Explain the CP efficiency test and the BP continuity test in conventional locos.",
+        "topic": "Conventional Loco - Air Brake System",
+        "level": "Medium"
+      },
+      {
+        "id": "DES0062",
+        "text": "How is back pressure discharged from the CP delivery pipe line in conventional locos?",
+        "topic": "Conventional Loco - Air Brake System",
+        "level": "Medium"
+      },
+      {
+        "id": "DES0063",
+        "text": "Explain the difference between the single pipe and twin pipe air brake systems.",
+        "topic": "Conventional Loco - Air Brake System",
+        "level": "Medium"
+      },
+      {
+        "id": "DES0064",
+        "text": "What is the purpose of the ATD (Auto Tensioning Device) in OHE?",
+        "topic": "OHE & Pantograph",
+        "level": "Medium"
+      },
+      {
+        "id": "DES0065",
+        "text": "What is the immediate duty of the crew if the OHE contact wire is found hanging on run?",
+        "topic": "OHE & Pantograph",
+        "level": "Medium"
+      },
+      {
+        "id": "DES0066",
+        "text": "Explain the zig-zag arrangement of the contact wire and why it is provided.",
+        "topic": "OHE & Pantograph",
+        "level": "Medium"
+      },
+      {
+        "id": "DES0067",
+        "text": "What are the types of OHE based on the provision of ATDs at the ends of the contact and catenary wires?",
+        "topic": "OHE & Pantograph",
+        "level": "Medium"
+      },
+      {
+        "id": "DES0068",
+        "text": "What actions take place when BPEMS is pressed in WAG12B?",
+        "topic": "WAG12B Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "DES0069",
+        "text": "What is the purpose of the E-block blower in WAG12B and where is E-block blower 2 located?",
+        "topic": "WAG12B Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "DES0070",
+        "text": "What happens in WAG12B if the panto switch is kept in emergency in any cab?",
+        "topic": "WAG12B Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "DES0071",
+        "text": "How is the 3 kmph trouble overcome in WAG12B?",
+        "topic": "WAG12B Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "DES0072",
+        "text": "How can a bogie be isolated in WAG12B?",
+        "topic": "WAG12B Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "DES0073",
+        "text": "State the speed conditions for using constant speed control (CSC) and regenerative braking in WAG12B.",
+        "topic": "WAG12B Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "DES0074",
+        "text": "State the duties of the crew when a cattle run over takes place.",
+        "topic": "Safety Rules & Train Operation",
+        "level": "Medium"
+      },
+      {
+        "id": "DES0075",
+        "text": "Explain the procedure for attaching a loco onto a formation.",
+        "topic": "Safety Rules & Train Operation",
+        "level": "Medium"
+      },
+      {
+        "id": "DES0076",
+        "text": "State the speed restrictions for the first and subsequent trains when a rail fracture of less than 30 mm is detected.",
+        "topic": "Safety Rules & Train Operation",
+        "level": "Medium"
+      },
+      {
+        "id": "DES0077",
+        "text": "What action should the LP take if a fire is noticed in a running train?",
+        "topic": "Safety Rules & Train Operation",
+        "level": "Medium"
+      },
+      {
+        "id": "DES0078",
+        "text": "What precautions must be observed while stabling a train or a light engine?",
+        "topic": "Safety Rules & Train Operation",
+        "level": "Medium"
+      },
+      {
+        "id": "DES0079",
+        "text": "Explain the authority and procedure for passing a defective signal or a signal at ON.",
+        "topic": "Safety Rules & Train Operation",
+        "level": "Medium"
+      },
+      {
+        "id": "DES0080",
+        "text": "What should the crew do if the train stops due to inability of the engine to haul the load and a relief engine or push back is not possible?",
+        "topic": "Safety Rules & Train Operation",
+        "level": "Medium"
+      },
+      {
+        "id": "DES0081",
+        "text": "What measures can the crew take to conserve energy during stoppages and on run?",
+        "topic": "Energy Conservation",
+        "level": "Medium"
+      },
+      {
+        "id": "DES0082",
+        "text": "Explain how coasting helps in saving energy.",
+        "topic": "Energy Conservation",
+        "level": "Medium"
+      },
+      {
+        "id": "DES0083",
+        "text": "Explain the restrictions on the use of constant speed control (CSC) in 3 phase locos.",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "DES0084",
+        "text": "What precautions should be taken while clearing a 3 phase loco as dead?",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "DES0085",
+        "text": "Explain the procedure for working a 3 phase loco as a banker.",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "DES0086",
+        "text": "How are pantograph No. 1 and pantograph No. 2 isolated in a 3 phase loco?",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "DES0087",
+        "text": "What do the glowing of BPFA and the continuous or flickering glow of LSFI indicate in a 3 phase loco?",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
+      },
+      {
+        "id": "DES0088",
+        "text": "What happens if ZBAN is switched ON in the working cab of a 3 phase loco?",
+        "topic": "Three Phase Loco",
+        "level": "Medium"
       }
     ]
   }

@@ -110,8 +110,8 @@ def _add_section(doc, sec, questions, section_no):
             mrun = mp.add_run("[    ]")
             _set_font(mrun, 11, False)
 
-            after = doc.add_paragraph()
-            after.paragraph_format.space_after = Pt(6)
+            # after = doc.add_paragraph()
+            # after.paragraph_format.space_after = Pt(0)
 
             opts = q.get("_shuffled_options", q["options"])
             opt_text = "     ".join(

@@ -76,8 +76,8 @@ class QuestionFormDialog(tk.Toplevel):
     def _refresh_correct_options(self):
         opts = [v.get() for v in self.option_vars if v.get().strip()]
         current = self.correct_var.get()
-        self.correct_combo["values"] = opts
-        if current not in opts:
+        self.correct_combo["values"] = opts + ["NIL"]
+        if current not in opts and current != "NIL":
             self.correct_var.set(opts[0] if opts else "")
 
     def _build_fib_fields(self):

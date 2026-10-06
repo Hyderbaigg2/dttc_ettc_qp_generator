@@ -19,6 +19,8 @@ for your own centre.
   Topics, then generate **1, 2 or 3 randomised sets** of a question paper
   as Word (`.docx`) and/or PDF, plus an optional answer key per set. Papers
   carry blank Batch No / Name / Design / Depo-divn fields for candidates.
+  Optional **topic weightage**: give each ticked topic a percentage (total 100%)
+  to control how many questions come from each topic.
 - **Question Bank** — full CRUD for MCQ, Fill-in-the-Blank and Descriptive
   questions, plus the Topics used to tag them. Select several questions
   (Ctrl/Shift+click, Ctrl+A) to delete them in one go. Import/export any of
@@ -113,7 +115,10 @@ auto-saves immediately and atomically (write-to-temp-file-then-replace, so a
 crash mid-save can't corrupt your data).
 
 Import/export (CSV or Excel) is available from the Question Bank, Course
-List and Topics screens for bulk editing. Imports always create **new**
+List and Topics screens for bulk editing. Questions whose answer isn't known yet can be stored with the answer `NIL`
+(a blank answer in an imported file becomes `NIL`); fill it in later with Edit.
+
+Imports always create **new**
 rows — any ID column in the file is ignored, so imported items get fresh
 IDs and can't collide with existing ones.
 

@@ -41,14 +41,14 @@ def _row_to_question_fields(qtype, row_dict):
         return {
             "text": row_dict.get("text", "").strip(),
             "options": options,
-            "correct_option": row_dict.get("correct_option", "").strip(),
+            "correct_option": row_dict.get("correct_option", "").strip() or "NIL",
             "topic": row_dict.get("topic", "").strip(),
             "level": row_dict.get("level", "").strip() or "Medium",
         }
     if qtype == "fill_blank":
         return {
             "text": row_dict.get("text", "").strip(),
-            "answer": row_dict.get("answer", "").strip(),
+            "answer": row_dict.get("answer", "").strip() or "NIL",
             "topic": row_dict.get("topic", "").strip(),
             "level": row_dict.get("level", "").strip() or "Medium",
         }
