@@ -19,8 +19,11 @@ for your own centre.
   Topics, then generate **1, 2 or 3 randomised sets** of a question paper
   as Word (`.docx`) and/or PDF, plus an optional answer key per set. Papers
   carry blank Batch No / Name / Design / Depo-divn fields for candidates.
-  Optional **topic weightage**: give each ticked topic a percentage (total 100%)
-  to control how many questions come from each topic.
+  Choose how questions are spread across topics: **Random**, **By percentage**
+  (each ticked topic gets a % of every section, total 100%), or **By number of
+  questions** (a grid of topics x the sections of the selected format, so you
+  can say e.g. all 10 MCQs from one topic, FIBs split 5/5, and descriptive
+  questions spread as you like; each column must add up to what the format needs).
 - **Question Bank** — full CRUD for MCQ, Fill-in-the-Blank and Descriptive
   questions, plus the Topics used to tag them. Select several questions
   (Ctrl/Shift+click, Ctrl+A) to delete them in one go. Import/export any of

@@ -142,7 +142,7 @@ def build_paper(fmt, meta, course_name, date_str, set_label, set_data, output_pa
     _header(doc, meta, course_name, fmt, date_str, set_label, duration_str)
 
     for idx, sec in enumerate(fmt["sections"], start=1):
-        _add_section(doc, sec, set_data[sec["type"]], idx)
+        _add_section(doc, sec, set_data[idx - 1], idx)
 
     doc.save(output_path)
     return output_path
@@ -161,13 +161,13 @@ def build_answer_key(fmt, meta, course_name, date_str, set_label, set_data, outp
     _set_font(r, 13, True)
     doc.add_paragraph()
 
-    for sec in fmt["sections"]:
+    for sec_idx, sec in enumerate(fmt["sections"]):
         title = SECTION_TITLES[sec["type"]]
         heading = doc.add_paragraph()
         run = heading.add_run(title)
         _set_font(run, 12, True)
 
-        for i, q in enumerate(set_data[sec["type"]], start=1):
+        for i, q in enumerate(set_data[sec_idx], start=1):
             line = doc.add_paragraph()
             if sec["type"] == "mcq":
                 text = f"{i}. {q['id']} — Correct: {q['correct_option']}"

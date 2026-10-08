@@ -2,8 +2,13 @@
 
 Kept independent of the GUI and of docx so it can be unit-tested and
 reused (e.g. from a future CLI) on its own.
+
+A generated set is a dict keyed by the section's position in the format
+({0: [questions...], 1: [...]}), so formats with several sections, even of
+the same question type, each get their own questions.
 """
 import random
+from collections import Counter
 
 
 class InsufficientQuestionsError(Exception):
@@ -15,6 +20,17 @@ class InsufficientQuestionsError(Exception):
         super().__init__(f"Not enough questions to generate this paper — {msg}")
 
 
+class TopicShortageError(Exception):
+    """A topic was given more questions of a type than the bank has for it."""
+
+    def __init__(self, shortfalls):
+        self.shortfalls = shortfalls  # list of (section_type, topic, needed, available)
+        msg = "; ".join(
+            f"{t} / {topic}: need {n}, only {a}" for t, topic, n, a in shortfalls
+        )
+        super().__init__(f"Not enough questions for the topic allocation — {msg}")
+
+
 def _filter_pool(all_questions, level_filter, topic_filter):
     pool = all_questions
     if level_filter and level_filter != "Mixed (All Levels)":
@@ -24,14 +40,30 @@ def _filter_pool(all_questions, level_filter, topic_filter):
     return pool
 
 
+def _type_groups(fmt: dict) -> dict:
+    """{question_type: [section indexes]} in format order."""
+    groups = {}
+    for idx, sec in enumerate(fmt["sections"]):
+        groups.setdefault(sec["type"], []).append(idx)
+    return groups
+
+
+def available_by_topic(question_bank: dict, qtype: str, level_filter) -> dict:
+    """{topic: number of questions of this type at this hardness level}."""
+    return dict(Counter(q.get("topic") for q in _filter_pool(question_bank[qtype], level_filter, None)))
+
+
 def check_availability(fmt: dict, question_bank: dict, level_filter, topic_filter):
-    """Returns a list of (section_type, needed, available) shortfalls, empty if OK."""
+    """Returns a list of (section_type, needed, available) shortfalls, empty if OK.
+
+    Sections of the same type draw from one pool, so their counts are added up.
+    """
     shortfalls = []
-    for sec in fmt["sections"]:
-        pool = _filter_pool(question_bank[sec["type"]], level_filter, topic_filter)
-        needed = sec["display_count"]
+    for qtype, idxs in _type_groups(fmt).items():
+        pool = _filter_pool(question_bank[qtype], level_filter, topic_filter)
+        needed = sum(fmt["sections"][i]["display_count"] for i in idxs)
         if len(pool) < needed:
-            shortfalls.append((sec["type"], needed, len(pool)))
+            shortfalls.append((qtype, needed, len(pool)))
     return shortfalls
 
 
@@ -60,24 +92,24 @@ def _sample_sets(pool, count, randomness, num_sets):
                 fresh = random.sample(remaining_pool, need)
             else:
                 fresh = list(remaining_pool)
-                fresh += random.sample(pool, need - len(fresh))
+                spare = [q for q in pool if q not in keep and q not in fresh]
+                fresh += random.sample(spare, need - len(fresh))
             new_set = keep + fresh
             random.shuffle(new_set)
             sets.append(new_set)
             prev = new_set
         return sets
 
-    shuffled = list(pool)
-    random.shuffle(shuffled)
-    sets, i = [], 0
+    queue = list(pool)
+    random.shuffle(queue)
+    sets = []
     for _ in range(num_sets):
         chunk = []
         while len(chunk) < count:
-            if i >= len(shuffled):
-                random.shuffle(shuffled)
-                i = 0
-            chunk.append(shuffled[i])
-            i += 1
+            if not queue:
+                queue = [q for q in pool if q not in chunk]
+                random.shuffle(queue)
+            chunk.append(queue.pop())
         sets.append(chunk)
     return sets
 
@@ -102,74 +134,128 @@ def apportion(count: int, weights: dict, capacities: dict) -> dict:
     return alloc
 
 
-def topic_mix_plan(fmt: dict, question_bank: dict, level_filter, topic_weights: dict):
-    """For each section, compare the topic split the weights ask for with what
-    the question bank can actually supply.
+def plan_percent_allocations(fmt: dict, question_bank: dict, level_filter, topic_weights: dict):
+    """For each section, compare the topic split the percentages ask for with
+    what the question bank can actually supply.
 
-    Returns a list of (section_type, wanted, got), where wanted/got are
-    {topic: count}. `got` differs from `wanted` when a topic has fewer questions
-    than its share, in which case the other topics make up the difference.
+    Returns a list (one entry per section) of (wanted, got), each {topic: count}.
+    `got` differs from `wanted` when a topic has fewer questions than its share,
+    in which case the other topics make up the difference. Sections of the same
+    type draw from the same stock, so earlier sections use it up first.
     """
     weights = {t: w for t, w in topic_weights.items() if w > 0}
+    stock = {}
     plan = []
     for sec in fmt["sections"]:
-        count = sec["display_count"]
-        pool = _filter_pool(question_bank[sec["type"]], level_filter, list(weights))
-        available = {t: 0 for t in weights}
-        for q in pool:
-            available[q["topic"]] += 1
+        qtype, count = sec["type"], sec["display_count"]
+        if qtype not in stock:
+            stock[qtype] = {t: 0 for t in weights}
+            for q in _filter_pool(question_bank[qtype], level_filter, list(weights)):
+                stock[qtype][q["topic"]] += 1
         wanted = apportion(count, weights, {t: count for t in weights})
-        got = apportion(count, weights, available)
-        plan.append((sec["type"], wanted, got))
+        got = apportion(count, weights, stock[qtype])
+        for t, n in got.items():
+            stock[qtype][t] -= n
+        plan.append((wanted, got))
     return plan
 
 
 def generate_sets(fmt: dict, question_bank: dict, level_filter, topic_filter, randomness,
-                  num_sets=3, topic_weights=None):
+                  num_sets=3, topic_weights=None, section_counts=None):
     """Returns (sets, allocations).
 
-    sets: a list of `num_sets` sets, each a dict {section_type: [question,...]}.
-    allocations: {section_type: {topic: count}} when `topic_weights` is given
-    (the per-topic question counts actually used), else {}.
+    sets: a list of `num_sets` sets, each a dict {section_index: [question,...]}.
+    allocations: {section_index: {topic: count}} when a topic allocation was
+    given (the per-topic question counts actually used), else {}.
 
-    `topic_weights` ({topic: percent}) splits each section's question count
-    across topics; topics with weight 0 are left out. Without it, questions are
-    drawn at random from all selected topics together.
+    Topic allocation is optional and comes in two forms:
+      topic_weights   {topic: percent}: each section's count is split by the
+                      percentages; if a topic is short of questions the others
+                      make up the difference.
+      section_counts  [{topic: count}, ...], one dict per section, in format
+                      order: exact question counts per topic. Each dict must add
+                      up to that section's display_count.
+    Without either, questions are drawn at random from all selected topics.
 
-    Raises InsufficientQuestionsError if the filtered pool can't satisfy the format.
+    Raises InsufficientQuestionsError if the filtered pool can't satisfy the
+    format, TopicShortageError if an exact per-topic count exceeds what the bank
+    holds, and ValueError if section_counts don't add up to the format.
     """
-    if topic_weights:
+    sections = fmt["sections"]
+    allocs = None
+
+    if section_counts is not None:
+        if len(section_counts) != len(sections):
+            raise ValueError("section_counts must have one entry per section of the format.")
+        allocs = [{t: n for t, n in c.items() if n > 0} for c in section_counts]
+        for i, (sec, alloc) in enumerate(zip(sections, allocs), start=1):
+            if sum(alloc.values()) != sec["display_count"]:
+                raise ValueError(
+                    f"Section {i}: topic counts add up to {sum(alloc.values())}, "
+                    f"but the format needs {sec['display_count']}."
+                )
+        topic_filter = sorted({t for a in allocs for t in a})
+        shortfalls = []
+        for qtype, idxs in _type_groups(fmt).items():
+            have = available_by_topic(question_bank, qtype, level_filter)
+            need = Counter()
+            for i in idxs:
+                need.update(allocs[i])
+            shortfalls += [
+                (qtype, t, n, have.get(t, 0)) for t, n in need.items() if n > have.get(t, 0)
+            ]
+        if shortfalls:
+            raise TopicShortageError(shortfalls)
+    elif topic_weights:
         topic_weights = {t: w for t, w in topic_weights.items() if w > 0}
         topic_filter = list(topic_weights)
-    shortfalls = check_availability(fmt, question_bank, level_filter, topic_filter)
-    if shortfalls:
-        raise InsufficientQuestionsError(shortfalls)
+        shortfalls = check_availability(fmt, question_bank, level_filter, topic_filter)
+        if shortfalls:
+            raise InsufficientQuestionsError(shortfalls)
+        allocs = [got for _, got in plan_percent_allocations(fmt, question_bank, level_filter, topic_weights)]
+    else:
+        shortfalls = check_availability(fmt, question_bank, level_filter, topic_filter)
+        if shortfalls:
+            raise InsufficientQuestionsError(shortfalls)
 
     sets = [{} for _ in range(num_sets)]
-    allocations = {}
-    for sec in fmt["sections"]:
-        pool = _filter_pool(question_bank[sec["type"]], level_filter, topic_filter)
-        if topic_weights:
-            by_topic = {t: [q for q in pool if q.get("topic") == t] for t in topic_weights}
-            alloc = apportion(
-                sec["display_count"], topic_weights, {t: len(qs) for t, qs in by_topic.items()}
-            )
-            allocations[sec["type"]] = alloc
-            drawn = [[] for _ in range(num_sets)]
-            for t, n in alloc.items():
-                if n:
-                    part = _sample_sets(by_topic[t], n, randomness, num_sets)
-                    for i in range(num_sets):
-                        drawn[i].extend(part[i])
+    for qtype, idxs in _type_groups(fmt).items():
+        pool = _filter_pool(question_bank[qtype], level_filter, topic_filter)
+        parts = [{i: [] for i in idxs} for _ in range(num_sets)]
+        if allocs is not None:
+            by_topic = {}
+            for q in pool:
+                by_topic.setdefault(q.get("topic"), []).append(q)
+            totals = Counter()
+            for i in idxs:
+                totals.update(allocs[i])
+            for topic, total in totals.items():
+                drawn = _sample_sets(by_topic.get(topic, []), total, randomness, num_sets)
+                for s in range(num_sets):
+                    cursor = 0
+                    for i in idxs:
+                        n = allocs[i].get(topic, 0)
+                        parts[s][i].extend(drawn[s][cursor:cursor + n])
+                        cursor += n
         else:
-            drawn = _sample_sets(pool, sec["display_count"], randomness, num_sets)
-        for i in range(num_sets):
-            questions = [dict(q) for q in drawn[i]]
-            random.shuffle(questions)
-            if sec["type"] == "mcq":
-                for q in questions:
-                    opts = list(q["options"])
-                    random.shuffle(opts)
-                    q["_shuffled_options"] = opts
-            sets[i][sec["type"]] = questions
+            total = sum(sections[i]["display_count"] for i in idxs)
+            drawn = _sample_sets(pool, total, randomness, num_sets)
+            for s in range(num_sets):
+                cursor = 0
+                for i in idxs:
+                    n = sections[i]["display_count"]
+                    parts[s][i] = drawn[s][cursor:cursor + n]
+                    cursor += n
+        for s in range(num_sets):
+            for i in idxs:
+                questions = [dict(q) for q in parts[s][i]]
+                random.shuffle(questions)
+                if qtype == "mcq":
+                    for q in questions:
+                        opts = list(q["options"])
+                        random.shuffle(opts)
+                        q["_shuffled_options"] = opts
+                sets[s][i] = questions
+
+    allocations = {i: dict(a) for i, a in enumerate(allocs)} if allocs is not None else {}
     return sets, allocations

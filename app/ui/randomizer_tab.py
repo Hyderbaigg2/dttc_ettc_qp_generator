@@ -6,7 +6,10 @@ import tkinter as tk
 from tkinter import filedialog, ttk
 
 from app import docx_export, pdf_export
-from app.generator import InsufficientQuestionsError, generate_sets, topic_mix_plan
+from app.generator import (
+    InsufficientQuestionsError, TopicShortageError, apportion, available_by_topic,
+    generate_sets, plan_percent_allocations,
+)
 from app.paths import output_dir
 from app.ui import dialogs, theme
 from app.ui.widgets import DatePicker, DurationPicker, ScrollableFrame
@@ -17,6 +20,17 @@ RANDOMNESS_HELP = {
     "Medium": "Each set keeps roughly half of the previous set's questions and swaps in fresh ones where the bank allows.",
     "High": "The sets try to use different questions from each other as much as the question bank allows.",
 }
+SEC_SHORT = {"mcq": "MCQ", "fill_blank": "FIB", "descriptive": "Desc"}
+MODE_HELP = {
+    "random": "Questions are picked at random from all ticked topics.",
+    "percent": "Give each ticked topic a percentage; every section of the format (e.g. 15 MCQs) is split "
+               "across the topics by these percentages. The total must be 100%.",
+    "number": "Enter exactly how many questions of each type to take from each topic. Each column must add "
+              "up to the number of questions the format needs for that section. The arrows stop at the "
+              "number of questions the bank has for that topic.",
+}
+GREEN = "#1e7a3c"
+RED = "#c0392b"
 
 
 class RandomizerTab(ttk.Frame):
@@ -25,7 +39,12 @@ class RandomizerTab(ttk.Frame):
         self.dm = dm
         self.topic_vars = {}
         self.weight_vars = {}
-        self.topic_rows = {}
+        self.count_vars = {}
+        self._cells = {}
+        self._sec_headers = []
+        self._sec_totals = []
+        self._grid_sig = None
+        self._avail = {}
         self.last_output_dir = None
         self._build()
         self.refresh_choices()
@@ -40,8 +59,8 @@ class RandomizerTab(ttk.Frame):
 
         body = ttk.Frame(self)
         body.pack(fill="both", expand=True)
-        body.columnconfigure(0, weight=1)
-        body.columnconfigure(1, weight=1)
+        body.columnconfigure(0, weight=3)
+        body.columnconfigure(1, weight=2)
         body.rowconfigure(0, weight=1)
 
         left_scroll = ScrollableFrame(body)
@@ -83,8 +102,8 @@ class RandomizerTab(ttk.Frame):
         self.format_var = tk.StringVar()
         self.format_combo = ttk.Combobox(parent, textvariable=self.format_var, state="readonly", width=48)
         self.format_combo.pack(anchor="w", fill="x")
-        self.format_combo.bind("<<ComboboxSelected>>", lambda e: self._update_format_desc())
-        self.format_desc_label = ttk.Label(parent, text="", style="CardMuted.TLabel", wraplength=380)
+        self.format_combo.bind("<<ComboboxSelected>>", lambda e: self._on_format_changed())
+        self.format_desc_label = ttk.Label(parent, text="", style="CardMuted.TLabel", wraplength=440)
         self.format_desc_label.pack(anchor="w", pady=(4, 0))
 
         two_col = ttk.Frame(parent, style="Card.TFrame")
@@ -94,10 +113,12 @@ class RandomizerTab(ttk.Frame):
         left.pack(side="left", fill="x", expand=True)
         ttk.Label(left, text="Hardness Level", style="Card.TLabel", font=(theme.FONT_FAMILY, 10, "bold")).pack(anchor="w")
         self.level_var = tk.StringVar(value="Mixed (All Levels)")
-        ttk.Combobox(
+        self.level_combo = ttk.Combobox(
             left, textvariable=self.level_var,
             values=["Mixed (All Levels)", "Easy", "Medium", "Hard"], state="readonly", width=22,
-        ).pack(anchor="w", pady=(2, 0))
+        )
+        self.level_combo.pack(anchor="w", pady=(2, 0))
+        self.level_combo.bind("<<ComboboxSelected>>", lambda e: self._refresh_alloc_state())
 
         right = ttk.Frame(two_col, style="Card.TFrame")
         right.pack(side="left", fill="x", expand=True, padx=(20, 0))
@@ -108,7 +129,7 @@ class RandomizerTab(ttk.Frame):
         )
         rand_combo.pack(anchor="w", pady=(2, 0))
         rand_combo.bind("<<ComboboxSelected>>", lambda e: self._update_randomness_help())
-        self.randomness_help = ttk.Label(parent, text="", style="CardMuted.TLabel", wraplength=380)
+        self.randomness_help = ttk.Label(parent, text="", style="CardMuted.TLabel", wraplength=440)
         self.randomness_help.pack(anchor="w", pady=(4, 0))
 
         self._field(parent, "Question Topics to Include")
@@ -119,28 +140,27 @@ class RandomizerTab(ttk.Frame):
         ttk.Button(btn_row, text="Select All", command=lambda: self._set_all_topics(True)).pack(side="left")
         ttk.Button(btn_row, text="Clear All", command=lambda: self._set_all_topics(False)).pack(side="left", padx=6)
 
-        self.weight_mode_var = tk.BooleanVar(value=False)
-        ttk.Checkbutton(
-            topics_outer, text="Set topic weightage (% of questions from each topic)",
-            variable=self.weight_mode_var, command=self._on_weight_mode, style="Card.TCheckbutton",
-        ).pack(anchor="w", pady=(8, 0))
+        mode_row = ttk.Frame(topics_outer, style="Card.TFrame")
+        mode_row.pack(fill="x", pady=(10, 0))
+        ttk.Label(mode_row, text="Allocate questions:", style="Card.TLabel").pack(side="left", padx=(0, 10))
+        self.alloc_mode_var = tk.StringVar(value="random")
+        for value, text in (("random", "Random"), ("percent", "By percentage"), ("number", "By number of questions")):
+            ttk.Radiobutton(
+                mode_row, text=text, value=value, variable=self.alloc_mode_var,
+                command=self._on_alloc_mode, style="Card.TRadiobutton",
+            ).pack(side="left", padx=(0, 12))
+        self.mode_help = ttk.Label(topics_outer, text="", style="CardMuted.TLabel", wraplength=440)
+        self.mode_help.pack(anchor="w", pady=(4, 0))
 
         self.topics_frame = ttk.Frame(topics_outer, style="Card.TFrame")
         self.topics_frame.pack(fill="x", pady=(6, 0))
 
-        self.weight_footer = ttk.Frame(topics_outer, style="Card.TFrame")
-        self.weight_total_label = ttk.Label(self.weight_footer, text="", style="Card.TLabel",
+        self.alloc_footer = ttk.Frame(topics_outer, style="Card.TFrame")
+        self.weight_total_label = ttk.Label(self.alloc_footer, text="", style="Card.TLabel",
                                             font=(theme.FONT_FAMILY, 10, "bold"))
-        self.weight_total_label.pack(side="left")
-        ttk.Button(self.weight_footer, text="Distribute equally", command=self._distribute_equally).pack(
-            side="left", padx=(12, 0)
-        )
-        ttk.Label(
-            topics_outer,
-            text="With weightage on, each section's question count (e.g. 15 MCQs) is split across the "
-                 "ticked topics by these percentages. Off = questions are picked at random from all ticked topics.",
-            style="CardMuted.TLabel", wraplength=380,
-        ).pack(anchor="w", pady=(6, 0))
+        self.weight_total_label.pack(side="left", padx=(0, 12))
+        ttk.Button(self.alloc_footer, text="Distribute equally", command=self._distribute_equally).pack(side="left")
+        ttk.Button(self.alloc_footer, text="Reset to 0", command=self._reset_allocation).pack(side="left", padx=(6, 0))
 
         self._field(parent, "Sets Required")
         sets_row = ttk.Frame(parent, style="Card.TFrame")
@@ -182,6 +202,8 @@ class RandomizerTab(ttk.Frame):
         btn_row.pack(fill="x")
         ttk.Button(btn_row, text="Open Output Folder", command=self._open_output_folder).pack(side="left")
 
+    # ---------- choices ----------
+
     def refresh_choices(self):
         self.course_combo["values"] = [c["name"] for c in self.dm.courses()]
         if self.dm.courses() and not self.course_var.get():
@@ -193,80 +215,7 @@ class RandomizerTab(ttk.Frame):
             self.format_var.set(fmt_names[0])
         self._update_format_desc()
         self._update_randomness_help()
-        self._rebuild_topic_checkboxes()
-
-    def _rebuild_topic_checkboxes(self):
-        old_checked = {n: v.get() for n, v in self.topic_vars.items()}
-        old_weights = {n: v.get() for n, v in self.weight_vars.items()}
-        for w in self.topics_frame.winfo_children():
-            w.destroy()
-        self.topic_vars, self.weight_vars, self.topic_rows = {}, {}, {}
-        for i, name in enumerate(self.dm.topic_names()):
-            var = tk.BooleanVar(value=old_checked.get(name, True))
-            wvar = tk.StringVar(value=old_weights.get(name, "0"))
-            self.topic_vars[name], self.weight_vars[name] = var, wvar
-            cb = ttk.Checkbutton(self.topics_frame, text=name, variable=var, style="Card.TCheckbutton",
-                                 command=self._refresh_weight_state)
-            cb.grid(row=i, column=0, sticky="w", padx=(0, 16), pady=2)
-            spin = ttk.Spinbox(self.topics_frame, from_=0, to=100, width=5, textvariable=wvar)
-            pct = ttk.Label(self.topics_frame, text="%", style="Card.TLabel")
-            self.topic_rows[name] = (spin, pct)
-            wvar.trace_add("write", lambda *a: self._refresh_weight_state())
-        if self.weight_mode_var.get() and not any(self._weight_of(n) for n in self.topic_vars):
-            self._distribute_equally()
-        self._refresh_weight_state()
-
-    def _weight_of(self, name):
-        try:
-            return max(0, int(self.weight_vars[name].get()))
-        except ValueError:
-            return 0
-
-    def _checked_topics(self):
-        return [n for n, v in self.topic_vars.items() if v.get()]
-
-    def _refresh_weight_state(self):
-        mode = self.weight_mode_var.get()
-        for name, (spin, pct) in self.topic_rows.items():
-            if mode:
-                spin.grid(row=list(self.topic_rows).index(name), column=1, padx=(0, 2))
-                pct.grid(row=list(self.topic_rows).index(name), column=2)
-                spin.configure(state="normal" if self.topic_vars[name].get() else "disabled")
-            else:
-                spin.grid_remove()
-                pct.grid_remove()
-        if mode:
-            self.weight_footer.pack(anchor="w", pady=(6, 0), after=self.topics_frame)
-            total = sum(self._weight_of(n) for n in self._checked_topics())
-            ok = total == 100
-            self.weight_total_label.configure(
-                text=f"Total: {total}%" + ("  (OK)" if ok else "  (must be 100%)"),
-                foreground="#1e7a3c" if ok else "#c0392b",
-            )
-        else:
-            self.weight_footer.pack_forget()
-
-    def _on_weight_mode(self):
-        if self.weight_mode_var.get():
-            self._distribute_equally()
-        self._refresh_weight_state()
-
-    def _distribute_equally(self):
-        checked = self._checked_topics()
-        for name in self.topic_vars:
-            self.weight_vars[name].set("0")
-        if checked:
-            base, extra = divmod(100, len(checked))
-            for i, name in enumerate(checked):
-                self.weight_vars[name].set(str(base + (1 if i < extra else 0)))
-        self._refresh_weight_state()
-
-    def _set_all_topics(self, value):
-        for v in self.topic_vars.values():
-            v.set(value)
-        if self.weight_mode_var.get():
-            self._distribute_equally()
-        self._refresh_weight_state()
+        self._rebuild_topic_grid()
 
     def _selected_format(self):
         val = self.format_var.get()
@@ -275,12 +224,230 @@ class RandomizerTab(ttk.Frame):
         fmt_id = val.split(" — ")[0]
         return self.dm.get_format(fmt_id)
 
+    def _sections(self):
+        fmt = self._selected_format()
+        return fmt["sections"] if fmt else []
+
     def _update_format_desc(self):
         fmt = self._selected_format()
         self.format_desc_label.configure(text=fmt["description"] if fmt else "")
 
+    def _on_format_changed(self):
+        self._update_format_desc()
+        self._rebuild_topic_grid()
+
     def _update_randomness_help(self):
         self.randomness_help.configure(text=RANDOMNESS_HELP.get(self.randomness_var.get(), ""))
+
+    def _sec_title(self, idx, sec):
+        return f"Section {idx + 1}: {docx_export.SECTION_TITLES[sec['type']]}"
+
+    def _column_labels(self, sections):
+        counts = {}
+        for s in sections:
+            counts[s["type"]] = counts.get(s["type"], 0) + 1
+        seen, labels = {}, []
+        for s in sections:
+            seen[s["type"]] = seen.get(s["type"], 0) + 1
+            name = SEC_SHORT[s["type"]] + (f"-{seen[s['type']]}" if counts[s["type"]] > 1 else "")
+            labels.append(f"{name}\n({s['display_count']})")
+        return labels
+
+    # ---------- topic grid ----------
+
+    def _rebuild_topic_grid(self):
+        sections = self._sections()
+        sig = tuple((s["type"], s["display_count"]) for s in sections)
+        same_format = sig == self._grid_sig
+        old_checked = {n: v.get() for n, v in self.topic_vars.items()}
+        old_weights = {n: v.get() for n, v in self.weight_vars.items()}
+        old_counts = {k: v.get() for k, v in self.count_vars.items()} if same_format else {}
+
+        for w in self.topics_frame.winfo_children():
+            w.destroy()
+        self.topic_vars, self.weight_vars, self.count_vars, self._cells = {}, {}, {}, {}
+        self._grid_sig = sig
+        frame = self.topics_frame
+
+        self._pct_header = ttk.Label(frame, text="%", style="CardMuted.TLabel")
+        self._sec_headers = [
+            ttk.Label(frame, text=lbl, style="CardMuted.TLabel", justify="center", anchor="center")
+            for lbl in self._column_labels(sections)
+        ]
+
+        names = self.dm.topic_names()
+        for r, name in enumerate(names, start=1):
+            var = tk.BooleanVar(value=old_checked.get(name, True))
+            self.topic_vars[name] = var
+            cb = ttk.Checkbutton(frame, variable=var, style="Card.TCheckbutton", command=self._refresh_alloc_state)
+            cb.grid(row=r, column=0, sticky="w", pady=2)
+            lbl = ttk.Label(frame, text=name, style="Card.TLabel", wraplength=230, justify="left")
+            lbl.grid(row=r, column=1, sticky="w", padx=(0, 10), pady=2)
+            lbl.bind("<Button-1>", lambda e, v=var: (v.set(not v.get()), self._refresh_alloc_state()))
+
+            wvar = tk.StringVar(value=old_weights.get(name, "0"))
+            self.weight_vars[name] = wvar
+            wvar.trace_add("write", lambda *a: self._refresh_alloc_state())
+            pct_spin = ttk.Spinbox(frame, from_=0, to=100, width=5, textvariable=wvar)
+            pct_sign = ttk.Label(frame, text="%", style="Card.TLabel")
+
+            count_spins = []
+            for idx in range(len(sections)):
+                cvar = tk.StringVar(value=old_counts.get((idx, name), "0"))
+                self.count_vars[(idx, name)] = cvar
+                cvar.trace_add("write", lambda *a: self._refresh_alloc_state())
+                count_spins.append(ttk.Spinbox(frame, from_=0, to=999, width=4, textvariable=cvar))
+            self._cells[name] = {"row": r, "pct": pct_spin, "sign": pct_sign, "counts": count_spins}
+
+        self._totals_label = ttk.Label(frame, text="Assigned / needed", style="CardMuted.TLabel")
+        self._sec_totals = [
+            ttk.Label(frame, text="", style="Card.TLabel", font=(theme.FONT_FAMILY, 10, "bold"), anchor="center")
+            for _ in sections
+        ]
+        self._totals_row = len(names) + 1
+
+        mode = self.alloc_mode_var.get()
+        if mode == "number" and not same_format:
+            self._distribute_equally()
+        elif mode == "percent" and not any(self._weight_of(n) for n in self.topic_vars):
+            self._distribute_equally()
+        self._refresh_alloc_state()
+
+    def _weight_of(self, name):
+        try:
+            return max(0, int(self.weight_vars[name].get()))
+        except ValueError:
+            return 0
+
+    def _count_of(self, idx, name):
+        try:
+            return max(0, int(self.count_vars[(idx, name)].get()))
+        except (ValueError, KeyError):
+            return 0
+
+    def _checked_topics(self):
+        return [n for n, v in self.topic_vars.items() if v.get()]
+
+    def _refresh_alloc_state(self):
+        mode = self.alloc_mode_var.get()
+        sections = self._sections()
+        self.mode_help.configure(text=MODE_HELP[mode])
+        level = self.level_var.get()
+        self._avail = {
+            qtype: available_by_topic(self.dm.data["questions"], qtype, level)
+            for qtype in {s["type"] for s in sections}
+        }
+
+        self._pct_header.grid_remove()
+        for h in self._sec_headers:
+            h.grid_remove()
+        if mode == "percent":
+            self._pct_header.grid(row=0, column=2, columnspan=2)
+        elif mode == "number":
+            for idx, h in enumerate(self._sec_headers):
+                h.grid(row=0, column=2 + idx, padx=2)
+
+        for name, cell in self._cells.items():
+            checked = self.topic_vars[name].get()
+            state = "normal" if checked else "disabled"
+            cell["pct"].grid_remove()
+            cell["sign"].grid_remove()
+            for sp in cell["counts"]:
+                sp.grid_remove()
+            if mode == "percent":
+                cell["pct"].configure(state=state)
+                cell["pct"].grid(row=cell["row"], column=2, padx=(0, 2))
+                cell["sign"].grid(row=cell["row"], column=3)
+            elif mode == "number":
+                for idx, sp in enumerate(cell["counts"]):
+                    avail = self._avail.get(sections[idx]["type"], {}).get(name, 0)
+                    sp.configure(state=state, to=max(avail, 0))
+                    sp.grid(row=cell["row"], column=2 + idx, padx=2)
+
+        self._totals_label.grid_remove()
+        for t in self._sec_totals:
+            t.grid_remove()
+        if mode == "number":
+            self._totals_label.grid(row=self._totals_row, column=0, columnspan=2, sticky="w", pady=(6, 0))
+            checked = self._checked_topics()
+            all_ok = True
+            for idx, (sec, lbl) in enumerate(zip(sections, self._sec_totals)):
+                assigned = sum(self._count_of(idx, n) for n in checked)
+                ok = assigned == sec["display_count"]
+                all_ok = all_ok and ok
+                lbl.configure(text=f"{assigned}/{sec['display_count']}", foreground=GREEN if ok else RED)
+                lbl.grid(row=self._totals_row, column=2 + idx, pady=(6, 0))
+            self.weight_total_label.configure(
+                text="All sections add up" if all_ok else "Totals must match the format",
+                foreground=GREEN if all_ok else RED,
+            )
+        elif mode == "percent":
+            total = sum(self._weight_of(n) for n in self._checked_topics())
+            ok = total == 100
+            self.weight_total_label.configure(
+                text=f"Total: {total}%" + ("  (OK)" if ok else "  (must be 100%)"),
+                foreground=GREEN if ok else RED,
+            )
+
+        if mode == "random":
+            self.alloc_footer.pack_forget()
+        else:
+            self.alloc_footer.pack(anchor="w", pady=(6, 0), after=self.topics_frame)
+
+    def _on_alloc_mode(self):
+        mode = self.alloc_mode_var.get()
+        if mode == "percent" and not any(self._weight_of(n) for n in self._checked_topics()):
+            self._distribute_equally()
+        elif mode == "number" and not any(
+            self._count_of(i, n) for i in range(len(self._sections())) for n in self._checked_topics()
+        ):
+            self._distribute_equally()
+        self._refresh_alloc_state()
+
+    def _distribute_equally(self):
+        mode = self.alloc_mode_var.get()
+        checked = self._checked_topics()
+        if mode == "percent":
+            for name in self.topic_vars:
+                self.weight_vars[name].set("0")
+            if checked:
+                base, extra = divmod(100, len(checked))
+                for i, name in enumerate(checked):
+                    self.weight_vars[name].set(str(base + (1 if i < extra else 0)))
+        elif mode == "number":
+            sections = self._sections()
+            left = {
+                qtype: dict(available_by_topic(self.dm.data["questions"], qtype, self.level_var.get()))
+                for qtype in {s["type"] for s in sections}
+            }
+            for idx, sec in enumerate(sections):
+                for name in self.topic_vars:
+                    self.count_vars[(idx, name)].set("0")
+                if not checked:
+                    continue
+                alloc = apportion(sec["display_count"], {t: 1 for t in checked}, {t: left[sec["type"]].get(t, 0) for t in checked})
+                for t, n in alloc.items():
+                    self.count_vars[(idx, t)].set(str(n))
+                    left[sec["type"]][t] = left[sec["type"]].get(t, 0) - n
+        self._refresh_alloc_state()
+
+    def _reset_allocation(self):
+        if self.alloc_mode_var.get() == "percent":
+            for v in self.weight_vars.values():
+                v.set("0")
+        else:
+            for v in self.count_vars.values():
+                v.set("0")
+        self._refresh_alloc_state()
+
+    def _set_all_topics(self, value):
+        for v in self.topic_vars.values():
+            v.set(value)
+        if self.alloc_mode_var.get() != "random":
+            self._distribute_equally()
+        self._refresh_alloc_state()
+
+    # ---------- generate ----------
 
     def _log(self, text):
         self.log.configure(state="normal")
@@ -301,8 +468,13 @@ class RandomizerTab(ttk.Frame):
         if not topics:
             dialogs.error(self, "No Topics Selected", "Please select at least one Question Topic to include.")
             return
+        sections = fmt["sections"]
+        mode = self.alloc_mode_var.get()
         topic_weights = None
-        if self.weight_mode_var.get():
+        section_counts = None
+        wanted_mix = {}
+
+        if mode == "percent":
             for name in topics:
                 try:
                     int(self.weight_vars[name].get())
@@ -318,17 +490,13 @@ class RandomizerTab(ttk.Frame):
                     "Adjust them, or click \"Distribute equally\".",
                 )
                 return
-        wanted_mix = {}
-        if topic_weights:
             gaps = []
-            for sec_type, wanted, got in topic_mix_plan(
-                fmt, self.dm.data["questions"], self.level_var.get(), topic_weights
-            ):
-                wanted_mix[sec_type] = wanted
+            plan = plan_percent_allocations(fmt, self.dm.data["questions"], self.level_var.get(), topic_weights)
+            for idx, (sec, (wanted, got)) in enumerate(zip(sections, plan)):
+                wanted_mix[idx] = wanted
                 if sum(got.values()) == sum(wanted.values()):
                     gaps += [
-                        f"  • {docx_export.SECTION_TITLES[sec_type]} - {t}: wanted {wanted[t]}, "
-                        f"only {got[t]} in the question bank"
+                        f"  • {self._sec_title(idx, sec)} - {t}: wanted {wanted[t]}, only {got[t]} in the question bank"
                         for t in wanted if got[t] < wanted[t]
                     ]
             if gaps and not dialogs.warn(
@@ -340,6 +508,35 @@ class RandomizerTab(ttk.Frame):
                   "to fix this.\n\nGenerate anyway?",
             ):
                 return
+        elif mode == "number":
+            section_counts, problems = [], []
+            for idx, sec in enumerate(sections):
+                counts = {}
+                for name in topics:
+                    raw = self.count_vars[(idx, name)].get().strip() or "0"
+                    if not raw.isdigit():
+                        dialogs.error(
+                            self, "Invalid Number",
+                            f"'{name}' in {self._sec_title(idx, sec)} must be a whole number (0 or more).",
+                        )
+                        return
+                    if int(raw):
+                        counts[name] = int(raw)
+                section_counts.append(counts)
+                assigned = sum(counts.values())
+                if assigned != sec["display_count"]:
+                    problems.append(
+                        f"  • {self._sec_title(idx, sec)}: you assigned {assigned}, the format needs {sec['display_count']}"
+                    )
+            if problems:
+                dialogs.error(
+                    self, "Question Numbers Don't Match the Format",
+                    "Each section must be assigned exactly the number of questions the format needs:\n\n"
+                    + "\n".join(problems)
+                    + "\n\nAdjust the numbers, or click \"Distribute equally\".",
+                )
+                return
+
         want_word = self.output_word_var.get()
         want_pdf = self.output_pdf_var.get()
         if not want_word and not want_pdf:
@@ -354,8 +551,21 @@ class RandomizerTab(ttk.Frame):
         try:
             sets, allocations = generate_sets(
                 fmt, self.dm.data["questions"], level_filter, topics, randomness,
-                self.num_sets_var.get(), topic_weights,
+                self.num_sets_var.get(), topic_weights, section_counts,
             )
+        except TopicShortageError as e:
+            level_note = "" if level_filter.startswith("Mixed") else f" at {level_filter} level"
+            details = "\n".join(
+                f"  • {docx_export.SECTION_TITLES[t]} - {topic}: you asked for {n}, the bank has only {a}{level_note}"
+                for t, topic, n, a in e.shortfalls
+            )
+            dialogs.error(
+                self, "Not Enough Questions in a Topic",
+                "These topics don't have enough questions for the numbers you entered:\n\n" + details +
+                "\n\nLower those numbers (the arrows stop at what is available), widen the Hardness Level, "
+                "or add questions to those topics in the Question Bank.",
+            )
+            return
         except InsufficientQuestionsError as e:
             details = "\n".join(
                 f"  • {docx_export.SECTION_TITLES[t]}: need {n}, only {a} available with current filters"
@@ -372,13 +582,13 @@ class RandomizerTab(ttk.Frame):
         self.last_output_dir = out_dir
         meta = self.dm.data.get("meta", {})
         self._log(f"--- Generating papers: {course} | {fmt['name']} | {date_str} ---")
-        for sec_type, alloc in allocations.items():
-            wanted = wanted_mix.get(sec_type, {})
+        for idx, alloc in allocations.items():
+            wanted = wanted_mix.get(idx, {})
             mix = ", ".join(
                 f"{t} {n}" + (f" (wanted {wanted[t]})" if wanted.get(t, n) != n else "")
                 for t, n in alloc.items() if n or wanted.get(t)
             )
-            self._log(f"Topic mix, {docx_export.SECTION_TITLES[sec_type]}: {mix}")
+            self._log(f"Topic mix, {self._sec_title(idx, sections[idx])}: {mix}")
 
         written = []
         for i, set_data in enumerate(sets):

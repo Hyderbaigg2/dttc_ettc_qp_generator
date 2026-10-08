@@ -126,7 +126,7 @@ def build_paper(fmt, meta, course_name, date_str, set_label, set_data, output_pa
     )
     story = _header_flowables(meta, course_name, fmt, date_str, set_label, duration_str)
     for idx, sec in enumerate(fmt["sections"], start=1):
-        story.extend(_section_flowables(sec, set_data[sec["type"]], idx))
+        story.extend(_section_flowables(sec, set_data[idx - 1], idx))
     doc.build(story)
     return output_path
 
@@ -143,9 +143,9 @@ def build_answer_key(fmt, meta, course_name, date_str, set_label, set_data, outp
         ),
         Spacer(1, 10),
     ]
-    for sec in fmt["sections"]:
+    for sec_idx, sec in enumerate(fmt["sections"]):
         story.append(Paragraph(SECTION_TITLES[sec["type"]], STYLE_KEY_HEADING))
-        for i, q in enumerate(set_data[sec["type"]], start=1):
+        for i, q in enumerate(set_data[sec_idx], start=1):
             if sec["type"] == "mcq":
                 text = f"{i}. {q['id']} &mdash; Correct: {_escape(q['correct_option'])}"
             elif sec["type"] == "fill_blank":
